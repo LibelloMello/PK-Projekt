@@ -10,6 +10,12 @@ namespace Chinwag
     {
         static void Main(string[] args)
         {
+            //försök till något
         }
+            public int Method()
+        {
+            return 1;
+        }
+        
     }
 }
