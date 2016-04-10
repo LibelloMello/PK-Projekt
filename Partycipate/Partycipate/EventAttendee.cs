@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Partycipate
 {
-    class EventAttendee
+    public class EventAttendee
     {
+        public bool isInitialized;
         private int amount;
         private Event party;
         private User user;
+        private String eventId;
+        private String userId;
+
+
+
     }
+ 
 }

@@ -15,7 +15,7 @@ namespace Partycipate
         private String password;
         private String sex;
         private int age; 
-        private Set<Event> events;
-        private Set<EventAttendee> eventAttendees;
+        private List<Event> events;
+        private List<EventAttendee> eventAttendees;
     }
 }
