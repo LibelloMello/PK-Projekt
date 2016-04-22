@@ -13,10 +13,14 @@ namespace Partycipate
         public SqlConnection Connection()
         {
 
-            SqlConnection myConnection = new SqlConnection("Data Source = GUSTAV - TOSH; Initial Catalog = trappa; Integrated Security = False; User ID = sa; Password = hejsan; Connect Timeout = 15; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection myConnection = new SqlConnection("user id=sa;" +
+                                           "password=hejsan;Server=localhost;" +
+                                           "Trusted_Connection=yes;" +
+                                           "database=trappa; " +
+                                           "connection timeout=30");
 
             Console.WriteLine("Connection");
-            Console.ReadLine();
+          
             try
             {
                 myConnection.Open();

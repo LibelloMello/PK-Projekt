@@ -26,6 +26,7 @@ namespace TestApplication
                 Console.WriteLine("null");
             }
             d.closeConn(myConnection);
+            Console.WriteLine("Klar med conn");
             Console.Read();
 
         }

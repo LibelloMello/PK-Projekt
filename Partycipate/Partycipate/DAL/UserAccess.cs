@@ -9,12 +9,12 @@ namespace DALE
 {
     class UserAccess
     {
-        /*  public static FindUser(String userName)
+          public static FindUser(String userName)
           {
               Connection con = null;
               SqlCommand myCom = new SqlCommand("SELECT u FROM User u WHERE userName = ?");
 
-          }*/
+          }
         public static void CreateUser(String userName, int age, String email, String name, String password, String phoneNbr, String sex)
         {
             try
