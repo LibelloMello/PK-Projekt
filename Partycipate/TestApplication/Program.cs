@@ -9,6 +9,8 @@ namespace TestApplication
     {
         static void Main(string[] args)
         {
+            /*
+            
             Console.WriteLine("innan vi skapar initierar DBCOnn");
             DbUtil d = new DbUtil();
 
@@ -28,7 +30,9 @@ namespace TestApplication
             d.closeConn(myConnection);
             Console.WriteLine("Klar med conn");
             Console.Read();
-
+            */
+            
+            Console.Read();
         }
     }
 }

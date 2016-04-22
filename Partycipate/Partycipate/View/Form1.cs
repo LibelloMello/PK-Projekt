@@ -27,9 +27,16 @@ namespace Partycipate
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
+
+        private void tbSearchStudentInput_TextChanged(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void btSearchUser_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.tbSearchStudentInput.Text);
         }
     }
 }
