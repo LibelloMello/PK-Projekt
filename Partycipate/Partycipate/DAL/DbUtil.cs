@@ -13,7 +13,7 @@ namespace Partycipate
         public SqlConnection Connection()
         {
 
-            SqlConnection myConnection = new SqlConnection("user id=sa;" +
+            SqlConnection myConnection = new SqlConnection("user id=gurra;" +
                                            "password=hejsan;Server=localhost;" +
                                            "Trusted_Connection=yes;" +
                                            "database=trappa; " +
