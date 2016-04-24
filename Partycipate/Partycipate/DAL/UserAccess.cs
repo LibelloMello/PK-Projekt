@@ -20,6 +20,7 @@ namespace Partycipate
             SqlConnection myConnection = d.Connection();
             SqlDataReader myReader = null;
             User u = new User();
+            List<String> userStrList = new List<String>();
 
             try
             {
@@ -30,15 +31,16 @@ namespace Partycipate
                 SqlCommand myCommand = new SqlCommand("SELECT * FROM USERS WHERE USER_NAME = @UserName", myConnection);
 
                 myReader = myCommand.ExecuteReader(); //här hoppar den till catch
-                u.UserName = myReader["USER_NAME"].ToString();
-             
+                //u.UserName = myReader["USER_NAME"].ToString();
+               
 
                
                 while (myReader.Read())
                 {
                     Console.WriteLine(myReader["USER_NAME"].ToString());
                     Console.WriteLine(myReader["AGE"].ToString());
-                    
+                    var myString = myReader.GetString(0);
+                    userStrList.Add(myString);
                 }
                 return u;
 

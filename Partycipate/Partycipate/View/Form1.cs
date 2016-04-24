@@ -38,7 +38,7 @@ namespace Partycipate
         private void btSearchUser_Click(object sender, EventArgs e)
         {
             
-            User u = UserAccess.FindUser(tbSearchStudentInput.Text);
+           User u = UserAccess.FindUser(tbSearchStudentInput.Text);
             MessageBox.Show(u.UserName);
 
 
