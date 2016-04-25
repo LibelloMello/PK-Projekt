@@ -48,7 +48,7 @@
             // 
             this.btSearchUser.Location = new System.Drawing.Point(224, 48);
             this.btSearchUser.Name = "btSearchUser";
-            this.btSearchUser.Size = new System.Drawing.Size(86, 23);
+            this.btSearchUser.Size = new System.Drawing.Size(86, 20);
             this.btSearchUser.TabIndex = 4;
             this.btSearchUser.Text = "Search User";
             this.btSearchUser.UseVisualStyleBackColor = true;

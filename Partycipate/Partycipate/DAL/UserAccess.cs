@@ -32,8 +32,6 @@ namespace Partycipate
                 {
                     u.UserName = myReader["USER_NAME"].ToString();
                     u.Age = int.Parse(myReader["AGE"].ToString());
-                    Console.WriteLine(myReader["USER_NAME"].ToString());
-                    Console.WriteLine(myReader["AGE"].ToString());
 
                 }
                 return u;
@@ -75,13 +73,6 @@ namespace Partycipate
                     u.Password = myReader["PASSWORD"].ToString();
                     u.Sex = myReader["SEX"].ToString();
                     u.Age = int.Parse(myReader["AGE"].ToString());
-                    Console.WriteLine(myReader["USER_NAME"].ToString());
-                    Console.WriteLine(myReader["PHONE_NUMBER"].ToString());
-                    Console.WriteLine(myReader["NAME"].ToString());
-                    Console.WriteLine(myReader["EMAIL"].ToString());
-                    Console.WriteLine(myReader["PASSWORD"].ToString());
-                    Console.WriteLine(myReader["SEX"].ToString());      
-                    Console.WriteLine(myReader["AGE"].ToString());
 
                 }
                 return u;
@@ -97,12 +88,7 @@ namespace Partycipate
 
          
         }
-       
-
-
-
-
 
     }
-}
+
 
