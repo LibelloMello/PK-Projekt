@@ -53,7 +53,7 @@ namespace Partycipate
 
             try
             {
-                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@UserName, @PhoneNumber, @Name, @Email, @Password, @Sex, @Age", myConnection);
+                SqlCommand myCommand = new SqlCommand("INSERT INTO USERS VALUES(@UserName, @PhoneNumber, @Name, @Email, @Password, @Sex, @Age", myConnection);
                 myCommand.Parameters.AddWithValue("@UserName", userName);
                 myCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                 myCommand.Parameters.AddWithValue("@Name", name);
