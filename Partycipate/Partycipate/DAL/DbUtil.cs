@@ -33,7 +33,7 @@ namespace Partycipate
                 Console.WriteLine(e.StackTrace);
             }
             return myConnection;
-            Console.WriteLine("Efter connection");
+            
 
         }
         public void closeConn(SqlConnection myConnection)
