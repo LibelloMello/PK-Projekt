@@ -10,10 +10,10 @@ namespace Partycipate.DAL
     class EventAccess
     {
 
-        public Event FindEvent(int eventId) {
+        public Event FindEvent(int eventId)
+        {
 
             DbUtil d = new DbUtil();
-            Console.WriteLine("Innan SQL");
             SqlConnection myConnection = d.Connection();
             SqlDataReader myReader = null;
             Event e = new Event();
@@ -27,21 +27,20 @@ namespace Partycipate.DAL
 
                 while (myReader.Read())
                 {
-                    e.eventId = int.Parse(myReader["EVENT_ID"].ToString());
-                    e.Age = int.Parse(myReader["AGE"].ToString());
-                    Console.WriteLine(myReader["USER_NAME"].ToString());
-                    Console.WriteLine(myReader["AGE"].ToString());
+                    e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
+                    e.Location = (myReader["LOCATION"].ToString());
 
                 }
-                return u;
+                return e;
 
             }
-            catch (Exception e)
+            catch (Exception e1)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(e1.ToString());
                 return null;
             }
 
 
         }
+    }
 }
