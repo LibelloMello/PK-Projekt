@@ -15,10 +15,10 @@ namespace Partycipate
             this.userName = userName;
             this.age = age;
         }
-        public User(String userName, String phoneNbr, String name, String email, String password, String sex, int age)
+        public User(String userName, String phoneNumber, String name, String email, String password, String sex, int age)
         {
             this.userName = userName;
-            this.phoneNbr = phoneNbr;
+            this.phoneNumber = phoneNumber;
             this.name = name;
             this.email = email;
             this.password = password;
@@ -29,7 +29,7 @@ namespace Partycipate
 
         /* Members start */
         private String userName;
-        private String phoneNbr;
+        private String phoneNumber;
         private String name;
         private String email;
         private String password;
@@ -56,11 +56,11 @@ namespace Partycipate
         {
             get
             {
-                return phoneNbr;
+                return phoneNumber;
             }
             set
             {
-                this.phoneNbr = value;
+                this.phoneNumber = value;
             }
         }
         public String Name
