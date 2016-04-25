@@ -8,12 +8,12 @@ namespace Partycipate
 {
     public class Event
     {
-        private int eventId { get; set; }
-        private String location { get; set; }
-        private double eventTime { get; set; }
-        private int zipCode { get; set; }
-        private int openSlots { get; set; }
-        private String note { get; set; }
+        private int eventId;
+        private String location;
+        private double eventTime;
+        private int zipCode;
+        private int openSlots;
+        private String note;
         private User owner;
         private List<EventAttendee> eventAttendees;
 
