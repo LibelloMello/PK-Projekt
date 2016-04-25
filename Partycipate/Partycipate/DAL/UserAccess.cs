@@ -44,6 +44,9 @@ namespace Partycipate
                 Console.WriteLine(e.ToString());
                 return null;
             }
+
+            public User createUser(string userName) { }
+
          
         }
        
