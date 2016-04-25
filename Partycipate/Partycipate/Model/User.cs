@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace Partycipate
 {
-    class User
+    public class User
     {
-        private int userId;
+        public User() { }
+        public User(string userName, int age)
+        {
+            userName = this.userName;
+            age = this.age;
+        }
+        private string userName;
         private String phoneNbr;
         private String name;
         private String email;
@@ -17,5 +23,31 @@ namespace Partycipate
         private int age; 
         private List<Event> events;
         private List<EventAttendee> eventAttendees;
+
+        public string UserName
+        {
+            get
+            {
+                return userName;
+            }
+
+            set
+            {
+                userName = value;
+            }
+        }
+
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+
+            set
+            {
+                age = value;
+            }
+        }
     }
 }

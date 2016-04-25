@@ -10,7 +10,7 @@ namespace Partycipate
     public class UserAccess
     {
        
-        public static void FindUser(string userName) //I GUI skall man skapa en text input field, sen döpa värdet man får
+        public static User FindUser(string userName) //I GUI skall man skapa en text input field, sen döpa värdet man får
                                                     //och skapa en string som sedan skickas med till denna metod
                                                     // och sen returna SQLDataAdapter som kan håll SQLdata och sedan
                                                     //loopa igenom för att skriva ut datan i en lista
@@ -19,29 +19,38 @@ namespace Partycipate
             Console.WriteLine("Innan SQL");
             SqlConnection myConnection = d.Connection();
             SqlDataReader myReader = null;
+            User u = new User();
+            List<String> userStrList = new List<String>();
 
             try
             {
                 SqlParameter param = new SqlParameter();
                 param.ParameterName = "@UserName";
                 param.Value = userName;
-             
-                SqlCommand myCommand = new SqlCommand("SELECT * FROM USERS WHERE Column = @UserName", myConnection);
 
-                myReader = myCommand.ExecuteReader();
+                SqlCommand myCommand = new SqlCommand("SELECT * FROM USERS WHERE USER_NAME = @UserName", myConnection);
+
+                myReader = myCommand.ExecuteReader(); //här hoppar den till catch
+                //u.UserName = myReader["USER_NAME"].ToString();
+               
+
+               
                 while (myReader.Read())
                 {
                     Console.WriteLine(myReader["USER_NAME"].ToString());
                     Console.WriteLine(myReader["AGE"].ToString());
+                    var myString = myReader.GetString(0);
+                    userStrList.Add(myString);
                 }
-
+                return u;
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return null;
             }
-
+         
         }
        
 

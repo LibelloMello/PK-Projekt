@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,13 @@ namespace Partycipate
 
         private void btSearchUser_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.tbSearchStudentInput.Text);
+            
+           User u = UserAccess.FindUser(tbSearchStudentInput.Text);
+            MessageBox.Show(u.UserName);
+
+
+
+
         }
     }
 }
