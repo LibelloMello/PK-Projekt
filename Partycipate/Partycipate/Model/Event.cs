@@ -94,5 +94,9 @@ namespace Partycipate
                 owner = value;
             }
         }
+        public List<EventAttendee> EventAttendees
+        {
+            get { return eventAttendees; }
+        }
     }
 }
