@@ -13,6 +13,7 @@ namespace Partycipate
 {
     public partial class Form1 : Form
     {
+        UserAccess access = new UserAccess();
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Partycipate
         private void btSearchUser_Click(object sender, EventArgs e)
         {
             
-           User u = UserAccess.FindUser(tbSearchStudentInput.Text);
+           User u = access.FindUser(tbSearchStudentInput.Text);
             MessageBox.Show(u.UserName);
 
 
