@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Partycipate.DAL
 {
-    class EventAccess
+    public class EventAccess
     {
 
         public Event FindEvent(int eventId) {
@@ -41,5 +41,35 @@ namespace Partycipate.DAL
 
 
         }
-}
+
+        public void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        {
+
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+
+
+            try
+            {
+
+                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
+                myCommand.Parameters.AddWithValue("@EventName", eventName);
+                myCommand.Parameters.AddWithValue("@EventTime", eventTime);
+                myCommand.Parameters.AddWithValue("@Location", location);
+                myCommand.Parameters.AddWithValue("@Note", note);
+                myCommand.Parameters.AddWithValue("@OpenSlots", openSlots);
+                myCommand.Parameters.AddWithValue("@Owner", owner);
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return;
+            }
+
+        }
+    }
 }

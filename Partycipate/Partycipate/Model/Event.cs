@@ -10,8 +10,7 @@ namespace Partycipate
     {
         private int eventId;
         private String location;
-        private double eventTime;
-        private int zipCode;
+        private string eventTime;
         private int openSlots;
         private String note;
         private User owner;
@@ -43,7 +42,7 @@ namespace Partycipate
             }
         }
 
-        public double EventTime
+        public string EventTime
         {
             get
             {
