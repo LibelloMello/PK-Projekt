@@ -8,46 +8,23 @@ namespace Partycipate
 {
     public class User
     {
+        public string userName { get; set; }
+        public String phoneNbr { get; set; }
+        public String name { get; set; }
+        public String email { get; set; }
+        public String password { get; set; }
+        public String sex { get; set; }
+        public int age { get; set; }
+        public List<Event> events;
+        public List<EventAttendee> eventAttendees;
+
         public User() { }
         public User(string userName, int age)
         {
             userName = this.userName;
             age = this.age;
         }
-        private string userName;
-        private String phoneNbr;
-        private String name;
-        private String email;
-        private String password;
-        private String sex;
-        private int age; 
-        private List<Event> events;
-        private List<EventAttendee> eventAttendees;
 
-        public string UserName
-        {
-            get
-            {
-                return userName;
-            }
 
-            set
-            {
-                userName = value;
-            }
-        }
-
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
-
-            set
-            {
-                age = value;
-            }
-        }
     }
 }
