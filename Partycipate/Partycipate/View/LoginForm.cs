@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Partycipate.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,33 +21,35 @@ namespace Partycipate
             InitializeComponent();
         }
 
-        private void cbLocations_SelectedIndexChanged(object sender, EventArgs e)
+        private bool _Authenticated = false;
+
+        public bool Authenticated
         {
+            get { return _Authenticated; }
+            set { _Authenticated = value; }
+        }
+        public void Login()
+        {
+
+            if (access.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
+            {
+                this.Hide();
+                Authenticated = true;
+                EventsForm form = new EventsForm();
+                form.ShowDialog();
+
+            }
+            else
+            {
+                Authenticated = false;
+                MessageBox.Show("Username or Password not recognised");
+                tbUserNameLogin.Clear();
+                tbUserPasswordLogin.Clear();
+
+            }
 
         }
 
-        private void listOfEvents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void tbSearchStudentInput_TextChanged(object sender, EventArgs e)
-        {
-  
-        }
-
-        private void btSearchUser_Click(object sender, EventArgs e)
-        {
-            
-           User u = access.FindUser(tbSearchStudentInput.Text);
-            MessageBox.Show(u.UserName);
-
-
-
-
-        }
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -60,7 +63,7 @@ namespace Partycipate
 
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
-            
+
             User u = new User();
             u.UserName = tbUserName.Text;
             u.PhoneNumber = tbPhoneNumber.Text;
@@ -69,9 +72,9 @@ namespace Partycipate
             u.Password = tbPassword.Text;
             u.Sex = tbSex.Text;
             u.Age = int.Parse(tbAge.Text);
-       
+
             access.CreateUser(tbUserName.Text, int.Parse(tbAge.Text), tbName.Text, tbEmail.Text, tbPassword.Text, tbPhoneNumber.Text, tbSex.Text);
-           // access.CreateUser(u);
+            // access.CreateUser(u);
             MessageBox.Show("Hej");
         }
 
@@ -103,6 +106,26 @@ namespace Partycipate
         private void tbAge_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUserNameLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUserPasswordLogin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            Login();
         }
     }
 }

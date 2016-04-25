@@ -11,7 +11,7 @@ namespace TestApplication
         {
             UserAccess uA = new UserAccess();
 
-            uA.CreateUser2();
+       
 
 
             

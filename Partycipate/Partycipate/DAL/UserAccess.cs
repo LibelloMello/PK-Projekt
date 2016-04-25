@@ -53,7 +53,6 @@ namespace Partycipate
             SqlConnection myConnection = d.Connection();
             SqlDataReader myReader = null;
 
-
             try
             {
 
@@ -76,10 +75,44 @@ namespace Partycipate
             }
 
         }
-        
+        public Boolean GetLoginAuthentication(string userName, string password)
+        {
+
+            DbUtil d = new DbUtil();
+            Console.WriteLine("Innan SQL");
+            SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+            User u = new User();
+            bool b = new bool();
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("SELECT USER_NAME, PASSWORD FROM USERS WHERE USER_NAME = @UserName", myConnection);
+                myCommand.Parameters.AddWithValue("@UserName", userName);
+               
+                myReader = myCommand.ExecuteReader();
 
 
-    }
+                while (myReader.Read())
+                {
+                    u.UserName = myReader["USER_NAME"].ToString();
+                    b = password == myReader["PASSWORD"].ToString();
+
+                }
+                return b;
+            }
+            catch (Exception e)
+            {
+
+                
+            }
+
+            return false; 
+        }
+
+
+
+}
 
 }
 
