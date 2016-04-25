@@ -15,10 +15,10 @@ namespace Partycipate
             this.userName = userName;
             this.age = age;
         }
-        public User(String userName, String phoneNbr, String name, String email, String password, String sex, int age)
+        public User(String userName, String phoneNumber, String name, String email, String password, String sex, int age)
         {
             this.userName = userName;
-            this.phoneNbr = phoneNbr;
+            this.phoneNumber = phoneNumber;
             this.name = name;
             this.email = email;
             this.password = password;
@@ -29,13 +29,13 @@ namespace Partycipate
 
         /* Members start */
         private String userName;
-        private String phoneNbr;
+        private String phoneNumber;
         private String name;
         private String email;
         private String password;
         private String sex;
         private int age;
-        private List<Event> events;
+        private List<Event> _events = new List<Event>();
         private List<EventAttendee> eventAttendees;
         /* Mambers end */
 
@@ -52,15 +52,15 @@ namespace Partycipate
                 this.userName = value;
             }
         }
-        public String Phonebr
+        public String PhoneNumber
         {
             get
             {
-                return phoneNbr;
+                return phoneNumber;
             }
             set
             {
-                this.phoneNbr = value;
+                this.phoneNumber = value;
             }
         }
         public String Name
@@ -119,11 +119,17 @@ namespace Partycipate
                 this.age = value;
             }
         }
-        public List<Event> Eventsasd
+        /*public List<Event> Events
         {
-            get { return events; }
-            set { this.events = value; }
+            get { return _events; }
         }
+        private List<string> _content = new List<string>();
+        public List<string> Content
+        {
+            get
+            { return _content; }
+        }*/
+
         /* Properties end */
 
         /* Methods start */

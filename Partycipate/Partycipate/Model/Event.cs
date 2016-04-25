@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Partycipate
 {
-    class Event
+    public class Event
     {
-        private int eventId;
-        private String location;
-        private double eventTime;
-        private int openSlots;
-        private String note;
+        private int eventId { get; set; }
+        private String location { get; set; }
+        private double eventTime { get; set; }
+        private int zipCode { get; set; }
+        private int openSlots { get; set; }
+        private String note { get; set; }
         private User owner;
         private List<EventAttendee> eventAttendees;
 
