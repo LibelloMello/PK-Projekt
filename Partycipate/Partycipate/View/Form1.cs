@@ -40,7 +40,7 @@ namespace Partycipate
         {
             
            User u = access.FindUser(tbSearchStudentInput.Text);
-            MessageBox.Show(u.UserName);
+           MessageBox.Show(u.UserName);
 
 
 
