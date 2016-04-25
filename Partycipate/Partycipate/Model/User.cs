@@ -35,7 +35,7 @@ namespace Partycipate
         private String password;
         private String sex;
         private int age;
-        private List<Event> _events = new List<Event>();
+        private List<Event> events = new List<Event>();
         private List<EventAttendee> eventAttendees;
         /* Mambers end */
 
@@ -119,21 +119,15 @@ namespace Partycipate
                 this.age = value;
             }
         }
-        /*public List<Event> Events
+        public List<Event> Events
         {
-            get { return _events; }
+            get { return events; }
         }
-        private List<string> _content = new List<string>();
-        public List<string> Content
+        public List<EventAttendee> EventAttendees
         {
-            get
-            { return _content; }
-        }*/
-
+            get { return eventAttendees; }
+        }
         /* Properties end */
-
-        /* Methods start */
-        /* Methods end */
 
     }
 }
