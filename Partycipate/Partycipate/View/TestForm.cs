@@ -12,9 +12,20 @@ namespace Partycipate.View
 {
     public partial class TestForm : Form
     {
+        EventAccess access = new EventAccess();
         public TestForm()
         {
             InitializeComponent();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            access.DeleteEvent(int.Parse(tBdelete.Text));
+        }
+
+        private void tBdelete_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

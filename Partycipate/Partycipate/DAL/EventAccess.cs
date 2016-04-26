@@ -72,6 +72,26 @@ namespace Partycipate
             }
 
         }
+        public void DeleteEvent(int eventId)
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("DELETE FROM PARTY WHERE EVENT_ID = @EventId)", myConnection);
+                myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+
+            }
+
+            catch(SqlException e)
+            {
+
+            }
+        }
+
         public List<Event> FindEventsByLocation(string location)
         {
             {
