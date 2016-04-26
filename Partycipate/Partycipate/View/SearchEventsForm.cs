@@ -21,5 +21,12 @@ namespace Partycipate
         {
 
         }
+
+        private void cbEventLocations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbEventLocations.Items.Clear();
+            cbEventLocations.Items.Add("Lund");
+            cbEventLocations.Items.Add("Malmö");
+        }
     }
 }

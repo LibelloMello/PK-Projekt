@@ -50,6 +50,7 @@
             this.cbEventLocations.Name = "cbEventLocations";
             this.cbEventLocations.Size = new System.Drawing.Size(121, 21);
             this.cbEventLocations.TabIndex = 1;
+            this.cbEventLocations.SelectedIndexChanged += new System.EventHandler(this.cbEventLocations_SelectedIndexChanged);
             // 
             // buttonSearchEvents
             // 
