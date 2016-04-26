@@ -10,7 +10,8 @@ namespace Partycipate.DAL
     public class EventAccess
     {
 
-        public Event FindEvent(int eventId) {
+        public Event FindEvent(int eventId)
+        {
 
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
@@ -70,6 +71,42 @@ namespace Partycipate.DAL
                 return;
             }
 
+        }
+        public List<Event> FindEventsByLocation(string location)
+        {
+            {
+                DbUtil d = new DbUtil();
+                Console.WriteLine("Innan SQL");
+                SqlConnection myConnection = d.Connection();
+                SqlDataReader myReader = null;
+                Event e = new Event();
+                List<Event> events = new List<Event>();
+
+                try
+                {
+                    SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY WHERE LOCATION = @Location", myConnection);
+                    myCommand.Parameters.AddWithValue("@Location", location);
+                    myReader = myCommand.ExecuteReader();
+
+
+                    while (myReader.Read())
+                    {
+                        e.EventId = int.Parse(myReader["AGE"].ToString());
+                        e.EventName = myReader["EVENT_NAME"].ToString();
+                        e.EventTime = myReader["EVENT_TIME"].ToString();
+                        events.Add(e);
+
+
+                    }
+                    return events;
+
+                }
+                catch (Exception e1)
+                {
+                    Console.WriteLine(e1.ToString());
+                    return null;
+                }
+            }
         }
     }
 }

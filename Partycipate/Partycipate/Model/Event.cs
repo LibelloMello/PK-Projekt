@@ -9,6 +9,7 @@ namespace Partycipate
     public class Event
     {
         private int eventId;
+        private string eventName;
         private String location;
         private string eventTime;
         private int openSlots;
@@ -96,6 +97,19 @@ namespace Partycipate
         public List<EventAttendee> EventAttendees
         {
             get { return eventAttendees; }
+        }
+
+        public string EventName
+        {
+            get
+            {
+                return eventName;
+            }
+
+            set
+            {
+                eventName = value;
+            }
         }
     }
 }
