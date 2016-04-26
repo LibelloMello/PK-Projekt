@@ -88,7 +88,7 @@ namespace Partycipate
 
             }
 
-            catch(SqlException e)
+            catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
 
@@ -114,7 +114,7 @@ namespace Partycipate
                 Console.WriteLine("Update executed");
                 myConnection.Close();
             }
-            catch(SqlException e)
+            catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
                 Console.WriteLine("Update failed");
@@ -156,6 +156,78 @@ namespace Partycipate
                     return null;
                 }
             }
+
+        }
+        public static List<Event> FindEventsByUser(string userName)
+        {
+            {
+                DbUtil d = new DbUtil();
+            
+                SqlConnection myConnection = d.Connection();
+                SqlDataReader myReader = null;
+                Event e = new Event();
+                List<Event> events = new List<Event>();
+
+                try
+                {
+                    SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY WHERE OWNER = @UserName", myConnection);
+                    myCommand.Parameters.AddWithValue("@UserName", userName);
+                    myReader = myCommand.ExecuteReader();
+
+
+                    while (myReader.Read())
+                    {
+                        e.EventId = int.Parse(myReader["AGE"].ToString());
+                        e.EventName = myReader["EVENT_NAME"].ToString();
+                        e.EventTime = myReader["EVENT_TIME"].ToString();
+                        events.Add(e);
+
+
+                    }
+                    return events;
+
+                }
+                catch (Exception e1)
+                {
+                    Console.WriteLine(e1.ToString());
+                    return null;
+                }
+
+            }
+
+        }
+        public static SqlDataReader FindEventsByUser2(string userName)
+        {
+            {
+                DbUtil d = new DbUtil();
+
+                SqlConnection myConnection = d.Connection();
+                SqlDataReader myReader = null;
+
+                try
+                {
+                    SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY WHERE OWNER = @UserName", myConnection);
+                    myCommand.Parameters.AddWithValue("@UserName", userName);
+                    myReader = myCommand.ExecuteReader();
+
+
+                    while (myReader.Read())
+                    {
+      
+
+                    }
+                    return myReader;
+
+                }
+                catch (Exception e1)
+                {
+                    Console.WriteLine(e1.ToString());
+                    return null;
+                }
+
+            }
+
         }
     }
 }
+

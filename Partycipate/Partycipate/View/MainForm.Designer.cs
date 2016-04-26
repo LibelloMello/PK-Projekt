@@ -1,6 +1,6 @@
 ﻿namespace Partycipate
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,29 +50,31 @@
             this.label8 = new System.Windows.Forms.Label();
             this.toTestForm = new System.Windows.Forms.Button();
             this.loginPanel = new System.Windows.Forms.Panel();
-            this.userPanel = new System.Windows.Forms.Panel();
-            this.tbUpdateAge = new System.Windows.Forms.TextBox();
-            this.tbUpdateEmail = new System.Windows.Forms.TextBox();
-            this.tbUpdatePassword = new System.Windows.Forms.TextBox();
-            this.tbUpdatePhoneNumber = new System.Windows.Forms.TextBox();
-            this.updateAccountInfo = new System.Windows.Forms.Label();
-            this.buttonUpdateInfo = new System.Windows.Forms.Button();
-            this.labelLoggedInUser = new System.Windows.Forms.Label();
             this.labelError = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelYourEvents = new System.Windows.Forms.Label();
-            this.buttonDeleteEvent = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.buttonCreateEvent = new System.Windows.Forms.Button();
+            this.userPanel = new System.Windows.Forms.Panel();
+            this.listOfEventsByUser = new System.Windows.Forms.DataGridView();
             this.buttonUpdateEvent = new System.Windows.Forms.Button();
+            this.buttonCreateEvent = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonDeleteEvent = new System.Windows.Forms.Button();
+            this.labelYourEvents = new System.Windows.Forms.Label();
+            this.labelLoggedInUser = new System.Windows.Forms.Label();
+            this.buttonUpdateInfo = new System.Windows.Forms.Button();
+            this.updateAccountInfo = new System.Windows.Forms.Label();
+            this.tbUpdatePhoneNumber = new System.Windows.Forms.TextBox();
+            this.tbUpdatePassword = new System.Windows.Forms.TextBox();
+            this.tbUpdateEmail = new System.Windows.Forms.TextBox();
+            this.tbUpdateAge = new System.Windows.Forms.TextBox();
+            this.buttonLogout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
             this.SuspendLayout();
             // 
             // tbUserName
@@ -168,6 +170,7 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 18;
             this.label4.Text = "Name";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -291,8 +294,20 @@
             this.loginPanel.Size = new System.Drawing.Size(714, 452);
             this.loginPanel.TabIndex = 30;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(332, 296);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 13);
+            this.labelError.TabIndex = 30;
+            this.labelError.Click += new System.EventHandler(this.labelError_Click);
+            // 
             // userPanel
             // 
+            this.userPanel.Controls.Add(this.button1);
+            this.userPanel.Controls.Add(this.buttonLogout);
+            this.userPanel.Controls.Add(this.listOfEventsByUser);
             this.userPanel.Controls.Add(this.buttonUpdateEvent);
             this.userPanel.Controls.Add(this.buttonCreateEvent);
             this.userPanel.Controls.Add(this.textBox6);
@@ -303,7 +318,6 @@
             this.userPanel.Controls.Add(this.textBox1);
             this.userPanel.Controls.Add(this.buttonDeleteEvent);
             this.userPanel.Controls.Add(this.labelYourEvents);
-            this.userPanel.Controls.Add(this.dataGridView1);
             this.userPanel.Controls.Add(this.labelLoggedInUser);
             this.userPanel.Controls.Add(this.buttonUpdateInfo);
             this.userPanel.Controls.Add(this.updateAccountInfo);
@@ -317,42 +331,101 @@
             this.userPanel.Size = new System.Drawing.Size(714, 452);
             this.userPanel.TabIndex = 30;
             // 
-            // tbUpdateAge
+            // listOfEventsByUser
             // 
-            this.tbUpdateAge.Location = new System.Drawing.Point(471, 56);
-            this.tbUpdateAge.Name = "tbUpdateAge";
-            this.tbUpdateAge.Size = new System.Drawing.Size(100, 20);
-            this.tbUpdateAge.TabIndex = 0;
+            this.listOfEventsByUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listOfEventsByUser.Location = new System.Drawing.Point(15, 58);
+            this.listOfEventsByUser.Name = "listOfEventsByUser";
+            this.listOfEventsByUser.Size = new System.Drawing.Size(240, 95);
+            this.listOfEventsByUser.TabIndex = 20;
+            this.listOfEventsByUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listOfEventsByUser_CellContentClick);
             // 
-            // tbUpdateEmail
+            // buttonUpdateEvent
             // 
-            this.tbUpdateEmail.Location = new System.Drawing.Point(471, 82);
-            this.tbUpdateEmail.Name = "tbUpdateEmail";
-            this.tbUpdateEmail.Size = new System.Drawing.Size(100, 20);
-            this.tbUpdateEmail.TabIndex = 1;
+            this.buttonUpdateEvent.Location = new System.Drawing.Point(106, 348);
+            this.buttonUpdateEvent.Name = "buttonUpdateEvent";
+            this.buttonUpdateEvent.Size = new System.Drawing.Size(85, 23);
+            this.buttonUpdateEvent.TabIndex = 19;
+            this.buttonUpdateEvent.Text = "Update event";
+            this.buttonUpdateEvent.UseVisualStyleBackColor = true;
             // 
-            // tbUpdatePassword
+            // buttonCreateEvent
             // 
-            this.tbUpdatePassword.Location = new System.Drawing.Point(471, 108);
-            this.tbUpdatePassword.Name = "tbUpdatePassword";
-            this.tbUpdatePassword.Size = new System.Drawing.Size(100, 20);
-            this.tbUpdatePassword.TabIndex = 2;
+            this.buttonCreateEvent.Location = new System.Drawing.Point(15, 348);
+            this.buttonCreateEvent.Name = "buttonCreateEvent";
+            this.buttonCreateEvent.Size = new System.Drawing.Size(85, 23);
+            this.buttonCreateEvent.TabIndex = 18;
+            this.buttonCreateEvent.Text = "Create event";
+            this.buttonCreateEvent.UseVisualStyleBackColor = true;
             // 
-            // tbUpdatePhoneNumber
+            // textBox6
             // 
-            this.tbUpdatePhoneNumber.Location = new System.Drawing.Point(471, 134);
-            this.tbUpdatePhoneNumber.Name = "tbUpdatePhoneNumber";
-            this.tbUpdatePhoneNumber.Size = new System.Drawing.Size(100, 20);
-            this.tbUpdatePhoneNumber.TabIndex = 4;
+            this.textBox6.Location = new System.Drawing.Point(15, 322);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(176, 20);
+            this.textBox6.TabIndex = 17;
             // 
-            // updateAccountInfo
+            // textBox5
             // 
-            this.updateAccountInfo.AutoSize = true;
-            this.updateAccountInfo.Location = new System.Drawing.Point(442, 33);
-            this.updateAccountInfo.Name = "updateAccountInfo";
-            this.updateAccountInfo.Size = new System.Drawing.Size(161, 13);
-            this.updateAccountInfo.TabIndex = 6;
-            this.updateAccountInfo.Text = "Update your account information";
+            this.textBox5.Location = new System.Drawing.Point(15, 296);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(176, 20);
+            this.textBox5.TabIndex = 16;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(15, 270);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(176, 20);
+            this.textBox4.TabIndex = 15;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(15, 244);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(176, 20);
+            this.textBox3.TabIndex = 14;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(15, 218);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(176, 20);
+            this.textBox2.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(15, 165);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(138, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // buttonDeleteEvent
+            // 
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(159, 165);
+            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
+            this.buttonDeleteEvent.Size = new System.Drawing.Size(84, 21);
+            this.buttonDeleteEvent.TabIndex = 11;
+            this.buttonDeleteEvent.Text = "Delete event";
+            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
+            // 
+            // labelYourEvents
+            // 
+            this.labelYourEvents.AutoSize = true;
+            this.labelYourEvents.Location = new System.Drawing.Point(12, 33);
+            this.labelYourEvents.Name = "labelYourEvents";
+            this.labelYourEvents.Size = new System.Drawing.Size(64, 13);
+            this.labelYourEvents.TabIndex = 10;
+            this.labelYourEvents.Text = "Your events";
+            // 
+            // labelLoggedInUser
+            // 
+            this.labelLoggedInUser.AutoSize = true;
+            this.labelLoggedInUser.Location = new System.Drawing.Point(483, 12);
+            this.labelLoggedInUser.Name = "labelLoggedInUser";
+            this.labelLoggedInUser.Size = new System.Drawing.Size(0, 13);
+            this.labelLoggedInUser.TabIndex = 8;
+            this.labelLoggedInUser.Click += new System.EventHandler(this.labelLoggedInUser_Click);
             // 
             // buttonUpdateInfo
             // 
@@ -364,126 +437,79 @@
             this.buttonUpdateInfo.UseVisualStyleBackColor = true;
             this.buttonUpdateInfo.Click += new System.EventHandler(this.buttonUpdateInfo_Click);
             // 
-            // labelLoggedInUser
+            // updateAccountInfo
             // 
-            this.labelLoggedInUser.AutoSize = true;
-            this.labelLoggedInUser.Location = new System.Drawing.Point(483, 12);
-            this.labelLoggedInUser.Name = "labelLoggedInUser";
-            this.labelLoggedInUser.Size = new System.Drawing.Size(0, 13);
-            this.labelLoggedInUser.TabIndex = 8;
-            this.labelLoggedInUser.Click += new System.EventHandler(this.labelLoggedInUser_Click);
+            this.updateAccountInfo.AutoSize = true;
+            this.updateAccountInfo.Location = new System.Drawing.Point(442, 33);
+            this.updateAccountInfo.Name = "updateAccountInfo";
+            this.updateAccountInfo.Size = new System.Drawing.Size(161, 13);
+            this.updateAccountInfo.TabIndex = 6;
+            this.updateAccountInfo.Text = "Update your account information";
             // 
-            // labelError
+            // tbUpdatePhoneNumber
             // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(332, 296);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 13);
-            this.labelError.TabIndex = 30;
-            this.labelError.Click += new System.EventHandler(this.labelError_Click);
+            this.tbUpdatePhoneNumber.Location = new System.Drawing.Point(471, 134);
+            this.tbUpdatePhoneNumber.Name = "tbUpdatePhoneNumber";
+            this.tbUpdatePhoneNumber.Size = new System.Drawing.Size(100, 20);
+            this.tbUpdatePhoneNumber.TabIndex = 4;
             // 
-            // dataGridView1
+            // tbUpdatePassword
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 56);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(258, 98);
-            this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.tbUpdatePassword.Location = new System.Drawing.Point(471, 108);
+            this.tbUpdatePassword.Name = "tbUpdatePassword";
+            this.tbUpdatePassword.Size = new System.Drawing.Size(100, 20);
+            this.tbUpdatePassword.TabIndex = 2;
             // 
-            // labelYourEvents
+            // tbUpdateEmail
             // 
-            this.labelYourEvents.AutoSize = true;
-            this.labelYourEvents.Location = new System.Drawing.Point(12, 33);
-            this.labelYourEvents.Name = "labelYourEvents";
-            this.labelYourEvents.Size = new System.Drawing.Size(64, 13);
-            this.labelYourEvents.TabIndex = 10;
-            this.labelYourEvents.Text = "Your events";
+            this.tbUpdateEmail.Location = new System.Drawing.Point(471, 82);
+            this.tbUpdateEmail.Name = "tbUpdateEmail";
+            this.tbUpdateEmail.Size = new System.Drawing.Size(100, 20);
+            this.tbUpdateEmail.TabIndex = 1;
             // 
-            // buttonDeleteEvent
+            // tbUpdateAge
             // 
-            this.buttonDeleteEvent.Location = new System.Drawing.Point(159, 165);
-            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
-            this.buttonDeleteEvent.Size = new System.Drawing.Size(84, 21);
-            this.buttonDeleteEvent.TabIndex = 11;
-            this.buttonDeleteEvent.Text = "Delete event";
-            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
+            this.tbUpdateAge.Location = new System.Drawing.Point(471, 56);
+            this.tbUpdateAge.Name = "tbUpdateAge";
+            this.tbUpdateAge.Size = new System.Drawing.Size(100, 20);
+            this.tbUpdateAge.TabIndex = 0;
+            this.tbUpdateAge.TextChanged += new System.EventHandler(this.tbUpdateAge_TextChanged);
             // 
-            // textBox1
+            // buttonLogout
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 165);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 20);
-            this.textBox1.TabIndex = 12;
+            this.buttonLogout.Location = new System.Drawing.Point(588, 286);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogout.TabIndex = 21;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // textBox2
+            // button1
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 218);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 20);
-            this.textBox2.TabIndex = 13;
+            this.button1.Location = new System.Drawing.Point(455, 261);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(15, 244);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 20);
-            this.textBox3.TabIndex = 14;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(15, 270);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(176, 20);
-            this.textBox4.TabIndex = 15;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(15, 296);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(176, 20);
-            this.textBox5.TabIndex = 16;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(15, 322);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(176, 20);
-            this.textBox6.TabIndex = 17;
-            // 
-            // buttonCreateEvent
-            // 
-            this.buttonCreateEvent.Location = new System.Drawing.Point(15, 348);
-            this.buttonCreateEvent.Name = "buttonCreateEvent";
-            this.buttonCreateEvent.Size = new System.Drawing.Size(85, 23);
-            this.buttonCreateEvent.TabIndex = 18;
-            this.buttonCreateEvent.Text = "Create event";
-            this.buttonCreateEvent.UseVisualStyleBackColor = true;
-            // 
-            // buttonUpdateEvent
-            // 
-            this.buttonUpdateEvent.Location = new System.Drawing.Point(106, 348);
-            this.buttonUpdateEvent.Name = "buttonUpdateEvent";
-            this.buttonUpdateEvent.Size = new System.Drawing.Size(85, 23);
-            this.buttonUpdateEvent.TabIndex = 19;
-            this.buttonUpdateEvent.Text = "Update event";
-            this.buttonUpdateEvent.UseVisualStyleBackColor = true;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 452);
             this.Controls.Add(this.userPanel);
             this.Controls.Add(this.loginPanel);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.userPanel.ResumeLayout(false);
             this.userPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,7 +547,6 @@
         private System.Windows.Forms.Label labelLoggedInUser;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Label labelYourEvents;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonCreateEvent;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
@@ -531,6 +556,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonDeleteEvent;
         private System.Windows.Forms.Button buttonUpdateEvent;
+        private System.Windows.Forms.DataGridView listOfEventsByUser;
+        private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button button1;
     }
 }
 

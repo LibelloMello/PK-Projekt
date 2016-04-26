@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,20 @@ namespace Partycipate
         {
             UserAccess.DeleteUser(userName);
         }
-        
+        public static List<Event> FindEventsByUser(string userName)
+        {
+            return EventAccess.FindEventsByUser(userName);
+        }
+        public static Boolean GetLoginAuthentication(string userName, string password)
+        {
+            return UserAccess.GetLoginAuthentication(userName, password);
+        }
+        public static SqlDataReader GetAllEventsForUser(string userName)
+        {
+            return EventAccess.FindEventsByUser2(userName);
+        }
+
+
 
     }
 }

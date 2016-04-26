@@ -7,17 +7,30 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Partycipate
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        private static string loggedInUser = null;
+        private static string loggedInUser;
+        public String LoggedInUser
+        {
+            get
+            {
+                return loggedInUser;
+            }
+            set
+            {
+                loggedInUser = value;
+            }
+        }
+
         UserAccess access = new UserAccess();
-        public Form1()
+        public MainForm()
         {
 
             InitializeComponent();
@@ -32,14 +45,13 @@ namespace Partycipate
         }
         public void Login()
         {
-
-            if (access.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
+            string bajs = tbUserNameLogin.Text;
+            if (Controller.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
             {
                 Authenticated = true;
-                loggedInUser = tbUserNameLogin.Text;
+                LoggedInUser = tbUserNameLogin.Text;
                 loginPanel.Visible = false;
                 userPanel.Visible = true;
-
 
             }
             else
@@ -76,9 +88,9 @@ namespace Partycipate
             u.Sex = tbSex.Text;
             u.Age = int.Parse(tbAge.Text);
 
-            //access.CreateUser(tbUserName.Text, int.Parse(tbAge.Text), tbName.Text, tbEmail.Text, tbPassword.Text, tbPhoneNumber.Text, tbSex.Text);
-            // access.CreateUser(u);
-            MessageBox.Show("Hej");
+            Controller.CreateUser(tbUserName.Text, int.Parse(tbAge.Text), tbName.Text, tbEmail.Text, tbPassword.Text, tbPhoneNumber.Text, tbSex.Text);
+            //Controller.CreateUser(u);
+            
         }
 
         private void tbPhoneNumber_TextChanged(object sender, EventArgs e)
@@ -152,17 +164,70 @@ namespace Partycipate
 
         private void labelLoggedInUser_Click(object sender, EventArgs e)
         {
-            labelLoggedInUser.Text = loggedInUser;
+            labelLoggedInUser.Text = LoggedInUser;
         }
 
         private void labelError_Click(object sender, EventArgs e)
         {
             
         }
+        public static DataTable ToDataTable<Object>(List<Object> items)
+        {
+            DataTable dataTable = new DataTable(typeof(Object).Name);
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+          
+            PropertyInfo[] Props = typeof(Object).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                
+                dataTable.Columns.Add(prop.Name);
+            }
+            foreach (Object item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+          
+            return dataTable;
+        }
+
+        private void listOfEventsByUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //listOfEventsByUser.DataSource = ToDataTable(Controller.FindEventsByUser(LoggedInUser));
+            DataTable dataTable = new DataTable();
+            dataTable.Load(Controller.GetAllEventsForUser(LoggedInUser));
+            listOfEventsByUser.DataSource = dataTable;
+            //listOfEventsByUser.DataBind();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void tbUpdateAge_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            LoggedInUser = null;
+            userPanel.Visible = false;
+            loginPanel.Visible = true;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(LoggedInUser);
+        }
     }
+
 }

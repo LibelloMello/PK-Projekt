@@ -75,7 +75,7 @@ namespace Partycipate
             }
 
         }
-        public Boolean GetLoginAuthentication(string userName, string password)
+        public static Boolean GetLoginAuthentication(string userName, string password)
         {
 
             DbUtil d = new DbUtil();
