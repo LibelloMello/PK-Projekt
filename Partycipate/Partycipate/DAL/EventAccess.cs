@@ -145,7 +145,6 @@ namespace Partycipate
                         e.EventTime = myReader["EVENT_TIME"].ToString();
                         events.Add(e);
 
-
                     }
                     return events;
 
