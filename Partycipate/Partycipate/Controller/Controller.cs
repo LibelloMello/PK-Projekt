@@ -15,5 +15,15 @@ namespace Partycipate
            return EventAccess.FindEventsByLocation(location);
         }
 
+        public static void CreateUser(string userName, int age, string name, string email, string password, string phoneNumber, string sex)
+        {
+            UserAccess.CreateUser(userName, age, name, email, password, phoneNumber, sex);
+        }
+        public static void DeleteUser(string userName)
+        {
+            UserAccess.DeleteUser(userName);
+        }
+        
+
     }
 }

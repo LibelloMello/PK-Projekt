@@ -15,6 +15,7 @@ namespace Partycipate
 {
     public partial class Form1 : Form
     {
+        private static string loggedInUser = null;
         UserAccess access = new UserAccess();
         public Form1()
         {
@@ -34,16 +35,17 @@ namespace Partycipate
 
             if (access.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
             {
-                this.Hide();
                 Authenticated = true;
-                SearchEventsForm form = new SearchEventsForm();
-                form.ShowDialog();
+                loggedInUser = tbUserNameLogin.Text;
+                loginPanel.Visible = false;
+                userPanel.Visible = true;
+
 
             }
             else
             {
                 Authenticated = false;
-                MessageBox.Show("Username or Password not recognised");
+                labelError.Text = "Wrong username or password";
                 tbUserNameLogin.Clear();
                 tbUserPasswordLogin.Clear();
 
@@ -74,7 +76,7 @@ namespace Partycipate
             u.Sex = tbSex.Text;
             u.Age = int.Parse(tbAge.Text);
 
-            access.CreateUser(tbUserName.Text, int.Parse(tbAge.Text), tbName.Text, tbEmail.Text, tbPassword.Text, tbPhoneNumber.Text, tbSex.Text);
+            //access.CreateUser(tbUserName.Text, int.Parse(tbAge.Text), tbName.Text, tbEmail.Text, tbPassword.Text, tbPhoneNumber.Text, tbSex.Text);
             // access.CreateUser(u);
             MessageBox.Show("Hej");
         }
@@ -127,6 +129,7 @@ namespace Partycipate
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             Login();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -140,6 +143,21 @@ namespace Partycipate
             Authenticated = true;
             TestForm tform = new TestForm();
             tform.ShowDialog();
+        }
+
+        private void buttonUpdateInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelLoggedInUser_Click(object sender, EventArgs e)
+        {
+            labelLoggedInUser.Text = loggedInUser;
+        }
+
+        private void labelError_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
