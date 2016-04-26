@@ -43,7 +43,7 @@ namespace Partycipate
 
         }
 
-        public void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        public void CreateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots, string owner)
         {
 
             DbUtil d = new DbUtil();
@@ -54,7 +54,8 @@ namespace Partycipate
             try
             {
 
-                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
+                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventId, @EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
+                myCommand.Parameters.AddWithValue("@EventId", eventId);
                 myCommand.Parameters.AddWithValue("@EventName", eventName);
                 myCommand.Parameters.AddWithValue("@EventTime", eventTime);
                 myCommand.Parameters.AddWithValue("@Location", location);
@@ -68,7 +69,6 @@ namespace Partycipate
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                return;
             }
 
         }
@@ -144,7 +144,6 @@ namespace Partycipate
                         e.EventName = myReader["EVENT_NAME"].ToString();
                         e.EventTime = myReader["EVENT_TIME"].ToString();
                         events.Add(e);
-
 
                     }
                     return events;
