@@ -46,7 +46,7 @@ namespace Partycipate
         }
 
 
-        public void CreateUser(string userName, int age, string name, string email, string password, string phoneNumber, string sex)
+        public static void CreateUser(string userName, int age, string name, string email, string password, string phoneNumber, string sex)
         {
 
             DbUtil d = new DbUtil();
@@ -110,9 +110,55 @@ namespace Partycipate
             return false; 
         }
 
+        public static void DeleteUser(string loggedInUser)
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("DELETE FROM USERS WHERE USER_NAME = @UserName)", myConnection);
+                myCommand.Parameters.AddWithValue("@UserName", loggedInUser);
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+
+            }
+
+            catch (SqlException e)
+            {
+
+            }
+        }
+        public static void UpdateUser(string loggedInUser, int age, string name, string email, string password, string phoneNumber, string sex)
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+
+            try
+            {
+
+                SqlCommand myCommand = new SqlCommand("UPDATE USERS SET AGE=@Age, EMAIL=@Email, PASSWORD=@Password, PHONE_NBR=@PhoneNumber, SEX=@Sex WHERE USER_NAME = @UserName", myConnection);
+                myCommand.Parameters.AddWithValue("@UserName", loggedInUser);
+                myCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                myCommand.Parameters.AddWithValue("@Name", name);
+                myCommand.Parameters.AddWithValue("@Email", email);
+                myCommand.Parameters.AddWithValue("@Password", password);
+                myCommand.Parameters.AddWithValue("@Sex", sex);
+                myCommand.Parameters.AddWithValue("@Age", age);
+                myCommand.ExecuteNonQuery();
+                myConnection.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return;
+            }
+        }
 
 
-}
+    }
 
 }
 
