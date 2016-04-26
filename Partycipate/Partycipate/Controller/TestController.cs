@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Partycipate.Controller
+namespace Partycipate
 {
     class TestController
     {
+        EventAccess ea = new EventAccess();
+        UserAccess ua = new UserAccess();
+
     }
 }

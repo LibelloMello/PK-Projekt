@@ -53,9 +53,7 @@
     <Compile Include="DAL\UserAccess.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\EventAttendee.cs" />
-    <Compile Include="SearchEventsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SearchEventsForm.cs" />
     <Compile Include="SearchEventsForm.Designer.cs">
       <DependentUpon>SearchEventsForm.cs</DependentUpon>
     </Compile>
