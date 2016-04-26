@@ -48,6 +48,8 @@
             this.tbUserPasswordLogin = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.toTestForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUserName
@@ -226,11 +228,32 @@
             this.label8.TabIndex = 27;
             this.label8.Text = "Not a member? Join us today!";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // toTestForm
+            // 
+            this.toTestForm.Location = new System.Drawing.Point(26, 231);
+            this.toTestForm.Name = "toTestForm";
+            this.toTestForm.Size = new System.Drawing.Size(75, 23);
+            this.toTestForm.TabIndex = 29;
+            this.toTestForm.Text = "Testform";
+            this.toTestForm.UseVisualStyleBackColor = true;
+            this.toTestForm.Click += new System.EventHandler(this.toTestForm_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 375);
+            this.Controls.Add(this.toTestForm);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbUserPasswordLogin);
@@ -253,6 +276,7 @@
             this.Controls.Add(this.tbUserName);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +303,8 @@
         private System.Windows.Forms.TextBox tbUserPasswordLogin;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button toTestForm;
     }
 }
 

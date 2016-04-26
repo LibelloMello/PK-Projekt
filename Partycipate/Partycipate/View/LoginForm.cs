@@ -1,4 +1,5 @@
 ﻿using Partycipate;
+using Partycipate.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -126,6 +127,19 @@ namespace Partycipate
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             Login();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toTestForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Authenticated = true;
+            TestForm tform = new TestForm();
+            tform.ShowDialog();
         }
     }
 }

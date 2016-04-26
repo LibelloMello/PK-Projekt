@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Partycipate;
 
 namespace Partycipate.View
 {
@@ -24,6 +25,11 @@ namespace Partycipate.View
         }
 
         private void tBdelete_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TestForm_Load(object sender, EventArgs e)
         {
 
         }
