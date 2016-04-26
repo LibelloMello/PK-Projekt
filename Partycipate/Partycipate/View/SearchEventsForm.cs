@@ -17,16 +17,9 @@ namespace Partycipate
             InitializeComponent();
         }
 
-        private void eventTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonSearchEvents_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void cbEventLocations_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbEventLocations.Items.Clear();
-            cbEventLocations.Items.Add("Lund");
-            cbEventLocations.Items.Add("Malmö");
         }
     }
 }

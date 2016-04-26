@@ -28,58 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.eventTable = new System.Windows.Forms.DataGridView();
-            this.cbEventLocations = new System.Windows.Forms.ComboBox();
+            this.cbLocations = new System.Windows.Forms.ComboBox();
+            this.listEventsTable = new System.Windows.Forms.DataGridView();
             this.buttonSearchEvents = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.eventTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listEventsTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // eventTable
+            // cbLocations
             // 
-            this.eventTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.eventTable.Location = new System.Drawing.Point(12, 64);
-            this.eventTable.Name = "eventTable";
-            this.eventTable.Size = new System.Drawing.Size(153, 70);
-            this.eventTable.TabIndex = 0;
-            this.eventTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventTable_CellContentClick);
+            this.cbLocations.FormattingEnabled = true;
+            this.cbLocations.Location = new System.Drawing.Point(48, 35);
+            this.cbLocations.Name = "cbLocations";
+            this.cbLocations.Size = new System.Drawing.Size(101, 21);
+            this.cbLocations.TabIndex = 0;
             // 
-            // cbEventLocations
+            // listEventsTable
             // 
-            this.cbEventLocations.FormattingEnabled = true;
-            this.cbEventLocations.Location = new System.Drawing.Point(12, 24);
-            this.cbEventLocations.Name = "cbEventLocations";
-            this.cbEventLocations.Size = new System.Drawing.Size(121, 21);
-            this.cbEventLocations.TabIndex = 1;
-            this.cbEventLocations.SelectedIndexChanged += new System.EventHandler(this.cbEventLocations_SelectedIndexChanged);
+            this.listEventsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listEventsTable.Location = new System.Drawing.Point(48, 84);
+            this.listEventsTable.Name = "listEventsTable";
+            this.listEventsTable.Size = new System.Drawing.Size(216, 95);
+            this.listEventsTable.TabIndex = 1;
             // 
             // buttonSearchEvents
             // 
-            this.buttonSearchEvents.Location = new System.Drawing.Point(151, 24);
+            this.buttonSearchEvents.Location = new System.Drawing.Point(155, 35);
             this.buttonSearchEvents.Name = "buttonSearchEvents";
-            this.buttonSearchEvents.Size = new System.Drawing.Size(106, 21);
+            this.buttonSearchEvents.Size = new System.Drawing.Size(109, 22);
             this.buttonSearchEvents.TabIndex = 2;
             this.buttonSearchEvents.Text = "Search events";
             this.buttonSearchEvents.UseVisualStyleBackColor = true;
+            this.buttonSearchEvents.Click += new System.EventHandler(this.buttonSearchEvents_Click);
             // 
             // SearchEventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 261);
+            this.ClientSize = new System.Drawing.Size(461, 261);
             this.Controls.Add(this.buttonSearchEvents);
-            this.Controls.Add(this.cbEventLocations);
-            this.Controls.Add(this.eventTable);
+            this.Controls.Add(this.listEventsTable);
+            this.Controls.Add(this.cbLocations);
             this.Name = "SearchEventsForm";
             this.Text = "SearchEventsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.eventTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listEventsTable)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView eventTable;
-        private System.Windows.Forms.ComboBox cbEventLocations;
+        private System.Windows.Forms.ComboBox cbLocations;
+        private System.Windows.Forms.DataGridView listEventsTable;
         private System.Windows.Forms.Button buttonSearchEvents;
     }
 }
