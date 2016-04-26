@@ -46,14 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\TestController.cs" />
+    <Compile Include="Controller\Controller.cs" />
     <Compile Include="DAL\EventAccess.cs" />
     <Compile Include="DAL\SharedAccess.cs" />
     <Compile Include="DAL\DbUtil.cs" />
     <Compile Include="DAL\UserAccess.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\EventAttendee.cs" />
-    <Compile Include="SearchEventsForm.cs" />
+    <Compile Include="SearchEventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SearchEventsForm.Designer.cs">
       <DependentUpon>SearchEventsForm.cs</DependentUpon>
     </Compile>

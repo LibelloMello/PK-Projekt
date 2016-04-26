@@ -72,7 +72,7 @@ namespace Partycipate
             }
 
         }
-        public List<Event> FindEventsByLocation(string location)
+        public static List<Event> FindEventsByLocation(string location)
         {
             {
                 DbUtil d = new DbUtil();
