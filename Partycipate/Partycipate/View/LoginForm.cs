@@ -1,4 +1,4 @@
-﻿using Partycipate.View;
+﻿using Partycipate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +35,7 @@ namespace Partycipate
             {
                 this.Hide();
                 Authenticated = true;
-                EventsForm form = new EventsForm();
+                SearchEventsForm form = new SearchEventsForm();
                 form.ShowDialog();
 
             }
