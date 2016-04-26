@@ -79,16 +79,45 @@ namespace Partycipate
 
             try
             {
-                SqlCommand myCommand = new SqlCommand("DELETE FROM PARTY WHERE EVENT_ID = @EventId)", myConnection);
+                Console.WriteLine("I try delete");
+                SqlCommand myCommand = new SqlCommand("DELETE FROM PARTY WHERE EVENT_ID = @EventId", myConnection);
                 myCommand.Parameters.AddWithValue("@EventId", eventId);
                 myCommand.ExecuteNonQuery();
+                Console.WriteLine("Event delete executed");
                 myConnection.Close();
 
             }
 
             catch(SqlException e)
             {
+                Console.WriteLine(e.ToString());
 
+            }
+        }
+
+        public void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+
+            try
+            {
+                Console.WriteLine("I try to update event");
+                SqlCommand myCommand = new SqlCommand("UPDATE PARTY SET EVENT_NAME = @EventName, EVENT_TIME = @EventTime, LOCATION = @Location, NOTE = @Note, OPEN_SLOTS = @OpenSlots WHERE EVENT_ID = @EventId", myConnection);
+                myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myCommand.Parameters.AddWithValue("@EventName", eventName);
+                myCommand.Parameters.AddWithValue("@EventTime", eventTime);
+                myCommand.Parameters.AddWithValue("@Location", location);
+                myCommand.Parameters.AddWithValue("@Note", note);
+                myCommand.Parameters.AddWithValue("@OpenSlots", openSlots);
+                myCommand.ExecuteNonQuery();
+                Console.WriteLine("Update executed");
+                myConnection.Close();
+            }
+            catch(SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+                Console.WriteLine("Update failed");
             }
         }
 
