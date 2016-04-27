@@ -240,6 +240,7 @@ namespace Partycipate
         {
             LoggedInUser = null;
             userPanel.Visible = false;
+            updateEventPanel.Visible = false;
             loginPanel.Visible = true;
             
         }
@@ -347,8 +348,67 @@ namespace Partycipate
         {
 
         }
+        private void tbEventIdForUpdate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateEvent_Click(object sender, EventArgs e)
+        {
+            Event eu = Controller.FindEvent(int.Parse(tbEventIdForUpdate.Text));
+            tbUpdateEventName.Text = eu.EventName;
+            tbUpdateEventTime.Text = eu.EventTime;
+            tbUpdateLocation.Text = eu.Location;
+            tbUpdateNote.Text = eu.Note;
+            tbUpdateOpenSlots.Text = eu.OpenSlots.ToString();
+            userPanel.Visible = false;
+            updateEventPanel.Visible = true;
+ 
+        }
 
 
+
+        //
+        //Panel Update Event
+        //
+
+        private void buttonBackToUser_Click(object sender, EventArgs e)
+        {
+            updateEventPanel.Visible = false;
+            userPanel.Visible = true;
+           
+        }
+
+
+        private void tbUpdateEventName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateEventTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateNote_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateOpenSlots_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text),tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text));
+        }
     }
 
 }

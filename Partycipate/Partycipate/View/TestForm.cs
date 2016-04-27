@@ -42,15 +42,8 @@ namespace Partycipate.View
 
         private void UpdateEvent_Click(object sender, EventArgs e)
         {
-            Event e1 = new Event();
-            e1.EventId = int.Parse(tBeventId.Text);
-            e1.EventName = tBeventName.Text;
-            e1.EventTime = tBeventTime.Text;
-            e1.Location = tBlocation.Text;
-            e1.Note = tBnote.Text;
-            e1.OpenSlots = int.Parse(tBopenSlots.Text);
 
-            access.UpdateEvent(int.Parse(tBeventId.Text), tBeventName.Text, tBeventTime.Text, tBlocation.Text, tBnote.Text, int.Parse(tBopenSlots.Text));
+
         }
 
         private void tBeventName_TextChanged(object sender, EventArgs e)

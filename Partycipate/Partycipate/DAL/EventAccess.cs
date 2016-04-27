@@ -11,7 +11,7 @@ namespace Partycipate
     public class EventAccess
     {
 
-        public Event FindEvent(int eventId)
+        public static Event FindEvent(int eventId)
         {
 
             DbUtil d = new DbUtil();
@@ -29,7 +29,11 @@ namespace Partycipate
                 while (myReader.Read())
                 {
                     e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
-                    e.Location = (myReader["Location"].ToString());
+                    e.Location = myReader["LOCATION"].ToString();
+                    e.EventName = myReader["EVENT_NAME"].ToString();
+                    e.Note = myReader["NOTE"].ToString();
+                    e.OpenSlots = int.Parse(myReader["OPEN_SLOTS"].ToString());
+                    e.EventTime = myReader["EVENT_TIME"].ToString();
 
                 }
                 return e;
@@ -91,7 +95,7 @@ namespace Partycipate
             }
         }
 
-        public void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();

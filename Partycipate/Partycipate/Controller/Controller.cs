@@ -47,6 +47,14 @@ namespace Partycipate
         {
             EventAccess.CreateEvent(eventName, eventTime, location, note, openSlots, owner);
         }
+        public static Event FindEvent(int eventId)
+        {
+            return EventAccess.FindEvent(eventId);
+        }
+        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        {
+            EventAccess.UpdateEvent(eventId, eventName, eventTime, location, note, openSlots);
+        }
 
 
 
