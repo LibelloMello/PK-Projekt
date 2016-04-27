@@ -276,15 +276,24 @@ namespace Partycipate
 
         private void cbLocations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbLocations.InitializeLifetimeService();
-            cbLocations.Items.Add("Lund");
-            cbLocations.Items.Add("Malmö");
-            cbLocations.Items.Add("Borås");
-            cbLocations.Items.Add("Stockholm");
-            cbLocations.Refresh();
+
 
         }
-     
+
+        private void buttonSearchEvents_Click(object sender, EventArgs e)
+        {
+            listOfEventsByUser.DataSource = Controller.FindEventsByLocation(cbLocations.Text);
+            labelEvents.Text = ("Events for " + cbLocations.Text);
+
+
+
+
+        }
+
+        private void labelEvents_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

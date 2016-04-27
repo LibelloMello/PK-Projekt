@@ -52,6 +52,7 @@
             this.loginPanel = new System.Windows.Forms.Panel();
             this.labelError = new System.Windows.Forms.Label();
             this.userPanel = new System.Windows.Forms.Panel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.cbLocations = new System.Windows.Forms.ComboBox();
             this.buttonSearchEvents = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
@@ -65,7 +66,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonDeleteEvent = new System.Windows.Forms.Button();
-            this.labelYourEvents = new System.Windows.Forms.Label();
+            this.labelEvents = new System.Windows.Forms.Label();
             this.labelLoggedInUser = new System.Windows.Forms.Label();
             this.buttonUpdateInfo = new System.Windows.Forms.Button();
             this.updateAccountInfo = new System.Windows.Forms.Label();
@@ -73,7 +74,6 @@
             this.tbUpdatePassword = new System.Windows.Forms.TextBox();
             this.tbUpdateEmail = new System.Windows.Forms.TextBox();
             this.tbUpdateAge = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
@@ -321,7 +321,7 @@
             this.userPanel.Controls.Add(this.textBox2);
             this.userPanel.Controls.Add(this.textBox1);
             this.userPanel.Controls.Add(this.buttonDeleteEvent);
-            this.userPanel.Controls.Add(this.labelYourEvents);
+            this.userPanel.Controls.Add(this.labelEvents);
             this.userPanel.Controls.Add(this.labelLoggedInUser);
             this.userPanel.Controls.Add(this.buttonUpdateInfo);
             this.userPanel.Controls.Add(this.updateAccountInfo);
@@ -335,6 +335,13 @@
             this.userPanel.Size = new System.Drawing.Size(624, 586);
             this.userPanel.TabIndex = 30;
             this.userPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userPanel_Paint);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(244, 312);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 25;
             // 
             // cbLocations
             // 
@@ -353,6 +360,7 @@
             this.buttonSearchEvents.TabIndex = 23;
             this.buttonSearchEvents.Text = "Search events";
             this.buttonSearchEvents.UseVisualStyleBackColor = true;
+            this.buttonSearchEvents.Click += new System.EventHandler(this.buttonSearchEvents_Click);
             // 
             // buttonLogout
             // 
@@ -442,14 +450,15 @@
             this.buttonDeleteEvent.Text = "Delete event";
             this.buttonDeleteEvent.UseVisualStyleBackColor = true;
             // 
-            // labelYourEvents
+            // labelEvents
             // 
-            this.labelYourEvents.AutoSize = true;
-            this.labelYourEvents.Location = new System.Drawing.Point(12, 33);
-            this.labelYourEvents.Name = "labelYourEvents";
-            this.labelYourEvents.Size = new System.Drawing.Size(64, 13);
-            this.labelYourEvents.TabIndex = 10;
-            this.labelYourEvents.Text = "Your events";
+            this.labelEvents.AutoSize = true;
+            this.labelEvents.Location = new System.Drawing.Point(12, 33);
+            this.labelEvents.Name = "labelEvents";
+            this.labelEvents.Size = new System.Drawing.Size(64, 13);
+            this.labelEvents.TabIndex = 10;
+            this.labelEvents.Text = "Your events";
+            this.labelEvents.Click += new System.EventHandler(this.labelEvents_Click);
             // 
             // labelLoggedInUser
             // 
@@ -508,13 +517,6 @@
             this.tbUpdateAge.TabIndex = 0;
             this.tbUpdateAge.TextChanged += new System.EventHandler(this.tbUpdateAge_TextChanged);
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(244, 312);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 25;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -566,7 +568,7 @@
         private System.Windows.Forms.Button buttonUpdateInfo;
         private System.Windows.Forms.Label labelLoggedInUser;
         private System.Windows.Forms.Label labelError;
-        private System.Windows.Forms.Label labelYourEvents;
+        private System.Windows.Forms.Label labelEvents;
         private System.Windows.Forms.Button buttonCreateEvent;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
