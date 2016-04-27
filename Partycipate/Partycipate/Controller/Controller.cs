@@ -43,6 +43,10 @@ namespace Partycipate
         {
             return EventAccess.ShowLocations();
         }
+        public static void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        {
+            EventAccess.CreateEvent(eventName, eventTime, location, note, openSlots, owner);
+        }
 
 
 

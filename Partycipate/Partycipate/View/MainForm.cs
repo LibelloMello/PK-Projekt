@@ -29,16 +29,7 @@ namespace Partycipate
                 loggedInUser = value;
             }
         }
-        private void timer()
-        {
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Elapsed += new ElapsedEventHandler(function);
-            // check every 1 minute
-            timer.Interval = 60000;
-            timer.Enabled = true;
-            timer.Start();
-            Refresh();
-        }
+
         private void function(object sender, ElapsedEventArgs e)
         {
         }
@@ -294,6 +285,70 @@ namespace Partycipate
         {
 
         }
+
+        private void buttonShowOwnEvents_Click(object sender, EventArgs e)
+        {
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+            DataGridViewColumn column = listOfEventsByUser.Columns[0];
+            column.Width = 60;
+            labelEvents.Text = "Your events";
+        }
+
+
+
+        private void buttonCreateEvent_Click(object sender, EventArgs e)
+        {
+            Controller.CreateEvent(tbEventName.Text, tbEventTime.Text, tbLocation.Text, tbNote.Text, int.Parse(tbOpenSlots.Text), LoggedInUser);
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+            DataGridViewColumn column = listOfEventsByUser.Columns[0];
+            column.Width = 60;
+            cbLocations.DataSource = Controller.ShowLocations();
+            labelEvents.Text = "Your events";
+
+        }
+        private void tbEventName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbEventTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void tbOpenSlots_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbNote_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void tbUpdateEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdatePassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdatePhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 
 }

@@ -52,18 +52,16 @@
             this.loginPanel = new System.Windows.Forms.Panel();
             this.labelError = new System.Windows.Forms.Label();
             this.userPanel = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.cbLocations = new System.Windows.Forms.ComboBox();
             this.buttonSearchEvents = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.listOfEventsByUser = new System.Windows.Forms.DataGridView();
             this.buttonUpdateEvent = new System.Windows.Forms.Button();
             this.buttonCreateEvent = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbNote = new System.Windows.Forms.TextBox();
+            this.tbLocation = new System.Windows.Forms.TextBox();
+            this.tbEventTime = new System.Windows.Forms.TextBox();
+            this.tbEventName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.labelEvents = new System.Windows.Forms.Label();
@@ -74,6 +72,13 @@
             this.tbUpdatePassword = new System.Windows.Forms.TextBox();
             this.tbUpdateEmail = new System.Windows.Forms.TextBox();
             this.tbUpdateAge = new System.Windows.Forms.TextBox();
+            this.buttonShowOwnEvents = new System.Windows.Forms.Button();
+            this.tbOpenSlots = new System.Windows.Forms.TextBox();
+            this.labelEventName = new System.Windows.Forms.Label();
+            this.labelEventTime = new System.Windows.Forms.Label();
+            this.labelLocation = new System.Windows.Forms.Label();
+            this.labelNote = new System.Windows.Forms.Label();
+            this.labelOpenSlots = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
@@ -307,18 +312,23 @@
             // 
             // userPanel
             // 
-            this.userPanel.Controls.Add(this.textBox7);
+            this.userPanel.Controls.Add(this.labelOpenSlots);
+            this.userPanel.Controls.Add(this.labelNote);
+            this.userPanel.Controls.Add(this.labelLocation);
+            this.userPanel.Controls.Add(this.labelEventTime);
+            this.userPanel.Controls.Add(this.labelEventName);
+            this.userPanel.Controls.Add(this.tbOpenSlots);
+            this.userPanel.Controls.Add(this.buttonShowOwnEvents);
             this.userPanel.Controls.Add(this.cbLocations);
             this.userPanel.Controls.Add(this.buttonSearchEvents);
             this.userPanel.Controls.Add(this.buttonLogout);
             this.userPanel.Controls.Add(this.listOfEventsByUser);
             this.userPanel.Controls.Add(this.buttonUpdateEvent);
             this.userPanel.Controls.Add(this.buttonCreateEvent);
-            this.userPanel.Controls.Add(this.textBox6);
-            this.userPanel.Controls.Add(this.textBox5);
-            this.userPanel.Controls.Add(this.textBox4);
-            this.userPanel.Controls.Add(this.textBox3);
-            this.userPanel.Controls.Add(this.textBox2);
+            this.userPanel.Controls.Add(this.tbNote);
+            this.userPanel.Controls.Add(this.tbLocation);
+            this.userPanel.Controls.Add(this.tbEventTime);
+            this.userPanel.Controls.Add(this.tbEventName);
             this.userPanel.Controls.Add(this.textBox1);
             this.userPanel.Controls.Add(this.buttonDeleteEvent);
             this.userPanel.Controls.Add(this.labelEvents);
@@ -335,13 +345,6 @@
             this.userPanel.Size = new System.Drawing.Size(624, 586);
             this.userPanel.TabIndex = 30;
             this.userPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userPanel_Paint);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(244, 312);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 25;
             // 
             // cbLocations
             // 
@@ -383,7 +386,7 @@
             // 
             // buttonUpdateEvent
             // 
-            this.buttonUpdateEvent.Location = new System.Drawing.Point(120, 452);
+            this.buttonUpdateEvent.Location = new System.Drawing.Point(189, 452);
             this.buttonUpdateEvent.Name = "buttonUpdateEvent";
             this.buttonUpdateEvent.Size = new System.Drawing.Size(85, 23);
             this.buttonUpdateEvent.TabIndex = 19;
@@ -392,58 +395,56 @@
             // 
             // buttonCreateEvent
             // 
-            this.buttonCreateEvent.Location = new System.Drawing.Point(29, 452);
+            this.buttonCreateEvent.Location = new System.Drawing.Point(98, 452);
             this.buttonCreateEvent.Name = "buttonCreateEvent";
             this.buttonCreateEvent.Size = new System.Drawing.Size(85, 23);
             this.buttonCreateEvent.TabIndex = 18;
             this.buttonCreateEvent.Text = "Create event";
             this.buttonCreateEvent.UseVisualStyleBackColor = true;
+            this.buttonCreateEvent.Click += new System.EventHandler(this.buttonCreateEvent_Click);
             // 
-            // textBox6
+            // tbNote
             // 
-            this.textBox6.Location = new System.Drawing.Point(29, 426);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(176, 20);
-            this.textBox6.TabIndex = 17;
+            this.tbNote.Location = new System.Drawing.Point(98, 400);
+            this.tbNote.Name = "tbNote";
+            this.tbNote.Size = new System.Drawing.Size(176, 20);
+            this.tbNote.TabIndex = 16;
+            this.tbNote.TextChanged += new System.EventHandler(this.tbNote_TextChanged);
             // 
-            // textBox5
+            // tbLocation
             // 
-            this.textBox5.Location = new System.Drawing.Point(29, 400);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(176, 20);
-            this.textBox5.TabIndex = 16;
+            this.tbLocation.Location = new System.Drawing.Point(98, 374);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.Size = new System.Drawing.Size(176, 20);
+            this.tbLocation.TabIndex = 15;
+            this.tbLocation.TextChanged += new System.EventHandler(this.tbLocation_TextChanged);
             // 
-            // textBox4
+            // tbEventTime
             // 
-            this.textBox4.Location = new System.Drawing.Point(29, 374);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(176, 20);
-            this.textBox4.TabIndex = 15;
+            this.tbEventTime.Location = new System.Drawing.Point(98, 348);
+            this.tbEventTime.Name = "tbEventTime";
+            this.tbEventTime.Size = new System.Drawing.Size(176, 20);
+            this.tbEventTime.TabIndex = 14;
+            this.tbEventTime.TextChanged += new System.EventHandler(this.tbEventTime_TextChanged);
             // 
-            // textBox3
+            // tbEventName
             // 
-            this.textBox3.Location = new System.Drawing.Point(29, 348);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 20);
-            this.textBox3.TabIndex = 14;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(29, 322);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 20);
-            this.textBox2.TabIndex = 13;
+            this.tbEventName.Location = new System.Drawing.Point(98, 322);
+            this.tbEventName.Name = "tbEventName";
+            this.tbEventName.Size = new System.Drawing.Size(176, 20);
+            this.tbEventName.TabIndex = 13;
+            this.tbEventName.TextChanged += new System.EventHandler(this.tbEventName_TextChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 504);
+            this.textBox1.Location = new System.Drawing.Point(98, 504);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(176, 20);
             this.textBox1.TabIndex = 12;
             // 
             // buttonDeleteEvent
             // 
-            this.buttonDeleteEvent.Location = new System.Drawing.Point(74, 530);
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(145, 530);
             this.buttonDeleteEvent.Name = "buttonDeleteEvent";
             this.buttonDeleteEvent.Size = new System.Drawing.Size(84, 21);
             this.buttonDeleteEvent.TabIndex = 11;
@@ -494,6 +495,7 @@
             this.tbUpdatePhoneNumber.Name = "tbUpdatePhoneNumber";
             this.tbUpdatePhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.tbUpdatePhoneNumber.TabIndex = 4;
+            this.tbUpdatePhoneNumber.TextChanged += new System.EventHandler(this.tbUpdatePhoneNumber_TextChanged);
             // 
             // tbUpdatePassword
             // 
@@ -501,6 +503,7 @@
             this.tbUpdatePassword.Name = "tbUpdatePassword";
             this.tbUpdatePassword.Size = new System.Drawing.Size(100, 20);
             this.tbUpdatePassword.TabIndex = 2;
+            this.tbUpdatePassword.TextChanged += new System.EventHandler(this.tbUpdatePassword_TextChanged);
             // 
             // tbUpdateEmail
             // 
@@ -508,6 +511,7 @@
             this.tbUpdateEmail.Name = "tbUpdateEmail";
             this.tbUpdateEmail.Size = new System.Drawing.Size(100, 20);
             this.tbUpdateEmail.TabIndex = 1;
+            this.tbUpdateEmail.TextChanged += new System.EventHandler(this.tbUpdateEmail_TextChanged);
             // 
             // tbUpdateAge
             // 
@@ -516,6 +520,69 @@
             this.tbUpdateAge.Size = new System.Drawing.Size(100, 20);
             this.tbUpdateAge.TabIndex = 0;
             this.tbUpdateAge.TextChanged += new System.EventHandler(this.tbUpdateAge_TextChanged);
+            // 
+            // buttonShowOwnEvents
+            // 
+            this.buttonShowOwnEvents.Location = new System.Drawing.Point(444, 244);
+            this.buttonShowOwnEvents.Name = "buttonShowOwnEvents";
+            this.buttonShowOwnEvents.Size = new System.Drawing.Size(100, 23);
+            this.buttonShowOwnEvents.TabIndex = 26;
+            this.buttonShowOwnEvents.Text = "Show your events";
+            this.buttonShowOwnEvents.UseVisualStyleBackColor = true;
+            this.buttonShowOwnEvents.Click += new System.EventHandler(this.buttonShowOwnEvents_Click);
+            // 
+            // tbOpenSlots
+            // 
+            this.tbOpenSlots.Location = new System.Drawing.Point(98, 426);
+            this.tbOpenSlots.Name = "tbOpenSlots";
+            this.tbOpenSlots.Size = new System.Drawing.Size(176, 20);
+            this.tbOpenSlots.TabIndex = 27;
+            this.tbOpenSlots.TextChanged += new System.EventHandler(this.tbOpenSlots_TextChanged);
+            // 
+            // labelEventName
+            // 
+            this.labelEventName.AutoSize = true;
+            this.labelEventName.Location = new System.Drawing.Point(24, 325);
+            this.labelEventName.Name = "labelEventName";
+            this.labelEventName.Size = new System.Drawing.Size(64, 13);
+            this.labelEventName.TabIndex = 28;
+            this.labelEventName.Text = "Event name";
+            // 
+            // labelEventTime
+            // 
+            this.labelEventTime.AutoSize = true;
+            this.labelEventTime.Location = new System.Drawing.Point(24, 351);
+            this.labelEventTime.Name = "labelEventTime";
+            this.labelEventTime.Size = new System.Drawing.Size(57, 13);
+            this.labelEventTime.TabIndex = 29;
+            this.labelEventTime.Text = "Event time";
+            // 
+            // labelLocation
+            // 
+            this.labelLocation.AutoSize = true;
+            this.labelLocation.Location = new System.Drawing.Point(24, 377);
+            this.labelLocation.Name = "labelLocation";
+            this.labelLocation.Size = new System.Drawing.Size(48, 13);
+            this.labelLocation.TabIndex = 30;
+            this.labelLocation.Text = "Location";
+            // 
+            // labelNote
+            // 
+            this.labelNote.AutoSize = true;
+            this.labelNote.Location = new System.Drawing.Point(24, 403);
+            this.labelNote.Name = "labelNote";
+            this.labelNote.Size = new System.Drawing.Size(30, 13);
+            this.labelNote.TabIndex = 31;
+            this.labelNote.Text = "Note";
+            // 
+            // labelOpenSlots
+            // 
+            this.labelOpenSlots.AutoSize = true;
+            this.labelOpenSlots.Location = new System.Drawing.Point(24, 429);
+            this.labelOpenSlots.Name = "labelOpenSlots";
+            this.labelOpenSlots.Size = new System.Drawing.Size(57, 13);
+            this.labelOpenSlots.TabIndex = 32;
+            this.labelOpenSlots.Text = "Open slots";
             // 
             // MainForm
             // 
@@ -570,11 +637,10 @@
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.Label labelEvents;
         private System.Windows.Forms.Button buttonCreateEvent;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbNote;
+        private System.Windows.Forms.TextBox tbLocation;
+        private System.Windows.Forms.TextBox tbEventTime;
+        private System.Windows.Forms.TextBox tbEventName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonDeleteEvent;
         private System.Windows.Forms.Button buttonUpdateEvent;
@@ -582,7 +648,13 @@
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonSearchEvents;
         private System.Windows.Forms.ComboBox cbLocations;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button buttonShowOwnEvents;
+        private System.Windows.Forms.TextBox tbOpenSlots;
+        private System.Windows.Forms.Label labelEventTime;
+        private System.Windows.Forms.Label labelEventName;
+        private System.Windows.Forms.Label labelOpenSlots;
+        private System.Windows.Forms.Label labelNote;
+        private System.Windows.Forms.Label labelLocation;
     }
 }
 

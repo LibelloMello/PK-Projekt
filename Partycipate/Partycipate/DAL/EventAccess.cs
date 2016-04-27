@@ -44,7 +44,7 @@ namespace Partycipate
 
         }
 
-        public void CreateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        public static void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
         {
 
             DbUtil d = new DbUtil();
@@ -54,8 +54,7 @@ namespace Partycipate
             try
             {
 
-                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventId, @EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
-                myCommand.Parameters.AddWithValue("@EventId", eventId);
+                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
                 myCommand.Parameters.AddWithValue("@EventName", eventName);
                 myCommand.Parameters.AddWithValue("@EventTime", eventTime);
                 myCommand.Parameters.AddWithValue("@Location", location);
@@ -195,7 +194,7 @@ namespace Partycipate
             SqlDataReader myReader = null;
             try
             {
-                SqlCommand myCommand = new SqlCommand("SELECT LOCATION FROM PARTY", myConnection);
+                SqlCommand myCommand = new SqlCommand("SELECT DISTINCT LOCATION FROM PARTY", myConnection);
                 myReader = myCommand.ExecuteReader();
 
 
