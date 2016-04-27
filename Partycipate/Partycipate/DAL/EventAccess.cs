@@ -11,7 +11,7 @@ namespace Partycipate
     public class EventAccess
     {
 
-        public Event FindEvent(int eventId)
+        public static Event FindEvent(int eventId)
         {
 
             DbUtil d = new DbUtil();
@@ -29,7 +29,11 @@ namespace Partycipate
                 while (myReader.Read())
                 {
                     e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
-                    e.Location = (myReader["Location"].ToString());
+                    e.Location = myReader["LOCATION"].ToString();
+                    e.EventName = myReader["EVENT_NAME"].ToString();
+                    e.Note = myReader["NOTE"].ToString();
+                    e.OpenSlots = int.Parse(myReader["OPEN_SLOTS"].ToString());
+                    e.EventTime = myReader["EVENT_TIME"].ToString();
 
                 }
                 return e;
@@ -44,7 +48,7 @@ namespace Partycipate
 
         }
 
-        public void CreateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        public static void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
         {
 
             DbUtil d = new DbUtil();
@@ -54,8 +58,7 @@ namespace Partycipate
             try
             {
 
-                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventId, @EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
-                myCommand.Parameters.AddWithValue("@EventId", eventId);
+                SqlCommand myCommand = new SqlCommand("INSERT INTO PARTY VALUES(@EventName, @EventTime, @Location, @Note, @OpenSlots, @Owner)", myConnection);
                 myCommand.Parameters.AddWithValue("@EventName", eventName);
                 myCommand.Parameters.AddWithValue("@EventTime", eventTime);
                 myCommand.Parameters.AddWithValue("@Location", location);
@@ -92,7 +95,7 @@ namespace Partycipate
             }
         }
 
-        public void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
@@ -116,41 +119,30 @@ namespace Partycipate
             }
         }
 
-        public static List<Event> FindEventsByLocation(string location)
+        public static DataTable FindEventsByLocation(string location)
         {
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlCommand myCommand = new SqlCommand();
+            DataTable table = new DataTable();
+
+            try
             {
                 DbUtil d = new DbUtil();
-                Console.WriteLine("Innan SQL");
                 SqlConnection myConnection = d.Connection();
-                SqlDataReader myReader = null;
-                Event e = new Event();
-                List<Event> events = new List<Event>();
+                //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
+                //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
-                try
-                {
-                    SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY WHERE LOCATION = @Location", myConnection);
-                    myCommand.Parameters.AddWithValue("@Location", location);
-                    myReader = myCommand.ExecuteReader();
-
-
-                    while (myReader.Read())
-                    {
-                        e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
-                        e.EventName = myReader["EVENT_NAME"].ToString();
-                        e.EventTime = myReader["EVENT_TIME"].ToString();
-                        events.Add(e);
-
-                    }
-                    return events;
-
-                }
-                catch (Exception e1)
-                {
-                    Console.WriteLine(e1.ToString());
-                    return null;
-                }
+                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE LOCATION = '" + location + "'", myConnection);
+                da.SelectCommand = myCommand;
+                da.Fill(table);
+                myConnection.Close();
+                return table;
             }
-
+            catch (SqlException sqlEx)
+            {
+                System.Windows.Forms.MessageBox.Show("Database error:" + sqlEx.ToString());
+                throw sqlEx;
+            }
         }
         public static DataTable GetAllEventsByUser(string userName)
         {
@@ -165,7 +157,7 @@ namespace Partycipate
                 //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
                 //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
-                myCommand = new SqlCommand("SELECT * FROM PARTY WHERE OWNER = '" + userName +"'", myConnection);
+                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE OWNER = '" + userName +"'", myConnection);
                 da.SelectCommand = myCommand;
                 da.Fill(table);
                 myConnection.Close();
@@ -178,39 +170,7 @@ namespace Partycipate
             }
         }
 
-    
-        public static SqlDataReader FindEventsByUser2(string userName)
-        {
-            {
-                DbUtil d = new DbUtil();
-
-                SqlConnection myConnection = d.Connection();
-                SqlDataReader myReader = null;
-
-                try
-                {
-                    SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY WHERE OWNER = @UserName", myConnection);
-                    myCommand.Parameters.AddWithValue("@UserName", userName);
-                    myReader = myCommand.ExecuteReader();
-
-
-                    while (myReader.Read())
-                    {
-      
-
-                    }
-                    return myReader;
-
-                }
-                catch (Exception e1)
-                {
-                    Console.WriteLine(e1.ToString());
-                    return null;
-                }
-
-            }
-
-        }
+     
         public static DataTable GetAllEvents()
         {
             try
@@ -228,6 +188,30 @@ namespace Partycipate
             {
                 System.Windows.Forms.MessageBox.Show("Database error:" + sqlEx.ToString());
                 throw sqlEx;
+            }
+        }
+        public static List<string> ShowLocations()
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            List<string> locations = new List<string>();
+            SqlDataReader myReader = null;
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("SELECT DISTINCT LOCATION FROM PARTY", myConnection);
+                myReader = myCommand.ExecuteReader();
+
+
+                while (myReader.Read())
+                {
+                    locations.Add(myReader["LOCATION"].ToString());
+
+                }
+                return locations;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

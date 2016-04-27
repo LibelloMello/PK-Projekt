@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Partycipate
@@ -29,7 +30,11 @@ namespace Partycipate
             }
         }
 
-        UserAccess access = new UserAccess();
+        private void function(object sender, ElapsedEventArgs e)
+        {
+        }
+
+
         public MainForm()
         {
 
@@ -45,7 +50,7 @@ namespace Partycipate
         }
         public void Login()
         {
-            string bajs = tbUserNameLogin.Text;
+       
             if (Controller.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
             {
                 Authenticated = true;
@@ -56,6 +61,7 @@ namespace Partycipate
                 listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
                 DataGridViewColumn column = listOfEventsByUser.Columns[0];
                 column.Width = 60;
+                cbLocations.DataSource = Controller.ShowLocations();
 
             }
             else
@@ -68,6 +74,7 @@ namespace Partycipate
             }
 
         }
+      
 
 
         private void label6_Click(object sender, EventArgs e)
@@ -233,6 +240,7 @@ namespace Partycipate
         {
             LoggedInUser = null;
             userPanel.Visible = false;
+            updateEventPanel.Visible = false;
             loginPanel.Visible = true;
             
         }
@@ -256,6 +264,150 @@ namespace Partycipate
         private void userPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cbLocations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void buttonSearchEvents_Click(object sender, EventArgs e)
+        {
+            listOfEventsByUser.DataSource = Controller.FindEventsByLocation(cbLocations.Text);
+            labelEvents.Text = ("Events for " + cbLocations.Text);
+
+
+
+
+        }
+
+        private void labelEvents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonShowOwnEvents_Click(object sender, EventArgs e)
+        {
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+            DataGridViewColumn column = listOfEventsByUser.Columns[0];
+            column.Width = 60;
+            labelEvents.Text = "Your events";
+        }
+
+
+
+        private void buttonCreateEvent_Click(object sender, EventArgs e)
+        {
+            Controller.CreateEvent(tbEventName.Text, tbEventTime.Text, tbLocation.Text, tbNote.Text, int.Parse(tbOpenSlots.Text), LoggedInUser);
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+            DataGridViewColumn column = listOfEventsByUser.Columns[0];
+            column.Width = 60;
+            cbLocations.DataSource = Controller.ShowLocations();
+            labelEvents.Text = "Your events";
+
+        }
+        private void tbEventName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbEventTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void tbOpenSlots_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbNote_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void tbUpdateEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdatePassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdatePhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void tbEventIdForUpdate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateEvent_Click(object sender, EventArgs e)
+        {
+            Event eu = Controller.FindEvent(int.Parse(tbEventIdForUpdate.Text));
+            tbUpdateEventName.Text = eu.EventName;
+            tbUpdateEventTime.Text = eu.EventTime;
+            tbUpdateLocation.Text = eu.Location;
+            tbUpdateNote.Text = eu.Note;
+            tbUpdateOpenSlots.Text = eu.OpenSlots.ToString();
+            userPanel.Visible = false;
+            updateEventPanel.Visible = true;
+ 
+        }
+
+
+
+        //
+        //Panel Update Event
+        //
+
+        private void buttonBackToUser_Click(object sender, EventArgs e)
+        {
+            updateEventPanel.Visible = false;
+            userPanel.Visible = true;
+           
+        }
+
+
+        private void tbUpdateEventName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateEventTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateNote_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdateOpenSlots_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text),tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text));
         }
     }
 

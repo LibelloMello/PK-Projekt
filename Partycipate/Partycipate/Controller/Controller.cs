@@ -12,7 +12,7 @@ namespace Partycipate
     {
        
 
-        public static List<Event> FindEventsByLocation(string location)
+        public static DataTable FindEventsByLocation(string location)
         {
            return EventAccess.FindEventsByLocation(location);
         }
@@ -30,10 +30,7 @@ namespace Partycipate
         {
             return UserAccess.GetLoginAuthentication(userName, password);
         }
-        public static SqlDataReader GetAllEventsForUser(string userName)
-        {
-            return EventAccess.FindEventsByUser2(userName);
-        }
+
         public static DataTable GetAllEvents()
         {
             return EventAccess.GetAllEvents(); 
@@ -42,6 +39,23 @@ namespace Partycipate
         {
             return EventAccess.GetAllEventsByUser(userName);
         }
+        public static List<string> ShowLocations()
+        {
+            return EventAccess.ShowLocations();
+        }
+        public static void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        {
+            EventAccess.CreateEvent(eventName, eventTime, location, note, openSlots, owner);
+        }
+        public static Event FindEvent(int eventId)
+        {
+            return EventAccess.FindEvent(eventId);
+        }
+        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        {
+            EventAccess.UpdateEvent(eventId, eventName, eventTime, location, note, openSlots);
+        }
+
 
 
     }
