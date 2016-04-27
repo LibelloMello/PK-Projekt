@@ -187,6 +187,30 @@ namespace Partycipate
                 throw sqlEx;
             }
         }
+        public static List<string> ShowLocations()
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            List<string> locations = new List<string>();
+            SqlDataReader myReader = null;
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("SELECT LOCATION FROM PARTY", myConnection);
+                myReader = myCommand.ExecuteReader();
+
+
+                while (myReader.Read())
+                {
+                    locations.Add(myReader["LOCATION"].ToString());
+
+                }
+                return locations;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
 

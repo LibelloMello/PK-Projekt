@@ -33,7 +33,7 @@ namespace Partycipate
         {
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Elapsed += new ElapsedEventHandler(function);
-            // check every 1 minuut
+            // check every 1 minute
             timer.Interval = 60000;
             timer.Enabled = true;
             timer.Start();
@@ -59,7 +59,7 @@ namespace Partycipate
         }
         public void Login()
         {
-            string bajs = tbUserNameLogin.Text;
+       
             if (Controller.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
             {
                 Authenticated = true;
@@ -70,6 +70,7 @@ namespace Partycipate
                 listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
                 DataGridViewColumn column = listOfEventsByUser.Columns[0];
                 column.Width = 60;
+                cbLocations.DataSource = Controller.ShowLocations();
 
             }
             else
@@ -82,6 +83,7 @@ namespace Partycipate
             }
 
         }
+      
 
 
         private void label6_Click(object sender, EventArgs e)

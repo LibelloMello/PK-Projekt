@@ -52,6 +52,8 @@
             this.loginPanel = new System.Windows.Forms.Panel();
             this.labelError = new System.Windows.Forms.Label();
             this.userPanel = new System.Windows.Forms.Panel();
+            this.cbLocations = new System.Windows.Forms.ComboBox();
+            this.buttonSearchEvents = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.listOfEventsByUser = new System.Windows.Forms.DataGridView();
             this.buttonUpdateEvent = new System.Windows.Forms.Button();
@@ -71,8 +73,7 @@
             this.tbUpdatePassword = new System.Windows.Forms.TextBox();
             this.tbUpdateEmail = new System.Windows.Forms.TextBox();
             this.tbUpdateAge = new System.Windows.Forms.TextBox();
-            this.buttonSearchEvents = new System.Windows.Forms.Button();
-            this.cbLocations = new System.Windows.Forms.ComboBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
@@ -306,6 +307,7 @@
             // 
             // userPanel
             // 
+            this.userPanel.Controls.Add(this.textBox7);
             this.userPanel.Controls.Add(this.cbLocations);
             this.userPanel.Controls.Add(this.buttonSearchEvents);
             this.userPanel.Controls.Add(this.buttonLogout);
@@ -333,6 +335,24 @@
             this.userPanel.Size = new System.Drawing.Size(624, 586);
             this.userPanel.TabIndex = 30;
             this.userPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userPanel_Paint);
+            // 
+            // cbLocations
+            // 
+            this.cbLocations.FormattingEnabled = true;
+            this.cbLocations.Location = new System.Drawing.Point(15, 242);
+            this.cbLocations.Name = "cbLocations";
+            this.cbLocations.Size = new System.Drawing.Size(143, 21);
+            this.cbLocations.TabIndex = 24;
+            this.cbLocations.SelectedIndexChanged += new System.EventHandler(this.cbLocations_SelectedIndexChanged);
+            // 
+            // buttonSearchEvents
+            // 
+            this.buttonSearchEvents.Location = new System.Drawing.Point(168, 241);
+            this.buttonSearchEvents.Name = "buttonSearchEvents";
+            this.buttonSearchEvents.Size = new System.Drawing.Size(75, 24);
+            this.buttonSearchEvents.TabIndex = 23;
+            this.buttonSearchEvents.Text = "Search events";
+            this.buttonSearchEvents.UseVisualStyleBackColor = true;
             // 
             // buttonLogout
             // 
@@ -488,23 +508,12 @@
             this.tbUpdateAge.TabIndex = 0;
             this.tbUpdateAge.TextChanged += new System.EventHandler(this.tbUpdateAge_TextChanged);
             // 
-            // buttonSearchEvents
+            // textBox7
             // 
-            this.buttonSearchEvents.Location = new System.Drawing.Point(168, 241);
-            this.buttonSearchEvents.Name = "buttonSearchEvents";
-            this.buttonSearchEvents.Size = new System.Drawing.Size(75, 24);
-            this.buttonSearchEvents.TabIndex = 23;
-            this.buttonSearchEvents.Text = "Search events";
-            this.buttonSearchEvents.UseVisualStyleBackColor = true;
-            // 
-            // cbLocations
-            // 
-            this.cbLocations.FormattingEnabled = true;
-            this.cbLocations.Location = new System.Drawing.Point(15, 242);
-            this.cbLocations.Name = "cbLocations";
-            this.cbLocations.Size = new System.Drawing.Size(143, 21);
-            this.cbLocations.TabIndex = 24;
-            this.cbLocations.SelectedIndexChanged += new System.EventHandler(this.cbLocations_SelectedIndexChanged);
+            this.textBox7.Location = new System.Drawing.Point(244, 312);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 25;
             // 
             // MainForm
             // 
@@ -571,6 +580,7 @@
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Button buttonSearchEvents;
         private System.Windows.Forms.ComboBox cbLocations;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
 

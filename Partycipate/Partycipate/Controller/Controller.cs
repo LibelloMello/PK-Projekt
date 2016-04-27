@@ -39,6 +39,11 @@ namespace Partycipate
         {
             return EventAccess.GetAllEventsByUser(userName);
         }
+        public static List<string> ShowLocations()
+        {
+            return EventAccess.ShowLocations();
+        }
+
 
 
     }
