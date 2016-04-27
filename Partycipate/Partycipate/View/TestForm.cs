@@ -82,5 +82,21 @@ namespace Partycipate.View
         {
 
         }
+
+        private void EventLocationButton_Click(object sender, EventArgs e)
+        {
+           // access.findEventsByLocation(tBfindEventByLocation.Text)
+
+        }
+
+        private void tBfindEventByLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tBdisplayEvent_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
