@@ -10,6 +10,10 @@ namespace FindFileApplication
     {
         static void Main(string[] args)
         {
+            Controller c = new Controller();
+            Console.Write("In MyFolder, fetch text file: ");
+            Console.Write(c.ReadFile(Console.ReadLine()));
+            Console.ReadKey();
         }
     }
 }
