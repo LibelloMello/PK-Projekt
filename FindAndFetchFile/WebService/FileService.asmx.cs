@@ -29,9 +29,9 @@ namespace WebService
                 return "************************************************************************* \n"
                     + "ERROR: Couldn't fetch file. \n"
                     + "Error description: File doesn't exist in MyFolder or isn't a .txt file. \n"
-                    + "--------------------------------------------------------------------------------------------- \n"
+                    + "------------------------------------------------------------------------------------------------- \n"
                     + "Troubleshooting: Make sure the file exists, check your spelling \n"
-                    + "and enter file name followed by the correct extension: .txt. \n"
+                    + "and enter file name followed by the correct extension: .txt \n"
                     + "Example: test.txt \n"
                     + "*************************************************************************";
             }
