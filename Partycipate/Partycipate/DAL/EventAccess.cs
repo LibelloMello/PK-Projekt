@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Partycipate
 {
@@ -157,44 +158,33 @@ namespace Partycipate
             }
 
         }
-        public static List<Event> FindEventsByUser(string userName)
+        public static DataTable GetAllEventsByUser(string userName)
         {
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlCommand myCommand = new SqlCommand();
+            DataTable table = new DataTable();
+
+            try
             {
                 DbUtil d = new DbUtil();
-            
                 SqlConnection myConnection = d.Connection();
-                SqlDataReader myReader = null;
-                Event e = new Event();
-                List<Event> events = new List<Event>();
+                //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
+                //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
-                try
-                {
-                    SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY WHERE OWNER = @UserName", myConnection);
-                    myCommand.Parameters.AddWithValue("@UserName", userName);
-                    myReader = myCommand.ExecuteReader();
-
-
-                    while (myReader.Read())
-                    {
-                        e.EventId = int.Parse(myReader["AGE"].ToString());
-                        e.EventName = myReader["EVENT_NAME"].ToString();
-                        e.EventTime = myReader["EVENT_TIME"].ToString();
-                        events.Add(e);
-
-
-                    }
-                    return events;
-
-                }
-                catch (Exception e1)
-                {
-                    Console.WriteLine(e1.ToString());
-                    return null;
-                }
-
+                myCommand = new SqlCommand("SELECT * FROM PARTY WHERE OWNER = '" + userName +"'", myConnection);
+                da.SelectCommand = myCommand;
+                da.Fill(table);
+                myConnection.Close();
+                return table;
             }
-
+            catch (SqlException sqlEx)
+            {
+                System.Windows.Forms.MessageBox.Show("Database error:" + sqlEx.ToString());
+                throw sqlEx;
+            }
         }
+
+    
         public static SqlDataReader FindEventsByUser2(string userName)
         {
             {
@@ -226,6 +216,25 @@ namespace Partycipate
 
             }
 
+        }
+        public static DataTable GetAllEvents()
+        {
+            try
+            {
+                DbUtil d = new DbUtil();
+                SqlConnection myConnection = d.Connection();
+                string query = ("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY");
+                SqlDataAdapter da = new SqlDataAdapter(query, myConnection);
+                DataTable table = new DataTable();
+                da.Fill(table);
+                myConnection.Close();
+                return table;
+            }
+            catch (SqlException sqlEx)
+            {
+                System.Windows.Forms.MessageBox.Show("Database error:" + sqlEx.ToString());
+                throw sqlEx;
+            }
         }
     }
 }

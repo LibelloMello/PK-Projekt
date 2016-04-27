@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,7 @@ namespace Partycipate
         {
             UserAccess.DeleteUser(userName);
         }
-        public static List<Event> FindEventsByUser(string userName)
-        {
-            return EventAccess.FindEventsByUser(userName);
-        }
+    
         public static Boolean GetLoginAuthentication(string userName, string password)
         {
             return UserAccess.GetLoginAuthentication(userName, password);
@@ -36,7 +34,14 @@ namespace Partycipate
         {
             return EventAccess.FindEventsByUser2(userName);
         }
-
+        public static DataTable GetAllEvents()
+        {
+            return EventAccess.GetAllEvents(); 
+        }
+        public static DataTable GetAllEventsByUser(string userName)
+        {
+            return EventAccess.GetAllEventsByUser(userName);
+        }
 
 
     }

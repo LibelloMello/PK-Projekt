@@ -52,6 +52,10 @@ namespace Partycipate
                 LoggedInUser = tbUserNameLogin.Text;
                 loginPanel.Visible = false;
                 userPanel.Visible = true;
+                listOfEventsByUser.AutoGenerateColumns = true;
+                listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+                DataGridViewColumn column = listOfEventsByUser.Columns[0];
+                column.Width = 60;
 
             }
             else
@@ -198,12 +202,21 @@ namespace Partycipate
 
         private void listOfEventsByUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            /*
             //listOfEventsByUser.DataSource = ToDataTable(Controller.FindEventsByUser(LoggedInUser));
             DataTable dataTable = new DataTable();
             dataTable.Load(Controller.GetAllEventsForUser(LoggedInUser));
+            listOfEventsByUser.AutoGenerateColumns = true;
             listOfEventsByUser.DataSource = dataTable;
-            //listOfEventsByUser.DataBind();
+            listOfEventsByUser.Refresh();
+            //listOfEventsByUser.DataBind();*/
+
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEvents();
+           // listOfEventsByUser.DataSource = ds.Tables[0];
+
+
+
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -227,6 +240,22 @@ namespace Partycipate
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(LoggedInUser);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            listOfEventsByUser.DataSource = Controller.GetAllEvents();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEvents();
+        }
+
+        private void userPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
