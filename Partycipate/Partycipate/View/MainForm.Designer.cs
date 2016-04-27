@@ -71,6 +71,8 @@
             this.tbUpdatePassword = new System.Windows.Forms.TextBox();
             this.tbUpdateEmail = new System.Windows.Forms.TextBox();
             this.tbUpdateAge = new System.Windows.Forms.TextBox();
+            this.buttonSearchEvents = new System.Windows.Forms.Button();
+            this.cbLocations = new System.Windows.Forms.ComboBox();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
@@ -304,6 +306,8 @@
             // 
             // userPanel
             // 
+            this.userPanel.Controls.Add(this.cbLocations);
+            this.userPanel.Controls.Add(this.buttonSearchEvents);
             this.userPanel.Controls.Add(this.buttonLogout);
             this.userPanel.Controls.Add(this.listOfEventsByUser);
             this.userPanel.Controls.Add(this.buttonUpdateEvent);
@@ -404,14 +408,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 244);
+            this.textBox1.Location = new System.Drawing.Point(29, 504);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 20);
+            this.textBox1.Size = new System.Drawing.Size(176, 20);
             this.textBox1.TabIndex = 12;
             // 
             // buttonDeleteEvent
             // 
-            this.buttonDeleteEvent.Location = new System.Drawing.Point(312, 243);
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(74, 530);
             this.buttonDeleteEvent.Name = "buttonDeleteEvent";
             this.buttonDeleteEvent.Size = new System.Drawing.Size(84, 21);
             this.buttonDeleteEvent.TabIndex = 11;
@@ -484,6 +488,24 @@
             this.tbUpdateAge.TabIndex = 0;
             this.tbUpdateAge.TextChanged += new System.EventHandler(this.tbUpdateAge_TextChanged);
             // 
+            // buttonSearchEvents
+            // 
+            this.buttonSearchEvents.Location = new System.Drawing.Point(168, 241);
+            this.buttonSearchEvents.Name = "buttonSearchEvents";
+            this.buttonSearchEvents.Size = new System.Drawing.Size(75, 24);
+            this.buttonSearchEvents.TabIndex = 23;
+            this.buttonSearchEvents.Text = "Search events";
+            this.buttonSearchEvents.UseVisualStyleBackColor = true;
+            // 
+            // cbLocations
+            // 
+            this.cbLocations.FormattingEnabled = true;
+            this.cbLocations.Location = new System.Drawing.Point(15, 242);
+            this.cbLocations.Name = "cbLocations";
+            this.cbLocations.Size = new System.Drawing.Size(143, 21);
+            this.cbLocations.TabIndex = 24;
+            this.cbLocations.SelectedIndexChanged += new System.EventHandler(this.cbLocations_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,6 +569,8 @@
         private System.Windows.Forms.Button buttonUpdateEvent;
         private System.Windows.Forms.DataGridView listOfEventsByUser;
         private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Button buttonSearchEvents;
+        private System.Windows.Forms.ComboBox cbLocations;
     }
 }
 

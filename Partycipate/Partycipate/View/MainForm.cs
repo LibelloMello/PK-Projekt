@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace Partycipate
@@ -28,8 +29,21 @@ namespace Partycipate
                 loggedInUser = value;
             }
         }
+        private void timer()
+        {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Elapsed += new ElapsedEventHandler(function);
+            // check every 1 minuut
+            timer.Interval = 60000;
+            timer.Enabled = true;
+            timer.Start();
+            Refresh();
+        }
+        private void function(object sender, ElapsedEventArgs e)
+        {
+        }
 
-        UserAccess access = new UserAccess();
+
         public MainForm()
         {
 
@@ -257,6 +271,18 @@ namespace Partycipate
         {
 
         }
+
+        private void cbLocations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbLocations.InitializeLifetimeService();
+            cbLocations.Items.Add("Lund");
+            cbLocations.Items.Add("Malmö");
+            cbLocations.Items.Add("Borås");
+            cbLocations.Items.Add("Stockholm");
+            cbLocations.Refresh();
+
+        }
+     
     }
 
 }
