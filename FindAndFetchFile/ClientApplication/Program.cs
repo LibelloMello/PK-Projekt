@@ -11,7 +11,7 @@ namespace ClientApplication
         static void Main(string[] args)
         {
             Controller c = new Controller();
-            Console.Write("In my MyFolder, fetch file: ");
+            Console.Write("In MyFolder, fetch file: ");
             Console.Write(c.ReadFile(Console.ReadLine()));
             Console.ReadKey();
         }

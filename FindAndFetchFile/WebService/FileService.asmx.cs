@@ -26,7 +26,7 @@ namespace WebService
             string path = @"C:\\Users\Hallkvist\Desktop\MyFolder\";
             if (!File.Exists(path + name) || !name.Contains(".txt"))
             {
-                return "Couldn't fetch file. Error: File doesn't exist in MyFolder or isn't a text file. Troubleshooting: Make sure the file exists and enter file name followed by the extension '.txt'. Example: 'test.txt'.";
+                return "ERROR: Couldn't fetch file. Error: File doesn't exist in MyFolder or isn't a text file. Troubleshooting: Make sure the file exists and enter file name followed by the extension '.txt'. Example: 'test.txt'.";
             }
             else
             {
