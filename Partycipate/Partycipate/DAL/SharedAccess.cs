@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Partycipate.DAL
+namespace Partycipate
 {
     public class SharedAccess
     {
@@ -33,6 +33,26 @@ namespace Partycipate.DAL
                 Console.WriteLine(e.ToString());
             }
         }
+
+        public void CreateAttendee(int eId, string uId)
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("INSERT INTO ATTENDING VALUES(@EID, @UId)", myConnection);
+                myCommand.Parameters.AddWithValue("@EId", eId);
+                myCommand.Parameters.AddWithValue("@UId", uId);
+                myCommand.ExecuteNonQuery();
+                Console.WriteLine("Attendee successfully created");
+                myConnection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
     }
-}   
+}
     
