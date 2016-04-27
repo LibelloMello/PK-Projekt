@@ -10,6 +10,8 @@ namespace ClientApplication
     {
         static void Main(string[] args)
         {
+            
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Start:
             Controller c = new Controller();
             Console.Write("In MyFolder, fetch file: ");
@@ -17,7 +19,7 @@ namespace ClientApplication
             Console.ReadKey();
             Console.Clear();
             
-            Console.WriteLine("Insert 'e' or 'exit' followed by Enter to exit application. Any other key to fetch a file!");
+            Console.WriteLine("Insert 'e' or 'exit' followed by Enter to exit application. \nAny other key followed by Enter to fetch a file!");
             String input = Console.ReadLine();
             if (string.Equals(input, "e", StringComparison.OrdinalIgnoreCase) || string.Equals(input, "exit", StringComparison.OrdinalIgnoreCase))
             {
@@ -25,10 +27,11 @@ namespace ClientApplication
             }
             else
             {
+                Console.Clear();
                 goto Start;
             }
         End:
-            Environment.Exit(1);
+            Environment.Exit(0);
             
         }
     }
