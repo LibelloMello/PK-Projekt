@@ -1,4 +1,2 @@
-# PK-Projekt
-C# programmering
-
+# PK-Projekt C#
 Helluva code
