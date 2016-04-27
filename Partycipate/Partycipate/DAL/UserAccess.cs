@@ -132,7 +132,6 @@ namespace Partycipate
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
-            SqlDataReader myReader = null;
 
             try
             {
@@ -151,8 +150,7 @@ namespace Partycipate
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
-                return;
+                Console.WriteLine(e.ToString());         
             }
         }
 

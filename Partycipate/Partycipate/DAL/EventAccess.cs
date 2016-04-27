@@ -48,7 +48,6 @@ namespace Partycipate
 
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
-            SqlDataReader myReader = null;
 
 
             try
@@ -79,11 +78,9 @@ namespace Partycipate
 
             try
             {
-                Console.WriteLine("I try delete");
                 SqlCommand myCommand = new SqlCommand("DELETE FROM PARTY WHERE EVENT_ID = @EventId", myConnection);
                 myCommand.Parameters.AddWithValue("@EventId", eventId);
                 myCommand.ExecuteNonQuery();
-                Console.WriteLine("Event delete executed");
                 myConnection.Close();
 
             }
@@ -91,7 +88,6 @@ namespace Partycipate
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
-
             }
         }
 
@@ -102,7 +98,6 @@ namespace Partycipate
 
             try
             {
-                Console.WriteLine("I try to update event");
                 SqlCommand myCommand = new SqlCommand("UPDATE PARTY SET EVENT_NAME = @EventName, EVENT_TIME = @EventTime, LOCATION = @Location, NOTE = @Note, OPEN_SLOTS = @OpenSlots WHERE EVENT_ID = @EventId", myConnection);
                 myCommand.Parameters.AddWithValue("@EventId", eventId);
                 myCommand.Parameters.AddWithValue("@EventName", eventName);
@@ -111,7 +106,6 @@ namespace Partycipate
                 myCommand.Parameters.AddWithValue("@Note", note);
                 myCommand.Parameters.AddWithValue("@OpenSlots", openSlots);
                 myCommand.ExecuteNonQuery();
-                Console.WriteLine("Update executed");
                 myConnection.Close();
             }
             catch (SqlException e)
@@ -140,7 +134,7 @@ namespace Partycipate
 
                     while (myReader.Read())
                     {
-                        e.EventId = int.Parse(myReader["AGE"].ToString());
+                        e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
                         e.EventName = myReader["EVENT_NAME"].ToString();
                         e.EventTime = myReader["EVENT_TIME"].ToString();
                         events.Add(e);

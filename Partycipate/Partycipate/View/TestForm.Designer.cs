@@ -42,6 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.UpdateEvent = new System.Windows.Forms.Button();
             this.tBeventId = new System.Windows.Forms.TextBox();
+            this.EventLocationButton = new System.Windows.Forms.Button();
+            this.tBfindEventByLocation = new System.Windows.Forms.TextBox();
+            this.tBdisplayEvent = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // DeleteButton
@@ -166,11 +169,40 @@
             this.tBeventId.TabIndex = 13;
             this.tBeventId.TextChanged += new System.EventHandler(this.tBeventId_TextChanged);
             // 
+            // EventLocationButton
+            // 
+            this.EventLocationButton.Location = new System.Drawing.Point(135, 195);
+            this.EventLocationButton.Name = "EventLocationButton";
+            this.EventLocationButton.Size = new System.Drawing.Size(75, 23);
+            this.EventLocationButton.TabIndex = 14;
+            this.EventLocationButton.Text = "Search";
+            this.EventLocationButton.UseVisualStyleBackColor = true;
+            this.EventLocationButton.Click += new System.EventHandler(this.EventLocationButton_Click);
+            // 
+            // tBfindEventByLocation
+            // 
+            this.tBfindEventByLocation.Location = new System.Drawing.Point(12, 195);
+            this.tBfindEventByLocation.Name = "tBfindEventByLocation";
+            this.tBfindEventByLocation.Size = new System.Drawing.Size(100, 20);
+            this.tBfindEventByLocation.TabIndex = 15;
+            this.tBfindEventByLocation.TextChanged += new System.EventHandler(this.tBfindEventByLocation_TextChanged);
+            // 
+            // tBdisplayEvent
+            // 
+            this.tBdisplayEvent.Location = new System.Drawing.Point(12, 261);
+            this.tBdisplayEvent.Name = "tBdisplayEvent";
+            this.tBdisplayEvent.Size = new System.Drawing.Size(231, 20);
+            this.tBdisplayEvent.TabIndex = 16;
+            this.tBdisplayEvent.TextChanged += new System.EventHandler(this.tBdisplayEvent_TextChanged);
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 391);
+            this.Controls.Add(this.tBdisplayEvent);
+            this.Controls.Add(this.tBfindEventByLocation);
+            this.Controls.Add(this.EventLocationButton);
             this.Controls.Add(this.tBeventId);
             this.Controls.Add(this.UpdateEvent);
             this.Controls.Add(this.label5);
@@ -209,5 +241,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button UpdateEvent;
         private System.Windows.Forms.TextBox tBeventId;
+        private System.Windows.Forms.Button EventLocationButton;
+        private System.Windows.Forms.TextBox tBfindEventByLocation;
+        private System.Windows.Forms.TextBox tBdisplayEvent;
     }
 }
