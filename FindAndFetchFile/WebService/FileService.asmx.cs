@@ -26,13 +26,13 @@ namespace WebService
             string path = @"C:\\Users\Hallkvist\Desktop\MyFolder\";
             if (!File.Exists(path + name) || !name.Contains(".txt"))
             {
-                return "************************************************************************* n"
+                return "************************************************************************* \n"
                     + "ERROR: Couldn't fetch file. \n"
                     + "Error description: File doesn't exist in MyFolder or isn't a text file. \n"
-                    + "-------------------------------------------------------------------------"
+                    + "------------------------------------------------------------------------- \n"
                     + "Troubleshooting: Make sure the file exists, check your spelling and enter \n"
                     + "file name followed by the correct extension: .txt. \n"
-                    + "Example: test.txt"
+                    + "Example: test.txt \n"
                     + "*************************************************************************";
             }
             else
