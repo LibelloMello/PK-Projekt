@@ -25,25 +25,52 @@ namespace PartycipateWebService
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
 
-            try {
+            try
+            {
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT USER_NAME, EMAIL, AGE FROM USERS", myConnection);
-                
+
                 DataSet usersDS = new DataSet();
-                
+
                 adapter.Fill(usersDS, "USERS");
                 List<string> userList = new List<string>();
-                foreach(DataRow dataRow in usersDS.Tables["USERS"].Rows)
+                foreach (DataRow dataRow in usersDS.Tables["USERS"].Rows)
                 {
                     userList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
                 }
                 return userList;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
                 return null;
             }
+        }
 
+        [WebMethod]
+        public List<string> GetEvents()
+        {
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT EVENT_ID, EVENT_NAME, EVENT_TIME", myConnection);
+
+                DataSet eventsDS = new DataSet();
+
+                adapter.Fill(eventsDS, "USERS");
+                List<string> eventList = new List<string>();
+                foreach (DataRow dataRow in eventsDS.Tables["USERS"].Rows)
+                {
+                    eventList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
+                }
+                return eventList;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
 
             /* TEMPLATE:
             [WebMethod]
