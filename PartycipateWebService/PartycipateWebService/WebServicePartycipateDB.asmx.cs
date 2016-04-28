@@ -54,7 +54,7 @@ namespace PartycipateWebService
 
             try
             {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT EVENT_ID, EVENT_NAME, EVENT_TIME", myConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT EVENT_ID, EVENT_NAME, EVENT_TIME FROM PARTY", myConnection);
 
                 DataSet eventsDS = new DataSet();
 
