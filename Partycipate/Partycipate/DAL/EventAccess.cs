@@ -75,24 +75,46 @@ namespace Partycipate
             }
 
         }
-        public void DeleteEvent(int eventId)
+        public static bool DeleteEvent(int eventId, string userName)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
 
-            try
-            {
-                SqlCommand myCommand = new SqlCommand("DELETE FROM PARTY WHERE EVENT_ID = @EventId", myConnection);
+            SqlDataReader myReader = null;
+
+
+                try
+                {
+                
+                SqlCommand myCommand = new SqlCommand("SELECT OWNER FROM PARTY WHERE EVENT_ID = @EventId", myConnection);
                 myCommand.Parameters.AddWithValue("@EventId", eventId);
-                myCommand.ExecuteNonQuery();
+                myReader = myCommand.ExecuteReader();
+                string owner = "";
+                while (myReader.Read())
+                {
+                    owner = myReader["OWNER"].ToString();
+                }
+                myReader.Close();
+                if (owner.Equals(userName))
+                    {
+                        SqlCommand myCommand2 = new SqlCommand("DELETE FROM PARTY WHERE EVENT_ID = @EventId", myConnection);
+                    myCommand2.Parameters.AddWithValue("@EventId", eventId);
+
+
+                    myCommand2.ExecuteNonQuery();
+                       
+                        return true;
+                    }
                 myConnection.Close();
-
+         
             }
+                
+                catch (SqlException e)
+                {
+                    Console.WriteLine(e.Message);
 
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+                }
+            return false;
         }
 
         public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
@@ -132,7 +154,7 @@ namespace Partycipate
                 //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
                 //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
-                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE LOCATION = '" + location + "'", myConnection);
+                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note', OWNER AS Owner FROM PARTY WHERE LOCATION = '" + location + "'", myConnection);
                 da.SelectCommand = myCommand;
                 da.Fill(table);
                 myConnection.Close();
@@ -157,7 +179,7 @@ namespace Partycipate
                 //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
                 //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
-                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE OWNER = '" + userName +"'", myConnection);
+                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE OWNER = '" + userName + "'", myConnection);
                 da.SelectCommand = myCommand;
                 da.Fill(table);
                 myConnection.Close();
@@ -170,7 +192,7 @@ namespace Partycipate
             }
         }
 
-     
+
         public static DataTable GetAllEvents()
         {
             try

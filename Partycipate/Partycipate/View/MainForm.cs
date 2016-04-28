@@ -67,9 +67,10 @@ namespace Partycipate
             else
             {
                 Authenticated = false;
-                labelError.Text = "Wrong username or password";
+                labelErrorLogin.Text = "Wrong username or password";
                 tbUserNameLogin.Clear();
                 tbUserPasswordLogin.Clear();
+                tbEventId.Visible = true;
 
             }
 
@@ -99,9 +100,23 @@ namespace Partycipate
             u.Sex = tbSex.Text;
             u.Age = int.Parse(tbAge.Text);
 
-            Controller.CreateUser(tbUserName.Text, int.Parse(tbAge.Text), tbName.Text, tbEmail.Text, tbPassword.Text, tbPhoneNumber.Text, tbSex.Text);
-            //Controller.CreateUser(u);
-            
+            if(Controller.CreateUser(tbUserName.Text, tbPhoneNumber.Text, tbName.Text, tbEmail.Text, tbSex.Text, tbPassword.Text, int.Parse(tbAge.Text)))
+            {
+                tbUserName.Clear();
+                tbPhoneNumber.Clear();
+                tbName.Clear();
+                tbEmail.Clear();
+                tbSex.Clear();
+                tbPassword.Clear();
+                tbAge.Clear();
+                labelLoginPanelInfo.Text = "User created! Use it to log in";
+            }
+            else
+            {
+                labelLoginPanelInfo.Text = "User was not created, the username and/or email is already taken";
+            }
+         
+
         }
 
         private void tbPhoneNumber_TextChanged(object sender, EventArgs e)
@@ -408,6 +423,40 @@ namespace Partycipate
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text),tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text));
+        }
+
+        private void buttonDeleteEvent_Click(object sender, EventArgs e)
+        {
+           
+            if (Controller.DeleteEvent(int.Parse(tbEventId.Text), LoggedInUser))
+            {
+                listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+                DataGridViewColumn column = listOfEventsByUser.Columns[0];
+                column.Width = 60;
+            } else
+            {
+                labelErrorUserPanel.Text = "Error, either the Event was not found or you are not the owner";
+            }
+        }
+
+        private void tbEventId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelErrorUserPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelErrorLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

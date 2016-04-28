@@ -21,8 +21,8 @@ namespace Partycipate.View
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Knappen triggas");
-            access.DeleteEvent(int.Parse(tBdelete.Text));
+            //onsole.WriteLine("Knappen triggas");
+            //access.DeleteEvent(int.Parse(tBdelete.Text));
         }
 
         private void tBdelete_TextChanged(object sender, EventArgs e)
