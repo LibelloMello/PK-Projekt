@@ -17,34 +17,10 @@ namespace ConsoleApplication
 
             foreach (String s in ws.GetUsers())
             {
+                Console.Beep(frequency:10000, duration:200);
+                
                 Console.WriteLine(s);
             }
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
 
             Console.ReadKey();
             
