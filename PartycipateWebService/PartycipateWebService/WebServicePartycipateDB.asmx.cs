@@ -27,12 +27,10 @@ namespace PartycipateWebService
 
             try {
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT USER_NAME, EMAIL, AGE FROM USERS", myConnection);
-                myCommand.Parameters.AddWithValue("@UserName", userName);
-                myCommand.Parameters.AddWithValue("@Email", email);
-                myCommand.Parameters.AddWithValue("@Age", age);
+                
                 DataSet usersDS = new DataSet();
-                adapter.MissingSchemaAction = MissingSchemaAction.AddwithKey;
-                adapter.Fill(userDS, "USERS");
+                
+                adapter.Fill(usersDS, "USERS");
                 List<string> userList = new List<string>();
                 foreach(DataRow dataRow in usersDS.Tables["USERS"].Rows)
                 {
@@ -43,6 +41,7 @@ namespace PartycipateWebService
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return null;
             }
 
 
