@@ -13,9 +13,12 @@ namespace ConsoleApplication
         public string GetUsers()
         {
             String output = "";
+            
             foreach (String s in ws.GetUsers())
             {
+                
                 output = output + s + " \n";
+               
             }
             return output;
         }
@@ -24,9 +27,11 @@ namespace ConsoleApplication
             String output = "";
             foreach (String s in ws.GetEvents())
             {
+                
                 output = output + s + " \n";
             }
             return output;
         }
+        
     }
 }

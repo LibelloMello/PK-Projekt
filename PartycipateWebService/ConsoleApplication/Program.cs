@@ -13,7 +13,9 @@ namespace ConsoleApplication
         static void Main(string[] args)
         {
             Controller c = new Controller();
-            Start:
+            Console.ForegroundColor = ConsoleColor.Yellow;
+        Start:
+            Console.Clear();
             Console.WriteLine("Insert 'u' followed by Enter to display all users.");
             Console.WriteLine("Insert 'e' followed by Enter to displat all events.");
             Console.WriteLine("Insert 'exit' followed by Enter to exit application.");
@@ -21,18 +23,27 @@ namespace ConsoleApplication
             switch (caseSwitch)
             {
                 case "u":
+                    Console.Clear();
+                    Console.WriteLine("All users: \n");
                     Console.WriteLine(c.GetUsers());
+                    Console.WriteLine("Hit any key to reload.");
+                    Console.ReadKey();
                     break;
                 case "e":
+                    Console.Clear();
+                    Console.WriteLine("All events: \n");
                     Console.WriteLine(c.GetEvents());
+                    Console.WriteLine("Hit any key to reload.");
+                    Console.ReadKey();
                     break;
-                case "exit";
+                case "exit":
                     Environment.Exit(1);
                     break;
                 default:
                     Console.Clear();
-                    goto Start;
+                    goto Start; 
                     break;
+                    
             }
             goto Start;
 
@@ -40,7 +51,7 @@ namespace ConsoleApplication
             
             
 
-            Console.ReadKey();
+            
             
         }
     }
