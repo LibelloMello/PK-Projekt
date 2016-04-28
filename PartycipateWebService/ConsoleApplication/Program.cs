@@ -12,39 +12,33 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            
-            WebServicePartycipateDB ws = new WebServicePartycipateDB();
-
-            foreach (String s in ws.GetUsers())
+            Controller c = new Controller();
+            Start:
+            Console.WriteLine("Insert 'u' followed by Enter to display all users.");
+            Console.WriteLine("Insert 'e' followed by Enter to displat all events.");
+            Console.WriteLine("Insert 'exit' followed by Enter to exit application.");
+            String caseSwitch = Console.ReadLine();
+            switch (caseSwitch)
             {
-                Console.WriteLine(s);
+                case "u":
+                    Console.WriteLine(c.GetUsers());
+                    break;
+                case "e":
+                    Console.WriteLine(c.GetEvents());
+                    break;
+                case "exit";
+                    Environment.Exit(1);
+                    break;
+                default:
+                    Console.Clear();
+                    goto Start;
+                    break;
             }
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
+            goto Start;
 
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
-            Console.Beep();
+            
+            
+            
 
             Console.ReadKey();
             

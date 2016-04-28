@@ -17,9 +17,9 @@ namespace Partycipate
            return EventAccess.FindEventsByLocation(location);
         }
 
-        public static void CreateUser(string userName, int age, string name, string email, string password, string phoneNumber, string sex)
+        public static bool CreateUser(string userName, string phoneNumber, string name, string email, string sex, string password, int age)
         {
-            UserAccess.CreateUser(userName, age, name, email, password, phoneNumber, sex);
+            return UserAccess.CreateUser(userName, phoneNumber, name, email, sex, password, age);
         }
         public static void DeleteUser(string userName)
         {
@@ -54,6 +54,11 @@ namespace Partycipate
         public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
         {
             EventAccess.UpdateEvent(eventId, eventName, eventTime, location, note, openSlots);
+        }
+        public static bool DeleteEvent(int eventId, string userName)
+        {
+
+           return EventAccess.DeleteEvent(eventId, userName);
         }
 
 
