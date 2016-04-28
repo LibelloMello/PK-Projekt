@@ -10,6 +10,9 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
+            WebServicePartycipateDB ws = new WebServicePartycipateDB();
+            Console.WriteLine(ws.GetUser());
+            Console.ReadKey();
         }
     }
 }
