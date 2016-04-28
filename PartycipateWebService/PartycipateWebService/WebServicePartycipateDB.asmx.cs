@@ -28,11 +28,22 @@ namespace PartycipateWebService
                 myCommand.Parameters.AddWithValue("@UserName", userName);
                 myCommand.Parameters.AddWithValue("@Email", email);
                 myCommand.Parameters.AddWithValue("@Age", age);
+                DataSet usersDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddwithKey;
+                adapter.Fill(userDS, "USERS");
+                List<string> userList = new List<string>();
+                foreach(DataRow dataRow in usersDS.Tables["USERS"].Rows)
+                {
+                    userList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
+                }
+                return userList;
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
+
+
             /* TEMPLATE:
             [WebMethod]
          public List<string> GetPlayers()
