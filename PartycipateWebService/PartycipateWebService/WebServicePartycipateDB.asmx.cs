@@ -33,7 +33,22 @@ namespace PartycipateWebService
             {
                 Console.WriteLine(e.ToString());
             }
-           
+            /* TEMPLATE:
+            [WebMethod]
+         public List<string> GetPlayers()
+         {
+             SqlDataAdapter adapter = new SqlDataAdapter("SELECT playername, gamertag FROM player", con);
+             DataSet playerDS = new DataSet();
+             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+             adapter.Fill(playerDS, "player");
+             List<string> playerList = new List<string>();
+             foreach (DataRow dataRow in playerDS.Tables["player"].Rows)
+             {
+                 playerList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
+             }
+             return playerList;
+         }
+            */
 
         }
     }
