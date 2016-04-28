@@ -46,17 +46,15 @@ namespace Partycipate
         }
 
 
-        public static void CreateUser(string userName, int age, string name, string email, string password, string phoneNumber, string sex)
+        public static bool CreateUser(string userName, string phoneNumber, string name, string email, string sex, string password, int age)
         {
 
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
-            SqlDataReader myReader = null;
-
             try
             {
 
-                SqlCommand myCommand = new SqlCommand("INSERT INTO USERS VALUES(@UserName, @Age, @Name, @Email, @Password, @PhoneNumber, @Sex)", myConnection);
+                SqlCommand myCommand = new SqlCommand("INSERT INTO USERS VALUES(@UserName, @PhoneNumber, @Name, @Email, @Sex, @Password, @Age)", myConnection);
                 myCommand.Parameters.AddWithValue("@UserName", userName);
                 myCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                 myCommand.Parameters.AddWithValue("@Name", name);
@@ -66,11 +64,13 @@ namespace Partycipate
                 myCommand.Parameters.AddWithValue("@Age", age);
                 myCommand.ExecuteNonQuery();
                 myConnection.Close();
+                return true;
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
+                return false;
             }
 
         }
