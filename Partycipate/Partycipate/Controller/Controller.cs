@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Partycipate
 {
-    class Controller
+    public class Controller
     {
        
 
