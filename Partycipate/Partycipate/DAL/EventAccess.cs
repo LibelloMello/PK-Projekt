@@ -152,8 +152,6 @@ namespace Partycipate
             {
                 DbUtil d = new DbUtil();
                 SqlConnection myConnection = d.Connection();
-                //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
-                //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
                 myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note', OWNER AS Owner FROM PARTY WHERE LOCATION = '" + location + "'", myConnection);
                 da.SelectCommand = myCommand;

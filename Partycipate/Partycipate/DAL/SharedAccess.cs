@@ -45,19 +45,19 @@ namespace Partycipate
                 myCommand.Parameters.AddWithValue("@EId", eId);
                 myCommand.Parameters.AddWithValue("@UId", uId);
                 myCommand.ExecuteNonQuery();
-                
+
                 myConnection.Close();
                 return true;
 
             }
             catch (SqlException e)
             {
-                
+
                 Console.WriteLine(e.ToString());
                 return false;
             }
-            
+
         }
     }
 }
-    
+

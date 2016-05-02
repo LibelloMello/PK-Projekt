@@ -30,6 +30,14 @@ namespace Partycipate
         {
             return UserAccess.GetLoginAuthentication(userName, password);
         }
+        public static bool UpdateUser(string loggedInUser, string phoneNumber, string email, string password)
+        {
+            return UserAccess.UpdateUser(loggedInUser, phoneNumber, email, password);
+        }
+
+        //
+        //Event methods
+        //
 
         public static DataTable GetAllEvents()
         {

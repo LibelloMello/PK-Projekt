@@ -92,32 +92,37 @@ namespace Partycipate
 
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
-
-            User u = new User();
-            u.UserName = tbUserName.Text;
-            u.PhoneNumber = tbPhoneNumber.Text;
-            u.Name = tbName.Text;
-            u.Email = tbEmail.Text;
-            u.Password = tbPassword.Text;
-            u.Sex = tbSex.Text;
-            u.Age = int.Parse(tbAge.Text);
-
-            if (Controller.CreateUser(tbUserName.Text, tbPhoneNumber.Text, tbName.Text, tbEmail.Text, tbSex.Text, tbPassword.Text, int.Parse(tbAge.Text)))
+            if (IsFilled(tbUserName.Text) && IsFilled(tbPhoneNumber.Text) && IsFilled(tbName.Text) && IsFilled(tbEmail.Text) && IsFilled(tbSex.Text) && IsFilled(tbPassword.Text) && IsFilled(tbAge.Text))
             {
-                tbUserName.Clear();
-                tbPhoneNumber.Clear();
-                tbName.Clear();
-                tbEmail.Clear();
-                tbSex.Clear();
-                tbPassword.Clear();
-                tbAge.Clear();
-                labelLoginPanelInfo.Text = "User created! Use it to log in";
+                User u = new User();
+                u.UserName = tbUserName.Text;
+                u.PhoneNumber = tbPhoneNumber.Text;
+                u.Name = tbName.Text;
+                u.Email = tbEmail.Text;
+                u.Password = tbPassword.Text;
+                u.Sex = tbSex.Text;
+                u.Age = int.Parse(tbAge.Text);
+
+                if (Controller.CreateUser(tbUserName.Text, tbPhoneNumber.Text, tbName.Text, tbEmail.Text, tbSex.Text, tbPassword.Text, int.Parse(tbAge.Text)))
+                {
+                    tbUserName.Clear();
+                    tbPhoneNumber.Clear();
+                    tbName.Clear();
+                    tbEmail.Clear();
+                    tbSex.Clear();
+                    tbPassword.Clear();
+                    tbAge.Clear();
+                    labelLoginPanelInfo.Text = "User created! Use it to log in";
+                }
+                else
+                {
+                    labelLoginPanelInfo.Text = "User was not created, the username and/or email is already taken";
+                }
             }
             else
             {
-                labelLoginPanelInfo.Text = "User was not created, the username and/or email is already taken";
+                labelLoginPanelInfo.Text = "Please input correct values into the fields";
             }
-
 
         }
 
@@ -177,18 +182,7 @@ namespace Partycipate
 
         }
 
-        private void toTestForm_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Authenticated = true;
-            TestForm tform = new TestForm();
-            tform.ShowDialog();
-        }
 
-        private void buttonUpdateInfo_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void labelLoggedInUser_Click(object sender, EventArgs e)
         {
@@ -236,11 +230,39 @@ namespace Partycipate
         {
 
         }
+        private void buttonUpdateInfo_Click(object sender, EventArgs e)
+        {
+            if (IsFilled(tbUpdatePhoneNumber.Text) && IsFilled(tbUpdateEmail.Text) && IsFilled(tbUpdatePassword.Text))
+            {
+                if (Controller.UpdateUser(LoggedInUser, tbUpdatePhoneNumber.Text, tbUpdateEmail.Text, tbUpdatePassword.Text))
+                {
+                    labelInfoUserPanel.Text = ("Successfully updated your info");
+                }
+                else
+                {
+                    labelInfoUserPanel.Text = ("Unable to update your info, try again later");
+                }
+            }
+            else
+            {
+                labelInfoUserPanel.Text = "Please input values into the fields";
+            }
+        }
 
-        private void tbUpdateAge_TextChanged(object sender, EventArgs e)
+        private void tbUpdatePhoneNumber_TextChanged(object sender, EventArgs e)
         {
 
         }
+        private void tbUpdateEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUpdatePassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -300,24 +322,6 @@ namespace Partycipate
         }
 
 
-
-
-
-
-        private void tbUpdateEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbUpdatePassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbUpdatePhoneNumber_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void tbEventIdForUpdate_TextChanged(object sender, EventArgs e)
         {
 
@@ -325,14 +329,21 @@ namespace Partycipate
 
         private void buttonUpdateEvent_Click(object sender, EventArgs e)
         {
-            Event eu = Controller.FindEvent(int.Parse(tbEventIdForUpdate.Text));
-            tbUpdateEventName.Text = eu.EventName;
-            tbUpdateEventTime.Text = eu.EventTime;
-            tbUpdateLocation.Text = eu.Location;
-            tbUpdateNote.Text = eu.Note;
-            tbUpdateOpenSlots.Text = eu.OpenSlots.ToString();
-            userPanel.Visible = false;
-            updateCreateEventPanel.Visible = true;
+            if (IsFilled(tbEventIdForUpdate.Text))
+                {
+                Event eu = Controller.FindEvent(int.Parse(tbEventIdForUpdate.Text));
+                tbUpdateEventName.Text = eu.EventName;
+                tbUpdateEventTime.Text = eu.EventTime;
+                tbUpdateLocation.Text = eu.Location;
+                tbUpdateNote.Text = eu.Note;
+                tbUpdateOpenSlots.Text = eu.OpenSlots.ToString();
+                userPanel.Visible = false;
+                updateCreateEventPanel.Visible = true;
+            }
+            else
+            {
+                labelInfoUserPanel.Text = "Please insert the ID of the event you want to update";
+            }
 
         }
         private void selectedRowsButton_Click(object sender, System.EventArgs e)
@@ -537,13 +548,21 @@ namespace Partycipate
 
         private void buttonAttendEvent_Click(object sender, EventArgs e)
         {
-            if (Controller.AttendEvent(int.Parse(tbAttendEvent.Text), LoggedInUser))
+            if (IsFilled(tbUnattend.Text))
             {
-                labelInfoUserPanel.Text = "Attended event with ID " + tbAttendEvent.Text;
+
+                if (Controller.AttendEvent(int.Parse(tbAttendEvent.Text), LoggedInUser))
+                {
+                    labelInfoUserPanel.Text = "Attended event with ID " + tbAttendEvent.Text;
+                }
+                else
+                {
+
+                }
             }
             else
             {
-
+                labelInfoUserPanel.Text = "Please insert the ID of the event you want to attend to";
             }
         }
 
@@ -554,14 +573,25 @@ namespace Partycipate
 
         private void unattend_Click(object sender, EventArgs e)
         {
+            if (IsFilled(tbUnattend.Text))
+                {
+
+          
             if (Controller.DeleteFromAttendee(int.Parse(tbUnattend.Text), LoggedInUser))
             {
                 
             }
+
             else
             {
-
+                    labelInfoUserPanel.Text = "Please insert a correct value into the field";
             }
+            }
+            else
+            {
+                labelInfoUserPanel.Text = "Please insert the ID of the event you want to stop attending to";
+            }
+
         }
 
         private void tbUnattend_TextChanged(object sender, EventArgs e)
