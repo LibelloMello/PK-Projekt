@@ -24,7 +24,6 @@ namespace Partycipate
             try
             {
                 myConnection.Open();
-                Console.WriteLine("Effffter");
             }
             catch (Exception e)
             {

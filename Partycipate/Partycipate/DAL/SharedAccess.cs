@@ -10,7 +10,7 @@ namespace Partycipate
     public class SharedAccess
     {
 
-        public void DeleteAttendee(int eId, string uId)
+        public static bool DeleteAttendee(int eId, string uId)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
@@ -18,40 +18,45 @@ namespace Partycipate
 
             try
             {
-                Console.WriteLine("Trying to delete attendee");
-                SqlCommand myCommand = new SqlCommand("DELETE FROM ATTENDING WHERE U_ID = @UId AND E_ID=@EId", myConnection);
+                SqlCommand myCommand = new SqlCommand("DELETE FROM EVENT_ATTENDEE WHERE eID = @EventId AND uID = @UserId", myConnection);
                 myCommand.Parameters.AddWithValue("@EventId", eId);
                 myCommand.Parameters.AddWithValue("@UserId", uId);
                 myCommand.ExecuteNonQuery();
-                Console.WriteLine("Delete attendee executed");
                 myConnection.Close();
+                return true;
 
             }
 
             catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
+                return false;
             }
         }
 
-        public void CreateAttendee(int eId, string uId)
+        public static bool CreateAttendee(int eId, string uId)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
 
             try
             {
-                SqlCommand myCommand = new SqlCommand("INSERT INTO ATTENDING VALUES(@EID, @UId)", myConnection);
+                SqlCommand myCommand = new SqlCommand("INSERT INTO EVENT_ATTENDEE VALUES(@EId, @UId)", myConnection);
                 myCommand.Parameters.AddWithValue("@EId", eId);
                 myCommand.Parameters.AddWithValue("@UId", uId);
                 myCommand.ExecuteNonQuery();
-                Console.WriteLine("Attendee successfully created");
+                
                 myConnection.Close();
+                return true;
+
             }
             catch (SqlException e)
             {
+                
                 Console.WriteLine(e.ToString());
+                return false;
             }
+            
         }
     }
 }

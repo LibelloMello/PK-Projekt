@@ -43,9 +43,9 @@ namespace Partycipate
         {
             return EventAccess.ShowLocations();
         }
-        public static void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        public static bool CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
         {
-            EventAccess.CreateEvent(eventName, eventTime, location, note, openSlots, owner);
+            return EventAccess.CreateEvent(eventName, eventTime, location, note, openSlots, owner);
         }
         public static Event FindEvent(int eventId)
         {
@@ -61,7 +61,17 @@ namespace Partycipate
            return EventAccess.DeleteEvent(eventId, userName);
         }
 
-
+        //
+        //EventAttendee
+        //
+        public static bool AttendEvent(int eId, string uId)
+        {
+            return SharedAccess.CreateAttendee(eId, uId);
+        }
+        public static bool DeleteFromAttendee(int eId, string uId)
+        {
+            return SharedAccess.DeleteAttendee(eId, uId);
+        }
 
     }
 }
