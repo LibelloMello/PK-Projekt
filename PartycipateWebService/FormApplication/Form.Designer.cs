@@ -30,7 +30,7 @@
         {
             this.userButton = new System.Windows.Forms.Button();
             this.eventButton = new System.Windows.Forms.Button();
-            this.displayData = new System.Windows.Forms.RichTextBox();
+            this.displayText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // userButton
@@ -41,7 +41,7 @@
             this.userButton.TabIndex = 0;
             this.userButton.Text = "Show all users";
             this.userButton.UseVisualStyleBackColor = true;
-            this.userButton.Click += new System.EventHandler(this.button1_Click);
+            this.userButton.Click += new System.EventHandler(this.userButton_Click);
             // 
             // eventButton
             // 
@@ -53,20 +53,20 @@
             this.eventButton.UseVisualStyleBackColor = true;
             this.eventButton.Click += new System.EventHandler(this.eventButton_Click);
             // 
-            // displayData
+            // displayText
             // 
-            this.displayData.Location = new System.Drawing.Point(12, 41);
-            this.displayData.Name = "displayData";
-            this.displayData.Size = new System.Drawing.Size(373, 358);
-            this.displayData.TabIndex = 2;
-            this.displayData.Text = "";
+            this.displayText.Location = new System.Drawing.Point(12, 41);
+            this.displayText.Name = "displayText";
+            this.displayText.Size = new System.Drawing.Size(373, 358);
+            this.displayText.TabIndex = 2;
+            this.displayText.Text = "";
             // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 411);
-            this.Controls.Add(this.displayData);
+            this.Controls.Add(this.displayText);
             this.Controls.Add(this.eventButton);
             this.Controls.Add(this.userButton);
             this.Name = "Form";
@@ -79,7 +79,7 @@
 
         private System.Windows.Forms.Button userButton;
         private System.Windows.Forms.Button eventButton;
-        private System.Windows.Forms.RichTextBox displayData;
+        private System.Windows.Forms.RichTextBox displayText;
     }
 }
 

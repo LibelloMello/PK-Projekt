@@ -13,22 +13,20 @@ namespace FormApplication
         public string GetUsers()
         {
             String output = "";
-
-            foreach (String s in ws.GetUsers())
+            User[] usersList = ws.GetUsers();
+            foreach (User u in usersList)
             {
-
-                output = output + s + "\n";
-
+                output = output + "Username: " + u.UserName + "\nName: " + u.Name + "\nEmail: " + u.Email + "\nAge: " + u.Age + "\n\n";
             }
             return output;
         }
         public string GetEvents()
         {
             String output = "";
-            foreach (String s in ws.GetEvents())
+            Event[] eventList = ws.GetEvents();
+            foreach (Event e in eventList)
             {
-
-                output = output + s + " \n";
+                output = output + "Event id: " + e.EventId + " \nEvent name: " + e.EventName + "\nLocation: " + e.Location + "\n\n";
             }
             return output;
         }

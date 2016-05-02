@@ -55,7 +55,7 @@ namespace PartycipateWebService
                 return eventsList;
             }
 
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -99,7 +99,7 @@ namespace PartycipateWebService
                 return usersList;
             }
 
-            catch (Exception e1)
+            catch (Exception)
             {
                 return null;
             }

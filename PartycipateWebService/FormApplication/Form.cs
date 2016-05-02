@@ -19,14 +19,14 @@ namespace FormApplication
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void userButton_Click(object sender, EventArgs e)
         {
-            displayData.Text = c.GetUsers();
+            displayText.Text = c.GetUsers();
         }
 
         private void eventButton_Click(object sender, EventArgs e)
         {
-            displayData.Text = c.GetEvents();
+            displayText.Text = c.GetEvents();
         }
     }
 }
