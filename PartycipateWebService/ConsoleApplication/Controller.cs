@@ -12,15 +12,27 @@ namespace ConsoleApplication
         WebServicePartycipateDB ws = new WebServicePartycipateDB();
         public string GetUsers()
         {
-            String output = "";
-            
-            foreach (String s in ws.GetUsers())
+            //String output = "";
+            List<User> usersList = ws.GetUsers();
+            foreach (User u in usersList)
             {
-                
-                output = output + s + " \n";
+                Console.WriteLine("Name: {0} Email: {1} Age: {2}", u.Name, u.Email, u.Age);
+            }
+
+            for (int i = usersList; i > 0; i--)
+            {
+                ws.GetUsers
+
+            } 
+            
+            (User u in ws.GetUsers())
+            {
+                User u1 = u;
+
+                return u1;
                
             }
-            return output;
+            return u;
         }
         public string GetEvents()
         {
