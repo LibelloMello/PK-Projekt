@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class Controller
+    public class Controller
     {
         WebServicePartycipateDB ws = new WebServicePartycipateDB();
         public string GetUsers()
