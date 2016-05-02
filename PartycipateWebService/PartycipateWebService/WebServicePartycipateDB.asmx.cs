@@ -20,32 +20,6 @@ namespace PartycipateWebService
     public class WebServicePartycipateDB : System.Web.Services.WebService
     {
 
-        /*[WebMethod]
-        public List<string> GetUsers()
-        {
-            DbUtil d = new DbUtil();
-            SqlConnection myConnection = d.Connection();
-
-            try
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT USER_NAME, EMAIL, AGE FROM USERS", myConnection);
-
-                DataSet usersDS = new DataSet();
-
-                adapter.Fill(usersDS, "USERS");
-                List<string> userList = new List<string>();
-                foreach (DataRow dataRow in usersDS.Tables["USERS"].Rows)
-                {
-                    userList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
-                }
-                return userList;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                return null;
-            }
-        }*/
         [WebMethod]
         public List<Event> GetEvents()
         {
