@@ -48,7 +48,7 @@ namespace Partycipate
 
         }
 
-        public static void CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
+        public static bool CreateEvent(string eventName, string eventTime, string location, string note, int openSlots, string owner)
         {
 
             DbUtil d = new DbUtil();
@@ -67,13 +67,14 @@ namespace Partycipate
                 myCommand.Parameters.AddWithValue("@Owner", owner);
                 myCommand.ExecuteNonQuery();
                 myConnection.Close();
+                return true;
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+               
             }
-
+            return false;
         }
         public static bool DeleteEvent(int eventId, string userName)
         {
@@ -179,7 +180,7 @@ namespace Partycipate
                 //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
                 //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
 
-                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE OWNER = '" + userName + "'", myConnection);
+                myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note', OWNER AS 'Owner' FROM PARTY WHERE OWNER = '" + userName + "'", myConnection);
                 da.SelectCommand = myCommand;
                 da.Fill(table);
                 myConnection.Close();

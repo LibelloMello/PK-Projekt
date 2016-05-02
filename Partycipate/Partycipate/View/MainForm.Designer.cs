@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -48,61 +46,79 @@
             this.buttonLogin = new System.Windows.Forms.Button();
             this.tbUserNameLogin = new System.Windows.Forms.TextBox();
             this.tbUserPasswordLogin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.toTestForm = new System.Windows.Forms.Button();
+            this.labelInfoForLogin = new System.Windows.Forms.Label();
+            this.labelInfoCreateUser = new System.Windows.Forms.Label();
             this.loginPanel = new System.Windows.Forms.Panel();
+            this.labelErrorLogin = new System.Windows.Forms.Label();
             this.labelLoginPanelInfo = new System.Windows.Forms.Label();
             this.userPanel = new System.Windows.Forms.Panel();
+            this.gbDeleteFromAttendee = new System.Windows.Forms.GroupBox();
+            this.tbUnattend = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.gbAttendAnEvent = new System.Windows.Forms.GroupBox();
+            this.buttonAttendEvent = new System.Windows.Forms.Button();
+            this.tbAttendEvent = new System.Windows.Forms.TextBox();
+            this.gbDeleteAnEvent = new System.Windows.Forms.GroupBox();
+            this.tbEventId = new System.Windows.Forms.TextBox();
+            this.buttonDeleteEvent = new System.Windows.Forms.Button();
+            this.gbToUpdateEvent = new System.Windows.Forms.GroupBox();
+            this.buttonUpdateEvent = new System.Windows.Forms.Button();
             this.tbEventIdForUpdate = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelInfoUserPanel = new System.Windows.Forms.Label();
+            this.buttonToCreateEvent = new System.Windows.Forms.Button();
             this.labelExplanationUpdate = new System.Windows.Forms.Label();
-            this.labelOpenSlots = new System.Windows.Forms.Label();
-            this.labelNote = new System.Windows.Forms.Label();
-            this.labelLocation = new System.Windows.Forms.Label();
-            this.labelEventTime = new System.Windows.Forms.Label();
-            this.labelEventName = new System.Windows.Forms.Label();
-            this.tbOpenSlots = new System.Windows.Forms.TextBox();
             this.buttonShowOwnEvents = new System.Windows.Forms.Button();
             this.cbLocations = new System.Windows.Forms.ComboBox();
             this.buttonSearchEvents = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.listOfEventsByUser = new System.Windows.Forms.DataGridView();
-            this.buttonUpdateEvent = new System.Windows.Forms.Button();
-            this.buttonCreateEvent = new System.Windows.Forms.Button();
-            this.tbNote = new System.Windows.Forms.TextBox();
-            this.tbLocation = new System.Windows.Forms.TextBox();
-            this.tbEventTime = new System.Windows.Forms.TextBox();
-            this.tbEventName = new System.Windows.Forms.TextBox();
-            this.tbEventId = new System.Windows.Forms.TextBox();
-            this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.labelEvents = new System.Windows.Forms.Label();
-            this.labelLoggedInUser = new System.Windows.Forms.Label();
             this.buttonUpdateInfo = new System.Windows.Forms.Button();
             this.updateAccountInfo = new System.Windows.Forms.Label();
             this.tbUpdatePhoneNumber = new System.Windows.Forms.TextBox();
             this.tbUpdatePassword = new System.Windows.Forms.TextBox();
             this.tbUpdateEmail = new System.Windows.Forms.TextBox();
             this.tbUpdateAge = new System.Windows.Forms.TextBox();
-            this.updateEventPanel = new System.Windows.Forms.Panel();
-            this.buttonBackToUser = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.updateCreateEventPanel = new System.Windows.Forms.Panel();
+            this.gbUpdateEvent = new System.Windows.Forms.GroupBox();
             this.tbUpdateOpenSlots = new System.Windows.Forms.TextBox();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.tbUpdateNote = new System.Windows.Forms.TextBox();
-            this.tbUpdateLocation = new System.Windows.Forms.TextBox();
-            this.tbUpdateEventTime = new System.Windows.Forms.TextBox();
             this.tbUpdateEventName = new System.Windows.Forms.TextBox();
-            this.labelErrorUserPanel = new System.Windows.Forms.Label();
-            this.labelErrorLogin = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tbUpdateEventTime = new System.Windows.Forms.TextBox();
+            this.tbUpdateLocation = new System.Windows.Forms.TextBox();
+            this.tbUpdateNote = new System.Windows.Forms.TextBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.labelLocationUpdate = new System.Windows.Forms.Label();
+            this.labelEventNameUpdate = new System.Windows.Forms.Label();
+            this.labelEventTimeUpdate = new System.Windows.Forms.Label();
+            this.gbCreateEvent = new System.Windows.Forms.GroupBox();
+            this.tbOpenSlots = new System.Windows.Forms.TextBox();
+            this.tbEventName = new System.Windows.Forms.TextBox();
+            this.labelOpenSlots = new System.Windows.Forms.Label();
+            this.tbEventTime = new System.Windows.Forms.TextBox();
+            this.labelNote = new System.Windows.Forms.Label();
+            this.tbLocation = new System.Windows.Forms.TextBox();
+            this.labelLocation = new System.Windows.Forms.Label();
+            this.tbNote = new System.Windows.Forms.TextBox();
+            this.labelEventTime = new System.Windows.Forms.Label();
+            this.buttonCreateEvent = new System.Windows.Forms.Button();
+            this.labelEventName = new System.Windows.Forms.Label();
+            this.labelErrorCreateUpdate = new System.Windows.Forms.Label();
+            this.buttonBackToUser = new System.Windows.Forms.Button();
+            this.labelLoggedInUser = new System.Windows.Forms.Label();
+            this.labelNoteUpdate = new System.Windows.Forms.Label();
+            this.labelOpenSlotsUpdate = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
+            this.gbDeleteFromAttendee.SuspendLayout();
+            this.gbAttendAnEvent.SuspendLayout();
+            this.gbDeleteAnEvent.SuspendLayout();
+            this.gbToUpdateEvent.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
-            this.updateEventPanel.SuspendLayout();
+            this.updateCreateEventPanel.SuspendLayout();
+            this.gbUpdateEvent.SuspendLayout();
+            this.gbCreateEvent.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbUserName
@@ -264,44 +280,33 @@
             this.tbUserPasswordLogin.TabIndex = 25;
             this.tbUserPasswordLogin.TextChanged += new System.EventHandler(this.tbUserPasswordLogin_TextChanged);
             // 
-            // label7
+            // labelInfoForLogin
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(105, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(169, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Please login using your credentials";
+            this.labelInfoForLogin.AutoSize = true;
+            this.labelInfoForLogin.Location = new System.Drawing.Point(105, 49);
+            this.labelInfoForLogin.Name = "labelInfoForLogin";
+            this.labelInfoForLogin.Size = new System.Drawing.Size(169, 13);
+            this.labelInfoForLogin.TabIndex = 26;
+            this.labelInfoForLogin.Text = "Please login using your credentials";
             // 
-            // label8
+            // labelInfoCreateUser
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(381, 49);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(147, 13);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Not a member? Join us today!";
-            // 
-            // toTestForm
-            // 
-            this.toTestForm.Location = new System.Drawing.Point(30, 135);
-            this.toTestForm.Name = "toTestForm";
-            this.toTestForm.Size = new System.Drawing.Size(75, 23);
-            this.toTestForm.TabIndex = 29;
-            this.toTestForm.Text = "Testform";
-            this.toTestForm.UseVisualStyleBackColor = true;
-            this.toTestForm.Click += new System.EventHandler(this.toTestForm_Click);
+            this.labelInfoCreateUser.AutoSize = true;
+            this.labelInfoCreateUser.Location = new System.Drawing.Point(381, 49);
+            this.labelInfoCreateUser.Name = "labelInfoCreateUser";
+            this.labelInfoCreateUser.Size = new System.Drawing.Size(147, 13);
+            this.labelInfoCreateUser.TabIndex = 27;
+            this.labelInfoCreateUser.Text = "Not a member? Join us today!";
             // 
             // loginPanel
             // 
             this.loginPanel.Controls.Add(this.labelErrorLogin);
             this.loginPanel.Controls.Add(this.labelLoginPanelInfo);
             this.loginPanel.Controls.Add(this.tbPassword);
-            this.loginPanel.Controls.Add(this.toTestForm);
             this.loginPanel.Controls.Add(this.tbUserName);
             this.loginPanel.Controls.Add(this.tbPhoneNumber);
-            this.loginPanel.Controls.Add(this.label7);
-            this.loginPanel.Controls.Add(this.label8);
+            this.loginPanel.Controls.Add(this.labelInfoForLogin);
+            this.loginPanel.Controls.Add(this.labelInfoCreateUser);
             this.loginPanel.Controls.Add(this.tbUserPasswordLogin);
             this.loginPanel.Controls.Add(this.tbName);
             this.loginPanel.Controls.Add(this.tbUserNameLogin);
@@ -324,6 +329,16 @@
             this.loginPanel.TabIndex = 30;
             this.loginPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.loginPanel_Paint);
             // 
+            // labelErrorLogin
+            // 
+            this.labelErrorLogin.AutoSize = true;
+            this.labelErrorLogin.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorLogin.Location = new System.Drawing.Point(105, 193);
+            this.labelErrorLogin.Name = "labelErrorLogin";
+            this.labelErrorLogin.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorLogin.TabIndex = 31;
+            this.labelErrorLogin.Click += new System.EventHandler(this.labelErrorLogin_Click);
+            // 
             // labelLoginPanelInfo
             // 
             this.labelLoginPanelInfo.AutoSize = true;
@@ -335,28 +350,17 @@
             // 
             // userPanel
             // 
-            this.userPanel.Controls.Add(this.labelErrorUserPanel);
-            this.userPanel.Controls.Add(this.tbEventIdForUpdate);
+            this.userPanel.Controls.Add(this.gbDeleteFromAttendee);
+            this.userPanel.Controls.Add(this.gbAttendAnEvent);
+            this.userPanel.Controls.Add(this.gbToUpdateEvent);
+            this.userPanel.Controls.Add(this.groupBox3);
+            this.userPanel.Controls.Add(this.buttonToCreateEvent);
             this.userPanel.Controls.Add(this.labelExplanationUpdate);
-            this.userPanel.Controls.Add(this.labelOpenSlots);
-            this.userPanel.Controls.Add(this.labelNote);
-            this.userPanel.Controls.Add(this.labelLocation);
-            this.userPanel.Controls.Add(this.labelEventTime);
-            this.userPanel.Controls.Add(this.labelEventName);
-            this.userPanel.Controls.Add(this.tbOpenSlots);
             this.userPanel.Controls.Add(this.buttonShowOwnEvents);
             this.userPanel.Controls.Add(this.cbLocations);
             this.userPanel.Controls.Add(this.buttonSearchEvents);
             this.userPanel.Controls.Add(this.buttonLogout);
             this.userPanel.Controls.Add(this.listOfEventsByUser);
-            this.userPanel.Controls.Add(this.buttonUpdateEvent);
-            this.userPanel.Controls.Add(this.buttonCreateEvent);
-            this.userPanel.Controls.Add(this.tbNote);
-            this.userPanel.Controls.Add(this.tbLocation);
-            this.userPanel.Controls.Add(this.tbEventTime);
-            this.userPanel.Controls.Add(this.tbEventName);
-            this.userPanel.Controls.Add(this.tbEventId);
-            this.userPanel.Controls.Add(this.buttonDeleteEvent);
             this.userPanel.Controls.Add(this.labelEvents);
             this.userPanel.Controls.Add(this.labelLoggedInUser);
             this.userPanel.Controls.Add(this.buttonUpdateInfo);
@@ -372,13 +376,153 @@
             this.userPanel.TabIndex = 30;
             this.userPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userPanel_Paint);
             // 
+            // gbDeleteFromAttendee
+            // 
+            this.gbDeleteFromAttendee.Controls.Add(this.tbUnattend);
+            this.gbDeleteFromAttendee.Controls.Add(this.button1);
+            this.gbDeleteFromAttendee.Location = new System.Drawing.Point(4, 315);
+            this.gbDeleteFromAttendee.Name = "gbDeleteFromAttendee";
+            this.gbDeleteFromAttendee.Size = new System.Drawing.Size(270, 48);
+            this.gbDeleteFromAttendee.TabIndex = 45;
+            this.gbDeleteFromAttendee.TabStop = false;
+            this.gbDeleteFromAttendee.Text = "Stop attending";
+            // 
+            // tbUnattend
+            // 
+            this.tbUnattend.Location = new System.Drawing.Point(14, 19);
+            this.tbUnattend.Name = "tbUnattend";
+            this.tbUnattend.Size = new System.Drawing.Size(115, 20);
+            this.tbUnattend.TabIndex = 44;
+            this.tbUnattend.TextChanged += new System.EventHandler(this.tbUnattend_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(139, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 20);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Unattend";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.unattend_Click);
+            // 
+            // gbAttendAnEvent
+            // 
+            this.gbAttendAnEvent.Controls.Add(this.buttonAttendEvent);
+            this.gbAttendAnEvent.Controls.Add(this.tbAttendEvent);
+            this.gbAttendAnEvent.Location = new System.Drawing.Point(3, 261);
+            this.gbAttendAnEvent.Name = "gbAttendAnEvent";
+            this.gbAttendAnEvent.Size = new System.Drawing.Size(270, 48);
+            this.gbAttendAnEvent.TabIndex = 44;
+            this.gbAttendAnEvent.TabStop = false;
+            this.gbAttendAnEvent.Text = "Attend an event";
+            // 
+            // buttonAttendEvent
+            // 
+            this.buttonAttendEvent.Location = new System.Drawing.Point(139, 19);
+            this.buttonAttendEvent.Name = "buttonAttendEvent";
+            this.buttonAttendEvent.Size = new System.Drawing.Size(104, 20);
+            this.buttonAttendEvent.TabIndex = 42;
+            this.buttonAttendEvent.Text = "Attend";
+            this.buttonAttendEvent.UseVisualStyleBackColor = true;
+            this.buttonAttendEvent.Click += new System.EventHandler(this.buttonAttendEvent_Click);
+            // 
+            // tbAttendEvent
+            // 
+            this.tbAttendEvent.Location = new System.Drawing.Point(14, 19);
+            this.tbAttendEvent.Name = "tbAttendEvent";
+            this.tbAttendEvent.Size = new System.Drawing.Size(115, 20);
+            this.tbAttendEvent.TabIndex = 43;
+            this.tbAttendEvent.TextChanged += new System.EventHandler(this.tbAttendEvent_TextChanged);
+            // 
+            // gbDeleteAnEvent
+            // 
+            this.gbDeleteAnEvent.Controls.Add(this.tbEventId);
+            this.gbDeleteAnEvent.Controls.Add(this.buttonDeleteEvent);
+            this.gbDeleteAnEvent.Location = new System.Drawing.Point(1, 55);
+            this.gbDeleteAnEvent.Name = "gbDeleteAnEvent";
+            this.gbDeleteAnEvent.Size = new System.Drawing.Size(270, 51);
+            this.gbDeleteAnEvent.TabIndex = 40;
+            this.gbDeleteAnEvent.TabStop = false;
+            this.gbDeleteAnEvent.Text = "Delete an event";
+            // 
+            // tbEventId
+            // 
+            this.tbEventId.Location = new System.Drawing.Point(14, 19);
+            this.tbEventId.Name = "tbEventId";
+            this.tbEventId.Size = new System.Drawing.Size(113, 20);
+            this.tbEventId.TabIndex = 12;
+            this.tbEventId.TextChanged += new System.EventHandler(this.tbEventId_TextChanged);
+            // 
+            // buttonDeleteEvent
+            // 
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(137, 19);
+            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
+            this.buttonDeleteEvent.Size = new System.Drawing.Size(106, 20);
+            this.buttonDeleteEvent.TabIndex = 11;
+            this.buttonDeleteEvent.Text = "Delete";
+            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
+            this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
+            // 
+            // gbToUpdateEvent
+            // 
+            this.gbToUpdateEvent.Controls.Add(this.buttonUpdateEvent);
+            this.gbToUpdateEvent.Controls.Add(this.tbEventIdForUpdate);
+            this.gbToUpdateEvent.Controls.Add(this.gbDeleteAnEvent);
+            this.gbToUpdateEvent.Location = new System.Drawing.Point(3, 369);
+            this.gbToUpdateEvent.Name = "gbToUpdateEvent";
+            this.gbToUpdateEvent.Size = new System.Drawing.Size(270, 52);
+            this.gbToUpdateEvent.TabIndex = 39;
+            this.gbToUpdateEvent.TabStop = false;
+            this.gbToUpdateEvent.Text = "Update event";
+            this.gbToUpdateEvent.Enter += new System.EventHandler(this.gbToUpdateEvent_Enter);
+            // 
+            // buttonUpdateEvent
+            // 
+            this.buttonUpdateEvent.Location = new System.Drawing.Point(137, 19);
+            this.buttonUpdateEvent.Name = "buttonUpdateEvent";
+            this.buttonUpdateEvent.Size = new System.Drawing.Size(106, 20);
+            this.buttonUpdateEvent.TabIndex = 19;
+            this.buttonUpdateEvent.Text = "Update";
+            this.buttonUpdateEvent.UseVisualStyleBackColor = true;
+            this.buttonUpdateEvent.Click += new System.EventHandler(this.buttonUpdateEvent_Click);
+            // 
             // tbEventIdForUpdate
             // 
-            this.tbEventIdForUpdate.Location = new System.Drawing.Point(88, 494);
+            this.tbEventIdForUpdate.Location = new System.Drawing.Point(14, 19);
             this.tbEventIdForUpdate.Name = "tbEventIdForUpdate";
-            this.tbEventIdForUpdate.Size = new System.Drawing.Size(86, 20);
+            this.tbEventIdForUpdate.Size = new System.Drawing.Size(113, 20);
             this.tbEventIdForUpdate.TabIndex = 35;
             this.tbEventIdForUpdate.TextChanged += new System.EventHandler(this.tbEventIdForUpdate_TextChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.labelInfoUserPanel);
+            this.groupBox3.Location = new System.Drawing.Point(302, 466);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(315, 43);
+            this.groupBox3.TabIndex = 38;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Information";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // labelInfoUserPanel
+            // 
+            this.labelInfoUserPanel.AutoSize = true;
+            this.labelInfoUserPanel.Location = new System.Drawing.Point(11, 16);
+            this.labelInfoUserPanel.Name = "labelInfoUserPanel";
+            this.labelInfoUserPanel.Size = new System.Drawing.Size(0, 13);
+            this.labelInfoUserPanel.TabIndex = 36;
+            this.labelInfoUserPanel.Click += new System.EventHandler(this.labelErrorUserPanel_Click);
+            // 
+            // buttonToCreateEvent
+            // 
+            this.buttonToCreateEvent.Location = new System.Drawing.Point(384, 220);
+            this.buttonToCreateEvent.Name = "buttonToCreateEvent";
+            this.buttonToCreateEvent.Size = new System.Drawing.Size(115, 23);
+            this.buttonToCreateEvent.TabIndex = 37;
+            this.buttonToCreateEvent.Text = "Create an event";
+            this.buttonToCreateEvent.UseVisualStyleBackColor = true;
+            this.buttonToCreateEvent.Click += new System.EventHandler(this.buttonToCreateEvent_Click);
             // 
             // labelExplanationUpdate
             // 
@@ -389,64 +533,11 @@
             this.labelExplanationUpdate.TabIndex = 34;
             this.labelExplanationUpdate.Text = "Fill in the Event ID of the Event you want to update";
             // 
-            // labelOpenSlots
-            // 
-            this.labelOpenSlots.AutoSize = true;
-            this.labelOpenSlots.Location = new System.Drawing.Point(14, 387);
-            this.labelOpenSlots.Name = "labelOpenSlots";
-            this.labelOpenSlots.Size = new System.Drawing.Size(57, 13);
-            this.labelOpenSlots.TabIndex = 32;
-            this.labelOpenSlots.Text = "Open slots";
-            // 
-            // labelNote
-            // 
-            this.labelNote.AutoSize = true;
-            this.labelNote.Location = new System.Drawing.Point(14, 361);
-            this.labelNote.Name = "labelNote";
-            this.labelNote.Size = new System.Drawing.Size(30, 13);
-            this.labelNote.TabIndex = 31;
-            this.labelNote.Text = "Note";
-            // 
-            // labelLocation
-            // 
-            this.labelLocation.AutoSize = true;
-            this.labelLocation.Location = new System.Drawing.Point(14, 335);
-            this.labelLocation.Name = "labelLocation";
-            this.labelLocation.Size = new System.Drawing.Size(48, 13);
-            this.labelLocation.TabIndex = 30;
-            this.labelLocation.Text = "Location";
-            // 
-            // labelEventTime
-            // 
-            this.labelEventTime.AutoSize = true;
-            this.labelEventTime.Location = new System.Drawing.Point(14, 309);
-            this.labelEventTime.Name = "labelEventTime";
-            this.labelEventTime.Size = new System.Drawing.Size(57, 13);
-            this.labelEventTime.TabIndex = 29;
-            this.labelEventTime.Text = "Event time";
-            // 
-            // labelEventName
-            // 
-            this.labelEventName.AutoSize = true;
-            this.labelEventName.Location = new System.Drawing.Point(14, 283);
-            this.labelEventName.Name = "labelEventName";
-            this.labelEventName.Size = new System.Drawing.Size(64, 13);
-            this.labelEventName.TabIndex = 28;
-            this.labelEventName.Text = "Event name";
-            // 
-            // tbOpenSlots
-            // 
-            this.tbOpenSlots.Location = new System.Drawing.Point(88, 384);
-            this.tbOpenSlots.Name = "tbOpenSlots";
-            this.tbOpenSlots.Size = new System.Drawing.Size(198, 20);
-            this.tbOpenSlots.TabIndex = 27;
-            this.tbOpenSlots.TextChanged += new System.EventHandler(this.tbOpenSlots_TextChanged);
-            // 
             // buttonShowOwnEvents
             // 
-            this.buttonShowOwnEvents.Location = new System.Drawing.Point(522, 241);
+            this.buttonShowOwnEvents.Location = new System.Drawing.Point(515, 220);
             this.buttonShowOwnEvents.Name = "buttonShowOwnEvents";
-            this.buttonShowOwnEvents.Size = new System.Drawing.Size(100, 23);
+            this.buttonShowOwnEvents.Size = new System.Drawing.Size(103, 23);
             this.buttonShowOwnEvents.TabIndex = 26;
             this.buttonShowOwnEvents.Text = "Show your events";
             this.buttonShowOwnEvents.UseVisualStyleBackColor = true;
@@ -455,17 +546,17 @@
             // cbLocations
             // 
             this.cbLocations.FormattingEnabled = true;
-            this.cbLocations.Location = new System.Drawing.Point(15, 242);
+            this.cbLocations.Location = new System.Drawing.Point(17, 223);
             this.cbLocations.Name = "cbLocations";
-            this.cbLocations.Size = new System.Drawing.Size(143, 21);
+            this.cbLocations.Size = new System.Drawing.Size(115, 21);
             this.cbLocations.TabIndex = 24;
             this.cbLocations.SelectedIndexChanged += new System.EventHandler(this.cbLocations_SelectedIndexChanged);
             // 
             // buttonSearchEvents
             // 
-            this.buttonSearchEvents.Location = new System.Drawing.Point(168, 241);
+            this.buttonSearchEvents.Location = new System.Drawing.Point(142, 223);
             this.buttonSearchEvents.Name = "buttonSearchEvents";
-            this.buttonSearchEvents.Size = new System.Drawing.Size(75, 24);
+            this.buttonSearchEvents.Size = new System.Drawing.Size(104, 21);
             this.buttonSearchEvents.TabIndex = 23;
             this.buttonSearchEvents.Text = "Search events";
             this.buttonSearchEvents.UseVisualStyleBackColor = true;
@@ -473,7 +564,7 @@
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Location = new System.Drawing.Point(537, 12);
+            this.buttonLogout.Location = new System.Drawing.Point(538, 12);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(75, 23);
             this.buttonLogout.TabIndex = 21;
@@ -484,104 +575,25 @@
             // listOfEventsByUser
             // 
             this.listOfEventsByUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listOfEventsByUser.Location = new System.Drawing.Point(15, 58);
+            this.listOfEventsByUser.Location = new System.Drawing.Point(17, 41);
             this.listOfEventsByUser.Name = "listOfEventsByUser";
-            this.listOfEventsByUser.Size = new System.Drawing.Size(607, 173);
+            this.listOfEventsByUser.Size = new System.Drawing.Size(601, 173);
             this.listOfEventsByUser.TabIndex = 20;
             this.listOfEventsByUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listOfEventsByUser_CellContentClick);
-            // 
-            // buttonUpdateEvent
-            // 
-            this.buttonUpdateEvent.Location = new System.Drawing.Point(180, 494);
-            this.buttonUpdateEvent.Name = "buttonUpdateEvent";
-            this.buttonUpdateEvent.Size = new System.Drawing.Size(106, 23);
-            this.buttonUpdateEvent.TabIndex = 19;
-            this.buttonUpdateEvent.Text = "Update an event";
-            this.buttonUpdateEvent.UseVisualStyleBackColor = true;
-            this.buttonUpdateEvent.Click += new System.EventHandler(this.buttonUpdateEvent_Click);
-            // 
-            // buttonCreateEvent
-            // 
-            this.buttonCreateEvent.Location = new System.Drawing.Point(137, 410);
-            this.buttonCreateEvent.Name = "buttonCreateEvent";
-            this.buttonCreateEvent.Size = new System.Drawing.Size(85, 23);
-            this.buttonCreateEvent.TabIndex = 18;
-            this.buttonCreateEvent.Text = "Create event";
-            this.buttonCreateEvent.UseVisualStyleBackColor = true;
-            this.buttonCreateEvent.Click += new System.EventHandler(this.buttonCreateEvent_Click);
-            // 
-            // tbNote
-            // 
-            this.tbNote.Location = new System.Drawing.Point(88, 358);
-            this.tbNote.Name = "tbNote";
-            this.tbNote.Size = new System.Drawing.Size(198, 20);
-            this.tbNote.TabIndex = 16;
-            this.tbNote.TextChanged += new System.EventHandler(this.tbNote_TextChanged);
-            // 
-            // tbLocation
-            // 
-            this.tbLocation.Location = new System.Drawing.Point(88, 332);
-            this.tbLocation.Name = "tbLocation";
-            this.tbLocation.Size = new System.Drawing.Size(198, 20);
-            this.tbLocation.TabIndex = 15;
-            this.tbLocation.TextChanged += new System.EventHandler(this.tbLocation_TextChanged);
-            // 
-            // tbEventTime
-            // 
-            this.tbEventTime.Location = new System.Drawing.Point(88, 306);
-            this.tbEventTime.Name = "tbEventTime";
-            this.tbEventTime.Size = new System.Drawing.Size(198, 20);
-            this.tbEventTime.TabIndex = 14;
-            this.tbEventTime.TextChanged += new System.EventHandler(this.tbEventTime_TextChanged);
-            // 
-            // tbEventName
-            // 
-            this.tbEventName.Location = new System.Drawing.Point(88, 280);
-            this.tbEventName.Name = "tbEventName";
-            this.tbEventName.Size = new System.Drawing.Size(198, 20);
-            this.tbEventName.TabIndex = 13;
-            this.tbEventName.TextChanged += new System.EventHandler(this.tbEventName_TextChanged);
-            // 
-            // tbEventId
-            // 
-            this.tbEventId.Location = new System.Drawing.Point(88, 439);
-            this.tbEventId.Name = "tbEventId";
-            this.tbEventId.Size = new System.Drawing.Size(86, 20);
-            this.tbEventId.TabIndex = 12;
-            this.tbEventId.TextChanged += new System.EventHandler(this.tbEventId_TextChanged);
-            // 
-            // buttonDeleteEvent
-            // 
-            this.buttonDeleteEvent.Location = new System.Drawing.Point(180, 438);
-            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
-            this.buttonDeleteEvent.Size = new System.Drawing.Size(106, 21);
-            this.buttonDeleteEvent.TabIndex = 11;
-            this.buttonDeleteEvent.Text = "Delete event";
-            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
-            this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
             // 
             // labelEvents
             // 
             this.labelEvents.AutoSize = true;
-            this.labelEvents.Location = new System.Drawing.Point(12, 33);
+            this.labelEvents.Location = new System.Drawing.Point(14, 22);
             this.labelEvents.Name = "labelEvents";
             this.labelEvents.Size = new System.Drawing.Size(64, 13);
             this.labelEvents.TabIndex = 10;
             this.labelEvents.Text = "Your events";
             this.labelEvents.Click += new System.EventHandler(this.labelEvents_Click);
             // 
-            // labelLoggedInUser
-            // 
-            this.labelLoggedInUser.AutoSize = true;
-            this.labelLoggedInUser.Location = new System.Drawing.Point(600, 252);
-            this.labelLoggedInUser.Name = "labelLoggedInUser";
-            this.labelLoggedInUser.Size = new System.Drawing.Size(0, 13);
-            this.labelLoggedInUser.TabIndex = 8;
-            this.labelLoggedInUser.Click += new System.EventHandler(this.labelLoggedInUser_Click);
-            // 
             // buttonUpdateInfo
             // 
-            this.buttonUpdateInfo.Location = new System.Drawing.Point(522, 416);
+            this.buttonUpdateInfo.Location = new System.Drawing.Point(515, 419);
             this.buttonUpdateInfo.Name = "buttonUpdateInfo";
             this.buttonUpdateInfo.Size = new System.Drawing.Size(100, 23);
             this.buttonUpdateInfo.TabIndex = 7;
@@ -592,15 +604,16 @@
             // updateAccountInfo
             // 
             this.updateAccountInfo.AutoSize = true;
-            this.updateAccountInfo.Location = new System.Drawing.Point(493, 286);
+            this.updateAccountInfo.Location = new System.Drawing.Point(486, 289);
             this.updateAccountInfo.Name = "updateAccountInfo";
             this.updateAccountInfo.Size = new System.Drawing.Size(161, 13);
             this.updateAccountInfo.TabIndex = 6;
             this.updateAccountInfo.Text = "Update your account information";
+            this.updateAccountInfo.Click += new System.EventHandler(this.updateAccountInfo_Click);
             // 
             // tbUpdatePhoneNumber
             // 
-            this.tbUpdatePhoneNumber.Location = new System.Drawing.Point(522, 387);
+            this.tbUpdatePhoneNumber.Location = new System.Drawing.Point(515, 390);
             this.tbUpdatePhoneNumber.Name = "tbUpdatePhoneNumber";
             this.tbUpdatePhoneNumber.Size = new System.Drawing.Size(100, 20);
             this.tbUpdatePhoneNumber.TabIndex = 4;
@@ -608,7 +621,7 @@
             // 
             // tbUpdatePassword
             // 
-            this.tbUpdatePassword.Location = new System.Drawing.Point(522, 361);
+            this.tbUpdatePassword.Location = new System.Drawing.Point(515, 364);
             this.tbUpdatePassword.Name = "tbUpdatePassword";
             this.tbUpdatePassword.Size = new System.Drawing.Size(100, 20);
             this.tbUpdatePassword.TabIndex = 2;
@@ -616,7 +629,7 @@
             // 
             // tbUpdateEmail
             // 
-            this.tbUpdateEmail.Location = new System.Drawing.Point(522, 335);
+            this.tbUpdateEmail.Location = new System.Drawing.Point(515, 338);
             this.tbUpdateEmail.Name = "tbUpdateEmail";
             this.tbUpdateEmail.Size = new System.Drawing.Size(100, 20);
             this.tbUpdateEmail.TabIndex = 1;
@@ -624,98 +637,87 @@
             // 
             // tbUpdateAge
             // 
-            this.tbUpdateAge.Location = new System.Drawing.Point(522, 309);
+            this.tbUpdateAge.Location = new System.Drawing.Point(515, 312);
             this.tbUpdateAge.Name = "tbUpdateAge";
             this.tbUpdateAge.Size = new System.Drawing.Size(100, 20);
             this.tbUpdateAge.TabIndex = 0;
             this.tbUpdateAge.TextChanged += new System.EventHandler(this.tbUpdateAge_TextChanged);
             // 
-            // updateEventPanel
+            // updateCreateEventPanel
             // 
-            this.updateEventPanel.Controls.Add(this.buttonBackToUser);
-            this.updateEventPanel.Controls.Add(this.label9);
-            this.updateEventPanel.Controls.Add(this.label10);
-            this.updateEventPanel.Controls.Add(this.label11);
-            this.updateEventPanel.Controls.Add(this.label12);
-            this.updateEventPanel.Controls.Add(this.label13);
-            this.updateEventPanel.Controls.Add(this.tbUpdateOpenSlots);
-            this.updateEventPanel.Controls.Add(this.buttonUpdate);
-            this.updateEventPanel.Controls.Add(this.tbUpdateNote);
-            this.updateEventPanel.Controls.Add(this.tbUpdateLocation);
-            this.updateEventPanel.Controls.Add(this.tbUpdateEventTime);
-            this.updateEventPanel.Controls.Add(this.tbUpdateEventName);
-            this.updateEventPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.updateEventPanel.Location = new System.Drawing.Point(0, 0);
-            this.updateEventPanel.Name = "updateEventPanel";
-            this.updateEventPanel.Size = new System.Drawing.Size(677, 586);
-            this.updateEventPanel.TabIndex = 33;
+            this.updateCreateEventPanel.Controls.Add(this.gbUpdateEvent);
+            this.updateCreateEventPanel.Controls.Add(this.gbCreateEvent);
+            this.updateCreateEventPanel.Controls.Add(this.labelErrorCreateUpdate);
+            this.updateCreateEventPanel.Controls.Add(this.buttonBackToUser);
+            this.updateCreateEventPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.updateCreateEventPanel.Location = new System.Drawing.Point(0, 0);
+            this.updateCreateEventPanel.Name = "updateCreateEventPanel";
+            this.updateCreateEventPanel.Size = new System.Drawing.Size(677, 586);
+            this.updateCreateEventPanel.TabIndex = 33;
             // 
-            // buttonBackToUser
+            // gbUpdateEvent
             // 
-            this.buttonBackToUser.Location = new System.Drawing.Point(288, 306);
-            this.buttonBackToUser.Name = "buttonBackToUser";
-            this.buttonBackToUser.Size = new System.Drawing.Size(85, 23);
-            this.buttonBackToUser.TabIndex = 44;
-            this.buttonBackToUser.Text = "Back";
-            this.buttonBackToUser.UseVisualStyleBackColor = true;
-            this.buttonBackToUser.Click += new System.EventHandler(this.buttonBackToUser_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(165, 189);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Open slots";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(165, 163);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 13);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Note";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(165, 137);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Location";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(165, 111);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 13);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "Event time";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(165, 85);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(64, 13);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "Event name";
+            this.gbUpdateEvent.Controls.Add(this.tbUpdateOpenSlots);
+            this.gbUpdateEvent.Controls.Add(this.tbUpdateEventName);
+            this.gbUpdateEvent.Controls.Add(this.tbUpdateEventTime);
+            this.gbUpdateEvent.Controls.Add(this.tbUpdateLocation);
+            this.gbUpdateEvent.Controls.Add(this.labelOpenSlotsUpdate);
+            this.gbUpdateEvent.Controls.Add(this.tbUpdateNote);
+            this.gbUpdateEvent.Controls.Add(this.labelNoteUpdate);
+            this.gbUpdateEvent.Controls.Add(this.buttonUpdate);
+            this.gbUpdateEvent.Controls.Add(this.labelLocationUpdate);
+            this.gbUpdateEvent.Controls.Add(this.labelEventNameUpdate);
+            this.gbUpdateEvent.Controls.Add(this.labelEventTimeUpdate);
+            this.gbUpdateEvent.Location = new System.Drawing.Point(348, 16);
+            this.gbUpdateEvent.Name = "gbUpdateEvent";
+            this.gbUpdateEvent.Size = new System.Drawing.Size(317, 193);
+            this.gbUpdateEvent.TabIndex = 58;
+            this.gbUpdateEvent.TabStop = false;
+            this.gbUpdateEvent.Text = "Update event";
             // 
             // tbUpdateOpenSlots
             // 
-            this.tbUpdateOpenSlots.Location = new System.Drawing.Point(239, 186);
+            this.tbUpdateOpenSlots.Location = new System.Drawing.Point(89, 128);
             this.tbUpdateOpenSlots.Name = "tbUpdateOpenSlots";
             this.tbUpdateOpenSlots.Size = new System.Drawing.Size(176, 20);
             this.tbUpdateOpenSlots.TabIndex = 38;
             this.tbUpdateOpenSlots.TextChanged += new System.EventHandler(this.tbUpdateOpenSlots_TextChanged);
             // 
+            // tbUpdateEventName
+            // 
+            this.tbUpdateEventName.Location = new System.Drawing.Point(89, 24);
+            this.tbUpdateEventName.Name = "tbUpdateEventName";
+            this.tbUpdateEventName.Size = new System.Drawing.Size(176, 20);
+            this.tbUpdateEventName.TabIndex = 33;
+            this.tbUpdateEventName.TextChanged += new System.EventHandler(this.tbUpdateEventName_TextChanged);
+            // 
+            // tbUpdateEventTime
+            // 
+            this.tbUpdateEventTime.Location = new System.Drawing.Point(89, 50);
+            this.tbUpdateEventTime.Name = "tbUpdateEventTime";
+            this.tbUpdateEventTime.Size = new System.Drawing.Size(176, 20);
+            this.tbUpdateEventTime.TabIndex = 34;
+            this.tbUpdateEventTime.TextChanged += new System.EventHandler(this.tbUpdateEventTime_TextChanged);
+            // 
+            // tbUpdateLocation
+            // 
+            this.tbUpdateLocation.Location = new System.Drawing.Point(89, 76);
+            this.tbUpdateLocation.Name = "tbUpdateLocation";
+            this.tbUpdateLocation.Size = new System.Drawing.Size(176, 20);
+            this.tbUpdateLocation.TabIndex = 35;
+            this.tbUpdateLocation.TextChanged += new System.EventHandler(this.tbUpdateLocation_TextChanged);
+            // 
+            // tbUpdateNote
+            // 
+            this.tbUpdateNote.Location = new System.Drawing.Point(89, 102);
+            this.tbUpdateNote.Name = "tbUpdateNote";
+            this.tbUpdateNote.Size = new System.Drawing.Size(176, 20);
+            this.tbUpdateNote.TabIndex = 36;
+            this.tbUpdateNote.TextChanged += new System.EventHandler(this.tbUpdateNote_TextChanged);
+            // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(288, 212);
+            this.buttonUpdate.Location = new System.Drawing.Point(138, 154);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(85, 23);
             this.buttonUpdate.TabIndex = 37;
@@ -723,80 +725,226 @@
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
-            // tbUpdateNote
+            // labelLocationUpdate
             // 
-            this.tbUpdateNote.Location = new System.Drawing.Point(239, 160);
-            this.tbUpdateNote.Name = "tbUpdateNote";
-            this.tbUpdateNote.Size = new System.Drawing.Size(176, 20);
-            this.tbUpdateNote.TabIndex = 36;
-            this.tbUpdateNote.TextChanged += new System.EventHandler(this.tbUpdateNote_TextChanged);
+            this.labelLocationUpdate.AutoSize = true;
+            this.labelLocationUpdate.Location = new System.Drawing.Point(15, 79);
+            this.labelLocationUpdate.Name = "labelLocationUpdate";
+            this.labelLocationUpdate.Size = new System.Drawing.Size(48, 13);
+            this.labelLocationUpdate.TabIndex = 41;
+            this.labelLocationUpdate.Text = "Location";
             // 
-            // tbUpdateLocation
+            // labelEventNameUpdate
             // 
-            this.tbUpdateLocation.Location = new System.Drawing.Point(239, 134);
-            this.tbUpdateLocation.Name = "tbUpdateLocation";
-            this.tbUpdateLocation.Size = new System.Drawing.Size(176, 20);
-            this.tbUpdateLocation.TabIndex = 35;
-            this.tbUpdateLocation.TextChanged += new System.EventHandler(this.tbUpdateLocation_TextChanged);
+            this.labelEventNameUpdate.AutoSize = true;
+            this.labelEventNameUpdate.Location = new System.Drawing.Point(15, 27);
+            this.labelEventNameUpdate.Name = "labelEventNameUpdate";
+            this.labelEventNameUpdate.Size = new System.Drawing.Size(64, 13);
+            this.labelEventNameUpdate.TabIndex = 39;
+            this.labelEventNameUpdate.Text = "Event name";
             // 
-            // tbUpdateEventTime
+            // labelEventTimeUpdate
             // 
-            this.tbUpdateEventTime.Location = new System.Drawing.Point(239, 108);
-            this.tbUpdateEventTime.Name = "tbUpdateEventTime";
-            this.tbUpdateEventTime.Size = new System.Drawing.Size(176, 20);
-            this.tbUpdateEventTime.TabIndex = 34;
-            this.tbUpdateEventTime.TextChanged += new System.EventHandler(this.tbUpdateEventTime_TextChanged);
+            this.labelEventTimeUpdate.AutoSize = true;
+            this.labelEventTimeUpdate.Location = new System.Drawing.Point(15, 53);
+            this.labelEventTimeUpdate.Name = "labelEventTimeUpdate";
+            this.labelEventTimeUpdate.Size = new System.Drawing.Size(57, 13);
+            this.labelEventTimeUpdate.TabIndex = 40;
+            this.labelEventTimeUpdate.Text = "Event time";
             // 
-            // tbUpdateEventName
+            // gbCreateEvent
             // 
-            this.tbUpdateEventName.Location = new System.Drawing.Point(239, 82);
-            this.tbUpdateEventName.Name = "tbUpdateEventName";
-            this.tbUpdateEventName.Size = new System.Drawing.Size(176, 20);
-            this.tbUpdateEventName.TabIndex = 33;
-            this.tbUpdateEventName.TextChanged += new System.EventHandler(this.tbUpdateEventName_TextChanged);
+            this.gbCreateEvent.Controls.Add(this.tbOpenSlots);
+            this.gbCreateEvent.Controls.Add(this.tbEventName);
+            this.gbCreateEvent.Controls.Add(this.labelOpenSlots);
+            this.gbCreateEvent.Controls.Add(this.tbEventTime);
+            this.gbCreateEvent.Controls.Add(this.labelNote);
+            this.gbCreateEvent.Controls.Add(this.tbLocation);
+            this.gbCreateEvent.Controls.Add(this.labelLocation);
+            this.gbCreateEvent.Controls.Add(this.tbNote);
+            this.gbCreateEvent.Controls.Add(this.labelEventTime);
+            this.gbCreateEvent.Controls.Add(this.buttonCreateEvent);
+            this.gbCreateEvent.Controls.Add(this.labelEventName);
+            this.gbCreateEvent.Location = new System.Drawing.Point(12, 16);
+            this.gbCreateEvent.Name = "gbCreateEvent";
+            this.gbCreateEvent.Size = new System.Drawing.Size(330, 193);
+            this.gbCreateEvent.TabIndex = 57;
+            this.gbCreateEvent.TabStop = false;
+            this.gbCreateEvent.Text = "Create event";
             // 
-            // labelErrorUserPanel
+            // tbOpenSlots
             // 
-            this.labelErrorUserPanel.AutoSize = true;
-            this.labelErrorUserPanel.Location = new System.Drawing.Point(85, 462);
-            this.labelErrorUserPanel.Name = "labelErrorUserPanel";
-            this.labelErrorUserPanel.Size = new System.Drawing.Size(0, 13);
-            this.labelErrorUserPanel.TabIndex = 36;
-            this.labelErrorUserPanel.Click += new System.EventHandler(this.labelErrorUserPanel_Click);
+            this.tbOpenSlots.Location = new System.Drawing.Point(100, 128);
+            this.tbOpenSlots.Name = "tbOpenSlots";
+            this.tbOpenSlots.Size = new System.Drawing.Size(198, 20);
+            this.tbOpenSlots.TabIndex = 50;
+            this.tbOpenSlots.TextChanged += new System.EventHandler(this.tbOpenSlots_TextChanged);
             // 
-            // labelErrorLogin
+            // tbEventName
             // 
-            this.labelErrorLogin.AutoSize = true;
-            this.labelErrorLogin.Location = new System.Drawing.Point(105, 193);
-            this.labelErrorLogin.Name = "labelErrorLogin";
-            this.labelErrorLogin.Size = new System.Drawing.Size(0, 13);
-            this.labelErrorLogin.TabIndex = 31;
-            this.labelErrorLogin.Click += new System.EventHandler(this.labelErrorLogin_Click);
+            this.tbEventName.Location = new System.Drawing.Point(100, 24);
+            this.tbEventName.Name = "tbEventName";
+            this.tbEventName.Size = new System.Drawing.Size(198, 20);
+            this.tbEventName.TabIndex = 45;
+            this.tbEventName.TextChanged += new System.EventHandler(this.tbEventName_TextChanged);
             // 
-            // imageList1
+            // labelOpenSlots
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "pexels-photo-27431.jpg");
+            this.labelOpenSlots.AutoSize = true;
+            this.labelOpenSlots.Location = new System.Drawing.Point(26, 131);
+            this.labelOpenSlots.Name = "labelOpenSlots";
+            this.labelOpenSlots.Size = new System.Drawing.Size(57, 13);
+            this.labelOpenSlots.TabIndex = 55;
+            this.labelOpenSlots.Text = "Open slots";
+            // 
+            // tbEventTime
+            // 
+            this.tbEventTime.Location = new System.Drawing.Point(100, 50);
+            this.tbEventTime.Name = "tbEventTime";
+            this.tbEventTime.Size = new System.Drawing.Size(198, 20);
+            this.tbEventTime.TabIndex = 46;
+            this.tbEventTime.TextChanged += new System.EventHandler(this.tbEventTime_TextChanged);
+            // 
+            // labelNote
+            // 
+            this.labelNote.AutoSize = true;
+            this.labelNote.Location = new System.Drawing.Point(26, 105);
+            this.labelNote.Name = "labelNote";
+            this.labelNote.Size = new System.Drawing.Size(30, 13);
+            this.labelNote.TabIndex = 54;
+            this.labelNote.Text = "Note";
+            // 
+            // tbLocation
+            // 
+            this.tbLocation.Location = new System.Drawing.Point(100, 76);
+            this.tbLocation.Name = "tbLocation";
+            this.tbLocation.Size = new System.Drawing.Size(198, 20);
+            this.tbLocation.TabIndex = 47;
+            this.tbLocation.TextChanged += new System.EventHandler(this.tbLocation_TextChanged);
+            // 
+            // labelLocation
+            // 
+            this.labelLocation.AutoSize = true;
+            this.labelLocation.Location = new System.Drawing.Point(26, 79);
+            this.labelLocation.Name = "labelLocation";
+            this.labelLocation.Size = new System.Drawing.Size(48, 13);
+            this.labelLocation.TabIndex = 53;
+            this.labelLocation.Text = "Location";
+            // 
+            // tbNote
+            // 
+            this.tbNote.Location = new System.Drawing.Point(100, 102);
+            this.tbNote.Name = "tbNote";
+            this.tbNote.Size = new System.Drawing.Size(198, 20);
+            this.tbNote.TabIndex = 48;
+            this.tbNote.TextChanged += new System.EventHandler(this.tbNote_TextChanged);
+            // 
+            // labelEventTime
+            // 
+            this.labelEventTime.AutoSize = true;
+            this.labelEventTime.Location = new System.Drawing.Point(26, 53);
+            this.labelEventTime.Name = "labelEventTime";
+            this.labelEventTime.Size = new System.Drawing.Size(57, 13);
+            this.labelEventTime.TabIndex = 52;
+            this.labelEventTime.Text = "Event time";
+            // 
+            // buttonCreateEvent
+            // 
+            this.buttonCreateEvent.Location = new System.Drawing.Point(149, 154);
+            this.buttonCreateEvent.Name = "buttonCreateEvent";
+            this.buttonCreateEvent.Size = new System.Drawing.Size(85, 23);
+            this.buttonCreateEvent.TabIndex = 49;
+            this.buttonCreateEvent.Text = "Create event";
+            this.buttonCreateEvent.UseVisualStyleBackColor = true;
+            this.buttonCreateEvent.Click += new System.EventHandler(this.buttonCreateEvent_Click);
+            // 
+            // labelEventName
+            // 
+            this.labelEventName.AutoSize = true;
+            this.labelEventName.Location = new System.Drawing.Point(26, 27);
+            this.labelEventName.Name = "labelEventName";
+            this.labelEventName.Size = new System.Drawing.Size(64, 13);
+            this.labelEventName.TabIndex = 51;
+            this.labelEventName.Text = "Event name";
+            // 
+            // labelErrorCreateUpdate
+            // 
+            this.labelErrorCreateUpdate.AutoSize = true;
+            this.labelErrorCreateUpdate.Location = new System.Drawing.Point(299, 215);
+            this.labelErrorCreateUpdate.Name = "labelErrorCreateUpdate";
+            this.labelErrorCreateUpdate.Size = new System.Drawing.Size(0, 13);
+            this.labelErrorCreateUpdate.TabIndex = 56;
+            this.labelErrorCreateUpdate.Click += new System.EventHandler(this.labelErrorCreateUpdate_Click);
+            // 
+            // buttonBackToUser
+            // 
+            this.buttonBackToUser.Location = new System.Drawing.Point(301, 220);
+            this.buttonBackToUser.Name = "buttonBackToUser";
+            this.buttonBackToUser.Size = new System.Drawing.Size(85, 23);
+            this.buttonBackToUser.TabIndex = 44;
+            this.buttonBackToUser.Text = "Back";
+            this.buttonBackToUser.UseVisualStyleBackColor = true;
+            this.buttonBackToUser.Click += new System.EventHandler(this.buttonBackToUser_Click);
+            // 
+            // labelLoggedInUser
+            // 
+            this.labelLoggedInUser.AutoSize = true;
+            this.labelLoggedInUser.Location = new System.Drawing.Point(600, 252);
+            this.labelLoggedInUser.Name = "labelLoggedInUser";
+            this.labelLoggedInUser.Size = new System.Drawing.Size(0, 13);
+            this.labelLoggedInUser.TabIndex = 8;
+            this.labelLoggedInUser.Click += new System.EventHandler(this.labelLoggedInUser_Click);
+            // 
+            // labelNoteUpdate
+            // 
+            this.labelNoteUpdate.AutoSize = true;
+            this.labelNoteUpdate.Location = new System.Drawing.Point(15, 105);
+            this.labelNoteUpdate.Name = "labelNoteUpdate";
+            this.labelNoteUpdate.Size = new System.Drawing.Size(30, 13);
+            this.labelNoteUpdate.TabIndex = 42;
+            this.labelNoteUpdate.Text = "Note";
+            // 
+            // labelOpenSlotsUpdate
+            // 
+            this.labelOpenSlotsUpdate.AutoSize = true;
+            this.labelOpenSlotsUpdate.Location = new System.Drawing.Point(15, 131);
+            this.labelOpenSlotsUpdate.Name = "labelOpenSlotsUpdate";
+            this.labelOpenSlotsUpdate.Size = new System.Drawing.Size(57, 13);
+            this.labelOpenSlotsUpdate.TabIndex = 43;
+            this.labelOpenSlotsUpdate.Text = "Open slots";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 586);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.userPanel);
-            this.Controls.Add(this.updateEventPanel);
+            this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.updateCreateEventPanel);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Partycipate";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.loginPanel.ResumeLayout(false);
             this.loginPanel.PerformLayout();
             this.userPanel.ResumeLayout(false);
             this.userPanel.PerformLayout();
+            this.gbDeleteFromAttendee.ResumeLayout(false);
+            this.gbDeleteFromAttendee.PerformLayout();
+            this.gbAttendAnEvent.ResumeLayout(false);
+            this.gbAttendAnEvent.PerformLayout();
+            this.gbDeleteAnEvent.ResumeLayout(false);
+            this.gbDeleteAnEvent.PerformLayout();
+            this.gbToUpdateEvent.ResumeLayout(false);
+            this.gbToUpdateEvent.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).EndInit();
-            this.updateEventPanel.ResumeLayout(false);
-            this.updateEventPanel.PerformLayout();
+            this.updateCreateEventPanel.ResumeLayout(false);
+            this.updateCreateEventPanel.PerformLayout();
+            this.gbUpdateEvent.ResumeLayout(false);
+            this.gbUpdateEvent.PerformLayout();
+            this.gbCreateEvent.ResumeLayout(false);
+            this.gbCreateEvent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -820,9 +968,8 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.TextBox tbUserNameLogin;
         private System.Windows.Forms.TextBox tbUserPasswordLogin;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button toTestForm;
+        private System.Windows.Forms.Label labelInfoForLogin;
+        private System.Windows.Forms.Label labelInfoCreateUser;
         private System.Windows.Forms.Panel loginPanel;
         private System.Windows.Forms.Panel userPanel;
         private System.Windows.Forms.TextBox tbUpdatePassword;
@@ -831,14 +978,8 @@
         private System.Windows.Forms.Label updateAccountInfo;
         private System.Windows.Forms.TextBox tbUpdatePhoneNumber;
         private System.Windows.Forms.Button buttonUpdateInfo;
-        private System.Windows.Forms.Label labelLoggedInUser;
         private System.Windows.Forms.Label labelLoginPanelInfo;
         private System.Windows.Forms.Label labelEvents;
-        private System.Windows.Forms.Button buttonCreateEvent;
-        private System.Windows.Forms.TextBox tbNote;
-        private System.Windows.Forms.TextBox tbLocation;
-        private System.Windows.Forms.TextBox tbEventTime;
-        private System.Windows.Forms.TextBox tbEventName;
         private System.Windows.Forms.TextBox tbEventId;
         private System.Windows.Forms.Button buttonDeleteEvent;
         private System.Windows.Forms.Button buttonUpdateEvent;
@@ -847,19 +988,11 @@
         private System.Windows.Forms.Button buttonSearchEvents;
         private System.Windows.Forms.ComboBox cbLocations;
         private System.Windows.Forms.Button buttonShowOwnEvents;
-        private System.Windows.Forms.TextBox tbOpenSlots;
-        private System.Windows.Forms.Label labelEventTime;
-        private System.Windows.Forms.Label labelEventName;
-        private System.Windows.Forms.Label labelOpenSlots;
-        private System.Windows.Forms.Label labelNote;
-        private System.Windows.Forms.Label labelLocation;
-        private System.Windows.Forms.Panel updateEventPanel;
+        private System.Windows.Forms.Panel updateCreateEventPanel;
         private System.Windows.Forms.Button buttonBackToUser;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelLocationUpdate;
+        private System.Windows.Forms.Label labelEventTimeUpdate;
+        private System.Windows.Forms.Label labelEventNameUpdate;
         private System.Windows.Forms.TextBox tbUpdateOpenSlots;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.TextBox tbUpdateNote;
@@ -868,9 +1001,35 @@
         private System.Windows.Forms.TextBox tbUpdateEventName;
         private System.Windows.Forms.Label labelExplanationUpdate;
         private System.Windows.Forms.TextBox tbEventIdForUpdate;
-        private System.Windows.Forms.Label labelErrorUserPanel;
+        private System.Windows.Forms.Label labelInfoUserPanel;
         private System.Windows.Forms.Label labelErrorLogin;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label labelOpenSlots;
+        private System.Windows.Forms.Label labelNote;
+        private System.Windows.Forms.Label labelLocation;
+        private System.Windows.Forms.Label labelEventTime;
+        private System.Windows.Forms.Label labelEventName;
+        private System.Windows.Forms.TextBox tbOpenSlots;
+        private System.Windows.Forms.Button buttonCreateEvent;
+        private System.Windows.Forms.TextBox tbNote;
+        private System.Windows.Forms.TextBox tbLocation;
+        private System.Windows.Forms.TextBox tbEventTime;
+        private System.Windows.Forms.TextBox tbEventName;
+        private System.Windows.Forms.Label labelErrorCreateUpdate;
+        private System.Windows.Forms.Button buttonToCreateEvent;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbUpdateEvent;
+        private System.Windows.Forms.GroupBox gbCreateEvent;
+        private System.Windows.Forms.GroupBox gbToUpdateEvent;
+        private System.Windows.Forms.GroupBox gbDeleteAnEvent;
+        private System.Windows.Forms.TextBox tbAttendEvent;
+        private System.Windows.Forms.Button buttonAttendEvent;
+        private System.Windows.Forms.GroupBox gbDeleteFromAttendee;
+        private System.Windows.Forms.TextBox tbUnattend;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox gbAttendAnEvent;
+        private System.Windows.Forms.Label labelLoggedInUser;
+        private System.Windows.Forms.Label labelOpenSlotsUpdate;
+        private System.Windows.Forms.Label labelNoteUpdate;
     }
 }
 

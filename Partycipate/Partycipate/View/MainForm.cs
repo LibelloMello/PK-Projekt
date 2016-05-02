@@ -17,6 +17,8 @@ namespace Partycipate
 {
     public partial class MainForm : Form
     {
+        private List<TextBox> textboxes = new List<TextBox>();
+
         private static string loggedInUser;
         public String LoggedInUser
         {
@@ -50,7 +52,7 @@ namespace Partycipate
         }
         public void Login()
         {
-       
+
             if (Controller.GetLoginAuthentication(tbUserNameLogin.Text, tbUserPasswordLogin.Text))
             {
                 Authenticated = true;
@@ -75,7 +77,7 @@ namespace Partycipate
             }
 
         }
-      
+
 
 
         private void label6_Click(object sender, EventArgs e)
@@ -100,7 +102,7 @@ namespace Partycipate
             u.Sex = tbSex.Text;
             u.Age = int.Parse(tbAge.Text);
 
-            if(Controller.CreateUser(tbUserName.Text, tbPhoneNumber.Text, tbName.Text, tbEmail.Text, tbSex.Text, tbPassword.Text, int.Parse(tbAge.Text)))
+            if (Controller.CreateUser(tbUserName.Text, tbPhoneNumber.Text, tbName.Text, tbEmail.Text, tbSex.Text, tbPassword.Text, int.Parse(tbAge.Text)))
             {
                 tbUserName.Clear();
                 tbPhoneNumber.Clear();
@@ -115,7 +117,7 @@ namespace Partycipate
             {
                 labelLoginPanelInfo.Text = "User was not created, the username and/or email is already taken";
             }
-         
+
 
         }
 
@@ -167,7 +169,7 @@ namespace Partycipate
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             Login();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -195,17 +197,17 @@ namespace Partycipate
 
         private void labelError_Click(object sender, EventArgs e)
         {
-            
+
         }
         public static DataTable ToDataTable<Object>(List<Object> items)
         {
             DataTable dataTable = new DataTable(typeof(Object).Name);
 
-          
+
             PropertyInfo[] Props = typeof(Object).GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (PropertyInfo prop in Props)
             {
-                
+
                 dataTable.Columns.Add(prop.Name);
             }
             foreach (Object item in items)
@@ -213,31 +215,20 @@ namespace Partycipate
                 var values = new object[Props.Length];
                 for (int i = 0; i < Props.Length; i++)
                 {
-                    
+
                     values[i] = Props[i].GetValue(item, null);
                 }
                 dataTable.Rows.Add(values);
             }
-          
+
             return dataTable;
         }
 
         private void listOfEventsByUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*
-            //listOfEventsByUser.DataSource = ToDataTable(Controller.FindEventsByUser(LoggedInUser));
-            DataTable dataTable = new DataTable();
-            dataTable.Load(Controller.GetAllEventsForUser(LoggedInUser));
-            listOfEventsByUser.AutoGenerateColumns = true;
-            listOfEventsByUser.DataSource = dataTable;
-            listOfEventsByUser.Refresh();
-            //listOfEventsByUser.DataBind();*/
 
             listOfEventsByUser.AutoGenerateColumns = true;
             listOfEventsByUser.DataSource = Controller.GetAllEvents();
-           // listOfEventsByUser.DataSource = ds.Tables[0];
-
-
 
         }
 
@@ -248,16 +239,16 @@ namespace Partycipate
 
         private void tbUpdateAge_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             LoggedInUser = null;
             userPanel.Visible = false;
-            updateEventPanel.Visible = false;
+            updateCreateEventPanel.Visible = false;
             loginPanel.Visible = true;
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -292,9 +283,6 @@ namespace Partycipate
             listOfEventsByUser.DataSource = Controller.FindEventsByLocation(cbLocations.Text);
             labelEvents.Text = ("Events for " + cbLocations.Text);
 
-
-
-
         }
 
         private void labelEvents_Click(object sender, EventArgs e)
@@ -313,40 +301,7 @@ namespace Partycipate
 
 
 
-        private void buttonCreateEvent_Click(object sender, EventArgs e)
-        {
-            Controller.CreateEvent(tbEventName.Text, tbEventTime.Text, tbLocation.Text, tbNote.Text, int.Parse(tbOpenSlots.Text), LoggedInUser);
-            listOfEventsByUser.AutoGenerateColumns = true;
-            listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
-            DataGridViewColumn column = listOfEventsByUser.Columns[0];
-            column.Width = 60;
-            cbLocations.DataSource = Controller.ShowLocations();
-            labelEvents.Text = "Your events";
 
-        }
-        private void tbEventName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbEventTime_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbLocation_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void tbOpenSlots_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbNote_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void tbUpdateEmail_TextChanged(object sender, EventArgs e)
@@ -377,9 +332,29 @@ namespace Partycipate
             tbUpdateNote.Text = eu.Note;
             tbUpdateOpenSlots.Text = eu.OpenSlots.ToString();
             userPanel.Visible = false;
-            updateEventPanel.Visible = true;
- 
+            updateCreateEventPanel.Visible = true;
+
         }
+        private void selectedRowsButton_Click(object sender, System.EventArgs e)
+        {
+            Int32 selectedRowCount =
+                listOfEventsByUser.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    sb.Append("Row: ");
+                    sb.Append(listOfEventsByUser.SelectedRows[i].Index.ToString());
+                    sb.Append(Environment.NewLine);
+                }
+
+                sb.Append("Total: " + selectedRowCount.ToString());
+                MessageBox.Show(sb.ToString(), "Selected Rows");
+            }
+        }
+
 
 
 
@@ -389,9 +364,9 @@ namespace Partycipate
 
         private void buttonBackToUser_Click(object sender, EventArgs e)
         {
-            updateEventPanel.Visible = false;
+            updateCreateEventPanel.Visible = false;
             userPanel.Visible = true;
-           
+
         }
 
 
@@ -422,20 +397,33 @@ namespace Partycipate
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text),tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text));
+            Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text), tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text));
+            listOfEventsByUser.AutoGenerateColumns = true;
+            listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+            DataGridViewColumn column = listOfEventsByUser.Columns[0];
+            column.Width = 60;
+            cbLocations.DataSource = Controller.ShowLocations();
+            labelEvents.Text = "Your events";
+
+            updateCreateEventPanel.Visible = false;
+            loginPanel.Visible = false;
+            userPanel.Visible = true;
+
         }
 
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
         {
-           
+
             if (Controller.DeleteEvent(int.Parse(tbEventId.Text), LoggedInUser))
             {
                 listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
                 DataGridViewColumn column = listOfEventsByUser.Columns[0];
                 column.Width = 60;
-            } else
+
+            }
+            else
             {
-                labelErrorUserPanel.Text = "Error, either the Event was not found or you are not the owner";
+                labelInfoUserPanel.Text = "Error, either the Event was not found or you are not the owner";
             }
         }
 
@@ -455,6 +443,133 @@ namespace Partycipate
         }
 
         private void loginPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private bool IsFilled(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void buttonCreateEvent_Click(object sender, EventArgs e)
+        {
+
+            if (IsFilled(tbEventName.Text) && IsFilled(tbEventTime.Text) && IsFilled(tbLocation.Text) && IsFilled(tbNote.Text) && IsFilled(tbOpenSlots.Text))
+            {
+
+
+
+                if (Controller.CreateEvent(tbEventName.Text, tbEventTime.Text, tbLocation.Text, tbNote.Text, int.Parse(tbOpenSlots.Text), LoggedInUser))
+                {
+
+                    listOfEventsByUser.AutoGenerateColumns = true;
+                    listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+                    DataGridViewColumn column = listOfEventsByUser.Columns[0];
+                    column.Width = 60;
+                    cbLocations.DataSource = Controller.ShowLocations();
+                    labelEvents.Text = "Your events";
+                    userPanel.Visible = true;
+                    updateCreateEventPanel.Visible = false;
+                }
+                else
+                {
+                    labelErrorCreateUpdate.Text = "Error; please input values or another event name as it might be taken";
+                }
+            }
+            else
+            {
+                labelErrorCreateUpdate.Text = "Please fill all the fields";
+            }
+        }
+
+        private void tbOpenSlots_TextChanged(object sender, EventArgs e)
+        {
+            textboxes.Add(tbOpenSlots);
+        }
+
+
+        private void tbEventName_TextChanged(object sender, EventArgs e)
+        {
+            textboxes.Add(tbEventName);
+        }
+
+        private void tbEventTime_TextChanged(object sender, EventArgs e)
+        {
+            textboxes.Add(tbEventTime);
+        }
+
+        private void tbLocation_TextChanged(object sender, EventArgs e)
+        {
+            textboxes.Add(tbLocation);
+        }
+
+        private void tbNote_TextChanged(object sender, EventArgs e)
+        {
+            textboxes.Add(tbNote);
+        }
+
+        private void labelErrorCreateUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonToCreateEvent_Click(object sender, EventArgs e)
+        {
+            userPanel.Visible = false;
+            updateCreateEventPanel.Visible = true;
+        }
+
+        private void gbToUpdateEvent_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAttendEvent_Click(object sender, EventArgs e)
+        {
+            if (Controller.AttendEvent(int.Parse(tbAttendEvent.Text), LoggedInUser))
+            {
+                labelInfoUserPanel.Text = "Attended event with ID " + tbAttendEvent.Text;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void tbAttendEvent_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void unattend_Click(object sender, EventArgs e)
+        {
+            if (Controller.DeleteFromAttendee(int.Parse(tbUnattend.Text), LoggedInUser))
+            {
+                
+            }
+            else
+            {
+
+            }
+        }
+
+        private void tbUnattend_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateAccountInfo_Click(object sender, EventArgs e)
         {
 
         }
