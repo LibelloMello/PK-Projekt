@@ -128,7 +128,7 @@ namespace Partycipate
 
             }
         }
-        public static void UpdateUser(string loggedInUser, int age, string name, string email, string password, string phoneNumber, string sex)
+        public static bool UpdateUser(string loggedInUser, string phoneNumber, string email, string password)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
@@ -136,21 +136,19 @@ namespace Partycipate
             try
             {
 
-                SqlCommand myCommand = new SqlCommand("UPDATE USERS SET AGE=@Age, EMAIL=@Email, PASSWORD=@Password, PHONE_NBR=@PhoneNumber, SEX=@Sex WHERE USER_NAME = @UserName", myConnection);
+                SqlCommand myCommand = new SqlCommand("UPDATE USERS SET EMAIL=@Email, PASSWORD=@Password, PHONE_NBR=@PhoneNumber WHERE USER_NAME = @UserName", myConnection);
                 myCommand.Parameters.AddWithValue("@UserName", loggedInUser);
                 myCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                myCommand.Parameters.AddWithValue("@Name", name);
                 myCommand.Parameters.AddWithValue("@Email", email);
                 myCommand.Parameters.AddWithValue("@Password", password);
-                myCommand.Parameters.AddWithValue("@Sex", sex);
-                myCommand.Parameters.AddWithValue("@Age", age);
                 myCommand.ExecuteNonQuery();
                 myConnection.Close();
-
+                return true;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());         
+                Console.WriteLine(e.ToString());
+                return false;   
             }
         }
 
