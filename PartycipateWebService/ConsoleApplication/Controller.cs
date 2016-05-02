@@ -12,41 +12,23 @@ namespace ConsoleApplication
     public class Controller
     {
         WebServicePartycipateDB ws = new WebServicePartycipateDB();
-        public string TestUser()
-        {
-            User ut = ws.GetSingleUser();
-            String output;
-            output = "Name: " + ut.Name + "Email: " + ut.Email + "Age: " + ut.Age;
-            return output;
-        }
         public string GetUsers()
         {
-            //String output = "";
-            User[] userString = ws.GetUsers();
-            List<User> usersList = ws.GetUsers();
+            String output = "";
+            User[] usersList = ws.GetUsers();
             foreach (User u in usersList)
             {
-                Console.WriteLine("Name: {0} Email: {1} Age: {2}", u.Name, u.Email, u.Age);
+                output = output + "Username: " + u.UserName + "\nName: " + u.Name + "\nEmail: " + u.Email + "\nAge: " + u.Age + "\n\n";
             }
-
-           
-            
-            foreach (User u in ws.GetUsers())
-            {
-                User u1 = u;
-
-                return u1;
-               
-            }
-            return u;
+            return output;
         }
         public string GetEvents()
         {
             String output = "";
-            foreach (String s in ws.GetEvents())
+            Event[] eventList = ws.GetEvents();
+            foreach (Event e in eventList)
             {
-                
-                output = output + s + " \n";
+                output = output + "Event id: " + e.EventId + " \nEvent name: " + e.EventName + "\nLocation: " + e.Location +  "\n\n";
             }
             return output;
         }

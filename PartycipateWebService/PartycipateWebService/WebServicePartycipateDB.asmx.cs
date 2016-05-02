@@ -55,28 +55,12 @@ namespace PartycipateWebService
                 return eventsList;
             }
 
-            catch (Exception e1)
+            catch (Exception e)
             {
                 return null;
             }
 
 
-        }
-
-        [WebMethod]
-        public List<User> GetSingleUserList()
-        {
-            List<User> singleList = new List<User>();
-            User ut = new User();
-            ut.UserName = "TestUserName";
-            ut.Name = "RealName";
-            ut.Sex = "Hybrid";
-            ut.Password = "TestPw";
-            ut.PhoneNumber = "1234 1234";
-            ut.Age = 1994;
-            ut.Email = "rick@universe.com";
-            singleList.Add(ut);
-            return singleList;
         }
 
         [WebMethod]

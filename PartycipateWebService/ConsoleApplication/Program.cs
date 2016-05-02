@@ -16,9 +16,10 @@ namespace ConsoleApplication
             Console.ForegroundColor = ConsoleColor.Yellow;
         Start:
             Console.Clear();
+            Console.WriteLine("This application displays all Users and Events currently registred.\n");
             Console.WriteLine("Insert 'u' followed by Enter to display all users.");
-            Console.WriteLine("Insert 'e' followed by Enter to displat all events.");
-            Console.WriteLine("Insert 'exit' followed by Enter to exit application.");
+            Console.WriteLine("Insert 'e' followed by Enter to display all events.");
+            Console.WriteLine("Insert 'exit' followed by Enter to exit application.\n");
             String caseSwitch = Console.ReadLine();
             switch (caseSwitch)
             {
@@ -37,12 +38,12 @@ namespace ConsoleApplication
                     Console.ReadKey();
                     break;
                 case "exit":
-                    Environment.Exit(1);
+                    Environment.Exit(0);
                     break;
                 default:
                     Console.Clear();
                     goto Start; 
-                    break;
+                    
                     
             }
             goto Start;

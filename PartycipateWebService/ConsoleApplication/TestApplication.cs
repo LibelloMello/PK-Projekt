@@ -10,7 +10,7 @@ namespace ConsoleApplication
 {
     class TestApplication
     {
-        static void Main(string[] args)
+        static void Hej(string[] args)
         {
             Controller c = new Controller();
             Console.ForegroundColor = ConsoleColor.Yellow;
