@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace ConsoleApplication.WebServiceReference {
+namespace DebugClient.localhost {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -39,7 +39,7 @@ namespace ConsoleApplication.WebServiceReference {
         
         /// <remarks/>
         public WebServicePartycipateDB() {
-            this.Url = global::ConsoleApplication.Properties.Settings.Default.ConsoleApplication_WebServiceReference_WebServicePartycipateDB;
+            this.Url = global::DebugClient.Properties.Settings.Default.DebugClient_localhost_WebServicePartycipateDB;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
