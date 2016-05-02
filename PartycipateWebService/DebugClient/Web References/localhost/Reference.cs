@@ -31,7 +31,7 @@ namespace DebugClient.localhost {
         
         private System.Threading.SendOrPostCallback GetEventsOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetSingleUserOperationCompleted;
+        private System.Threading.SendOrPostCallback GetSingleUserListOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetUsersOperationCompleted;
         
@@ -77,7 +77,7 @@ namespace DebugClient.localhost {
         public event GetEventsCompletedEventHandler GetEventsCompleted;
         
         /// <remarks/>
-        public event GetSingleUserCompletedEventHandler GetSingleUserCompleted;
+        public event GetSingleUserListCompletedEventHandler GetSingleUserListCompleted;
         
         /// <remarks/>
         public event GetUsersCompletedEventHandler GetUsersCompleted;
@@ -110,29 +110,29 @@ namespace DebugClient.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/GetSingleUser", RequestNamespace="http://grupp11.ics.lu.se/", ResponseNamespace="http://grupp11.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public User[] GetSingleUser() {
-            object[] results = this.Invoke("GetSingleUser", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/GetSingleUserList", RequestNamespace="http://grupp11.ics.lu.se/", ResponseNamespace="http://grupp11.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public User[] GetSingleUserList() {
+            object[] results = this.Invoke("GetSingleUserList", new object[0]);
             return ((User[])(results[0]));
         }
         
         /// <remarks/>
-        public void GetSingleUserAsync() {
-            this.GetSingleUserAsync(null);
+        public void GetSingleUserListAsync() {
+            this.GetSingleUserListAsync(null);
         }
         
         /// <remarks/>
-        public void GetSingleUserAsync(object userState) {
-            if ((this.GetSingleUserOperationCompleted == null)) {
-                this.GetSingleUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSingleUserOperationCompleted);
+        public void GetSingleUserListAsync(object userState) {
+            if ((this.GetSingleUserListOperationCompleted == null)) {
+                this.GetSingleUserListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSingleUserListOperationCompleted);
             }
-            this.InvokeAsync("GetSingleUser", new object[0], this.GetSingleUserOperationCompleted, userState);
+            this.InvokeAsync("GetSingleUserList", new object[0], this.GetSingleUserListOperationCompleted, userState);
         }
         
-        private void OnGetSingleUserOperationCompleted(object arg) {
-            if ((this.GetSingleUserCompleted != null)) {
+        private void OnGetSingleUserListOperationCompleted(object arg) {
+            if ((this.GetSingleUserListCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetSingleUserCompleted(this, new GetSingleUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetSingleUserListCompleted(this, new GetSingleUserListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -408,17 +408,17 @@ namespace DebugClient.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void GetSingleUserCompletedEventHandler(object sender, GetSingleUserCompletedEventArgs e);
+    public delegate void GetSingleUserListCompletedEventHandler(object sender, GetSingleUserListCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetSingleUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetSingleUserListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetSingleUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetSingleUserListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

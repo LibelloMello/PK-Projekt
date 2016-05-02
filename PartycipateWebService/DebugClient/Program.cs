@@ -12,11 +12,12 @@ namespace DebugClient
         static void Main(string[] args)
         {
             WebServicePartycipateDB ws = new WebServicePartycipateDB();
-            User[] ls = ws.GetSingleUser();
-            String output;
-
-            output = "Name: " + ut.Name + "Email: " + ut.Email + "Age: " + ut.Age;
-            Console.WriteLine(output);
+            User[] ls = ws.GetSingleUserList();          
+            foreach (User u in ls)
+            {
+                Console.WriteLine(u.Name);
+            }
+            
             Console.ReadKey();
         }
     }
