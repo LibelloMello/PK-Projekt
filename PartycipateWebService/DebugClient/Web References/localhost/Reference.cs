@@ -111,9 +111,9 @@ namespace DebugClient.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/GetSingleUser", RequestNamespace="http://grupp11.ics.lu.se/", ResponseNamespace="http://grupp11.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public User GetSingleUser() {
+        public User[] GetSingleUser() {
             object[] results = this.Invoke("GetSingleUser", new object[0]);
-            return ((User)(results[0]));
+            return ((User[])(results[0]));
         }
         
         /// <remarks/>
@@ -424,10 +424,10 @@ namespace DebugClient.localhost {
         }
         
         /// <remarks/>
-        public User Result {
+        public User[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((User)(this.results[0]));
+                return ((User[])(this.results[0]));
             }
         }
     }

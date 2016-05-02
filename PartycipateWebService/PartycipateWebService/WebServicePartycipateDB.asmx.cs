@@ -64,9 +64,9 @@ namespace PartycipateWebService
         }
 
         [WebMethod]
-        public User GetSingleUser()
+        public List<User> GetSingleUserList()
         {
-          //  List<User> singleList = new List<User>();
+            List<User> singleList = new List<User>();
             User ut = new User();
             ut.UserName = "TestUserName";
             ut.Name = "RealName";
@@ -75,8 +75,8 @@ namespace PartycipateWebService
             ut.PhoneNumber = "1234 1234";
             ut.Age = 1994;
             ut.Email = "rick@universe.com";
-          //  singleList.Add(ut);
-            return ut;
+            singleList.Add(ut);
+            return singleList;
         }
 
         [WebMethod]

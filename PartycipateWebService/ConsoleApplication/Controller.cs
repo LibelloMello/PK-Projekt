@@ -23,7 +23,7 @@ namespace ConsoleApplication
         {
             //String output = "";
             User[] userString = ws.GetUsers();
-            List<User> usersList = ws.GetUsers().ToArray<User>();
+            List<User> usersList = ws.GetUsers();
             foreach (User u in usersList)
             {
                 Console.WriteLine("Name: {0} Email: {1} Age: {2}", u.Name, u.Email, u.Age);
