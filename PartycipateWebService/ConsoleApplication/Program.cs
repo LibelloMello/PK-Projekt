@@ -12,17 +12,46 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            
-            WebServicePartycipateDB ws = new WebServicePartycipateDB();
-
-            foreach (String s in ws.GetUsers())
+            Controller c = new Controller();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+        Start:
+            Console.Clear();
+            Console.WriteLine("Insert 'u' followed by Enter to display all users.");
+            Console.WriteLine("Insert 'e' followed by Enter to displat all events.");
+            Console.WriteLine("Insert 'exit' followed by Enter to exit application.");
+            String caseSwitch = Console.ReadLine();
+            switch (caseSwitch)
             {
-                Console.Beep(frequency:10000, duration:200);
-                
-                Console.WriteLine(s);
+                case "u":
+                    Console.Clear();
+                    Console.WriteLine("All users: \n");
+                    Console.WriteLine(c.GetUsers());
+                    Console.WriteLine("Hit any key to reload.");
+                    Console.ReadKey();
+                    break;
+                case "e":
+                    Console.Clear();
+                    Console.WriteLine("All events: \n");
+                    Console.WriteLine(c.GetEvents());
+                    Console.WriteLine("Hit any key to reload.");
+                    Console.ReadKey();
+                    break;
+                case "exit":
+                    Environment.Exit(1);
+                    break;
+                default:
+                    Console.Clear();
+                    goto Start; 
+                    break;
+                    
             }
+            goto Start;
 
-            Console.ReadKey();
+            
+            
+            
+
+            
             
         }
     }

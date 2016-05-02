@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Data;
+using PartycipateWebService;
 
 namespace PartycipateWebService
 {
@@ -20,74 +21,89 @@ namespace PartycipateWebService
     {
 
         [WebMethod]
-        public List<string> GetUsers()
+        public List<Event> GetEvents()
         {
+
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+
+
+            List<Event> eventsList = new List<Event>();
+
 
             try
             {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT USER_NAME, EMAIL, AGE FROM USERS", myConnection);
+                SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY", myConnection);
+                // myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myReader = myCommand.ExecuteReader();
 
-                DataSet usersDS = new DataSet();
 
-                adapter.Fill(usersDS, "USERS");
-                List<string> userList = new List<string>();
-                foreach (DataRow dataRow in usersDS.Tables["USERS"].Rows)
+                while (myReader.Read())
                 {
-                    userList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
+                    Event e = new Event();
+                    e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
+                    e.Location = myReader["LOCATION"].ToString();
+                    e.EventName = myReader["EVENT_NAME"].ToString();
+                    e.Note = myReader["NOTE"].ToString();
+                    e.OpenSlots = int.Parse(myReader["OPEN_SLOTS"].ToString());
+                    e.EventTime = myReader["EVENT_TIME"].ToString();
+
+                    eventsList.Add(e);
+
                 }
-                return userList;
+                return eventsList;
             }
-            catch (Exception e)
+
+            catch (Exception e1)
             {
-                Console.WriteLine(e.ToString());
                 return null;
             }
+
+
         }
 
+
         [WebMethod]
-        public List<string> GetEvents()
+        public List<User> GetUsers()
         {
+
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+
+
+            List<User> usersList = new List<User>();
+
 
             try
             {
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT EVENT_ID, EVENT_NAME, EVENT_TIME", myConnection);
+                SqlCommand myCommand = new SqlCommand("SELECT * FROM USERS", myConnection);
+                // myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myReader = myCommand.ExecuteReader();
 
-                DataSet eventsDS = new DataSet();
 
-                adapter.Fill(eventsDS, "USERS");
-                List<string> eventList = new List<string>();
-                foreach (DataRow dataRow in eventsDS.Tables["USERS"].Rows)
+                while (myReader.Read())
                 {
-                    eventList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
+                    User u = new User();
+                    u.UserName = myReader["USER_NAME"].ToString();
+                    u.Age = int.Parse(myReader["AGE"].ToString());
+                    u.Email = myReader["EMAIL"].ToString();
+                    u.Name = myReader["NAME"].ToString();
+                    u.Password = myReader["PASSWORD"].ToString();
+                    u.Sex = myReader["SEX"].ToString();
+
+                    usersList.Add(u);
+
                 }
-                return eventList;
+                return usersList;
             }
-            catch (Exception e)
+
+            catch (Exception e1)
             {
-                Console.WriteLine(e.ToString());
                 return null;
             }
 
-            /* TEMPLATE:
-            [WebMethod]
-         public List<string> GetPlayers()
-         {
-             SqlDataAdapter adapter = new SqlDataAdapter("SELECT playername, gamertag FROM player", con);
-             DataSet playerDS = new DataSet();
-             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-             adapter.Fill(playerDS, "player");
-             List<string> playerList = new List<string>();
-             foreach (DataRow dataRow in playerDS.Tables["player"].Rows)
-             {
-                 playerList.Add(string.Join(", ", dataRow.ItemArray.Select(item => item.ToString())));
-             }
-             return playerList;
-         }
-            */
 
         }
     }

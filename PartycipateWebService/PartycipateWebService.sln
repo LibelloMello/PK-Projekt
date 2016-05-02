@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartycipateWebService", "PartycipateWebService\PartycipateWebService.csproj", "{D4CE088C-2006-4D04-90CC-775FAFD1C44D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormApplication", "FormApplication\FormApplication.csproj", "{6B00191D-5C88-40FB-8FFB-96A660B21269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4CE088C-2006-4D04-90CC-775FAFD1C44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4CE088C-2006-4D04-90CC-775FAFD1C44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4CE088C-2006-4D04-90CC-775FAFD1C44D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B00191D-5C88-40FB-8FFB-96A660B21269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B00191D-5C88-40FB-8FFB-96A660B21269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B00191D-5C88-40FB-8FFB-96A660B21269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B00191D-5C88-40FB-8FFB-96A660B21269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
