@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Event" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ConsoleApplication.WebServiceReference.Event</TypeInfo>
+   <TypeInfo>DebugClient.localhost.Event</TypeInfo>
 </GenericObjectDataSource>

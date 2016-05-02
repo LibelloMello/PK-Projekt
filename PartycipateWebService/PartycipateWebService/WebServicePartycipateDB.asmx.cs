@@ -63,6 +63,21 @@ namespace PartycipateWebService
 
         }
 
+        [WebMethod]
+        public List<User> GetSingleUserList()
+        {
+            List<User> singleList = new List<User>();
+            User ut = new User();
+            ut.UserName = "TestUserName";
+            ut.Name = "RealName";
+            ut.Sex = "Hybrid";
+            ut.Password = "TestPw";
+            ut.PhoneNumber = "1234 1234";
+            ut.Age = 1994;
+            ut.Email = "rick@universe.com";
+            singleList.Add(ut);
+            return singleList;
+        }
 
         [WebMethod]
         public List<User> GetUsers()
@@ -85,6 +100,7 @@ namespace PartycipateWebService
 
                 while (myReader.Read())
                 {
+
                     User u = new User();
                     u.UserName = myReader["USER_NAME"].ToString();
                     u.Age = int.Parse(myReader["AGE"].ToString());
