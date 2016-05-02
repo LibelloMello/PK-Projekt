@@ -14,7 +14,7 @@ namespace ConsoleApplication
         {
             Controller c = new Controller();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(c.TestUser());
+            
             Console.ReadKey();
 
         }
