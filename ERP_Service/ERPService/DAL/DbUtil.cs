@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -48,13 +49,16 @@ namespace ERPService
         }
 
 
-        public List<List<string>> GetEmployees()
+        public DataSet GetEmployees()
         {
             DbUtil db = new DbUtil();
             SqlConnection myConnection = db.Connection();
-            SqlCommand myCommand = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
+            DataSet ds = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
+            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            adapter.Fill(ds, "Employees");
 
-            return myCommand;
+            return ds;
         }
 
 
