@@ -30,7 +30,8 @@
         {
             this.userButton = new System.Windows.Forms.Button();
             this.eventButton = new System.Windows.Forms.Button();
-            this.displayText = new System.Windows.Forms.RichTextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // userButton
@@ -45,7 +46,7 @@
             // 
             // eventButton
             // 
-            this.eventButton.Location = new System.Drawing.Point(264, 12);
+            this.eventButton.Location = new System.Drawing.Point(139, 12);
             this.eventButton.Name = "eventButton";
             this.eventButton.Size = new System.Drawing.Size(121, 23);
             this.eventButton.TabIndex = 1;
@@ -53,24 +54,26 @@
             this.eventButton.UseVisualStyleBackColor = true;
             this.eventButton.Click += new System.EventHandler(this.eventButton_Click);
             // 
-            // displayText
+            // dataGridView1
             // 
-            this.displayText.Location = new System.Drawing.Point(12, 41);
-            this.displayText.Name = "displayText";
-            this.displayText.Size = new System.Drawing.Size(373, 358);
-            this.displayText.TabIndex = 2;
-            this.displayText.Text = "";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 41);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(749, 274);
+            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 411);
-            this.Controls.Add(this.displayText);
+            this.ClientSize = new System.Drawing.Size(773, 329);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.eventButton);
             this.Controls.Add(this.userButton);
             this.Name = "Form";
             this.Text = "Show all users or events";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -79,7 +82,7 @@
 
         private System.Windows.Forms.Button userButton;
         private System.Windows.Forms.Button eventButton;
-        private System.Windows.Forms.RichTextBox displayText;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

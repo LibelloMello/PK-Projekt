@@ -10,25 +10,47 @@ namespace FormApplication
     class Controller
     {
         WebServicePartycipateDB ws = new WebServicePartycipateDB();
-        public string GetUsers()
+
+        public List<User> GetUsers()
         {
-            String output = "";
-            User[] usersList = ws.GetUsers();
-            foreach (User u in usersList)
+            try
             {
-                output = output + "Username: " + u.UserName + "\nName: " + u.Name + "\nEmail: " + u.Email + "\nAge: " + u.Age + "\n\n";
+                return ws.GetUsers().ToList();
+            
             }
-            return output;
+
+            catch (Exception) {
+                return null;
+            }
+
         }
-        public string GetEvents()
+
+        public List<Event> GetEvents()
         {
-            String output = "";
-            Event[] eventList = ws.GetEvents();
-            foreach (Event e in eventList)
+            try
             {
-                output = output + "Event id: " + e.EventId + " \nEvent name: " + e.EventName + "\nLocation: " + e.Location + "\n\n";
+                return ws.GetEvents().ToList();
+
             }
-            return output;
+
+            catch (Exception)
+            {
+                return null;
+            }
+
         }
+
+
+
+        /* public string GetEvents()
+         {
+             String output = "";
+             Event[] eventList = ws.GetEvents();
+             foreach (Event e in eventList)
+             {
+                 output = output + "Event id: " + e.EventId + " \nEvent name: " + e.EventName + "\nLocation: " + e.Location + "\n\n";
+             }
+             return output;
+         }*/
     }
 }
