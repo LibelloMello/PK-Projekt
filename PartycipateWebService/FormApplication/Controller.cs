@@ -16,7 +16,6 @@ namespace FormApplication
             try
             {
                 return ws.GetUsers().ToList();
-            
             }
 
             catch (Exception) {
