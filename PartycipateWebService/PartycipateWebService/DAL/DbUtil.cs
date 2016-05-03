@@ -47,5 +47,88 @@ namespace PartycipateWebService
 
         }
 
-    }
+        public List<Event> GetEvents()
+        {
+
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+
+
+            List<Event> eventsList = new List<Event>();
+
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("SELECT * FROM PARTY", myConnection);
+                // myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myReader = myCommand.ExecuteReader();
+
+
+                while (myReader.Read())
+                {
+                    Event e = new Event();
+                    e.EventId = int.Parse(myReader["EVENT_ID"].ToString());
+                    e.Location = myReader["LOCATION"].ToString();
+                    e.EventName = myReader["EVENT_NAME"].ToString();
+                    e.Note = myReader["NOTE"].ToString();
+                    e.OpenSlots = int.Parse(myReader["OPEN_SLOTS"].ToString());
+                    e.EventTime = myReader["EVENT_TIME"].ToString();
+
+                    eventsList.Add(e);
+
+                }
+                return eventsList;
+            }
+
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+            public List<User> GetUsers()
+        {
+
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
+
+
+            List<User> usersList = new List<User>();
+
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("SELECT * FROM USERS", myConnection);
+                // myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myReader = myCommand.ExecuteReader();
+
+
+                while (myReader.Read())
+                {
+
+                    User u = new User();
+                    u.UserName = myReader["USER_NAME"].ToString();
+                    u.Age = int.Parse(myReader["AGE"].ToString());
+                    u.Email = myReader["EMAIL"].ToString();
+                    u.Name = myReader["NAME"].ToString();
+                    u.Password = myReader["PASSWORD"].ToString();
+                    u.Sex = myReader["SEX"].ToString();
+
+                    usersList.Add(u);
+
+                }
+                return usersList;
+            }
+
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+
+        }
 }

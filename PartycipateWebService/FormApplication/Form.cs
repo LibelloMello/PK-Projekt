@@ -21,12 +21,19 @@ namespace FormApplication
 
         private void userButton_Click(object sender, EventArgs e)
         {
-            displayText.Text = c.GetUsers();
+            dataGridView1.DataSource = c.GetUsers();
         }
 
         private void eventButton_Click(object sender, EventArgs e)
         {
-            displayText.Text = c.GetEvents();
+            dataGridView1.DataSource = c.GetEvents();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+ 
     }
 }
