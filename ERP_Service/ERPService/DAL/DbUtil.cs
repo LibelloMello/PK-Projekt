@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ERPService.DAL
+namespace ERPService
 {
     public class DbUtil
     {
