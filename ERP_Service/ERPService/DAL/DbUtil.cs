@@ -48,5 +48,15 @@ namespace ERPService
         }
 
 
+        public List<List<string>> GetEmployees()
+        {
+            DbUtil db = new DbUtil();
+            SqlConnection myConnection = db.Connection();
+            SqlCommand myCommand = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
+
+            return myCommand;
+        }
+
+
     }
 }
