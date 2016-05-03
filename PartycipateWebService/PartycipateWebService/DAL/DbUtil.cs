@@ -78,7 +78,7 @@ namespace PartycipateWebService
                     eventsList.Add(e);
 
                 }
-                return eventsList;
+                return eventsList.ToList();
             }
 
             catch (Exception)
@@ -120,7 +120,7 @@ namespace PartycipateWebService
 
                 }
                 myConnection.Close();
-                return usersList;
+                return usersList.ToList();
             }
 
             catch (Exception)
