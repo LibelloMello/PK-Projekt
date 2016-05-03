@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -17,13 +18,19 @@ namespace ERPService
     // [System.Web.Script.Services.ScriptService]
     public class WebServiceERP : System.Web.Services.WebService
     {
+        DbUtil db = new DbUtil();
 
         [WebMethod]
         public string Hello()
         {
             return "HelloWorld";
         }
-        
+        [WebMethod]
+        public DataSet GetAllEmployees()
+        {
+            DataSet ds = db.GetEmployees();
+            return ds;
+        }
 
 
    
