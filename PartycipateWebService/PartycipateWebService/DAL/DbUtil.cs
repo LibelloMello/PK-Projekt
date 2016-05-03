@@ -119,6 +119,7 @@ namespace PartycipateWebService
                     usersList.Add(u);
 
                 }
+                myConnection.Close();
                 return usersList;
             }
 

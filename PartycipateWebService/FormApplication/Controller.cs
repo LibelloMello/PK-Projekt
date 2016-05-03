@@ -37,20 +37,6 @@ namespace FormApplication
             {
                 return null;
             }
-
         }
-
-
-
-        /* public string GetEvents()
-         {
-             String output = "";
-             Event[] eventList = ws.GetEvents();
-             foreach (Event e in eventList)
-             {
-                 output = output + "Event id: " + e.EventId + " \nEvent name: " + e.EventName + "\nLocation: " + e.Location + "\n\n";
-             }
-             return output;
-         }*/
     }
 }
