@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -25,13 +26,12 @@ namespace ERPService
             }
             catch (Exception e)
             {
-                Console.WriteLine("I FAIL connection")
+                Console.WriteLine("I FAIL connection");
                 Console.WriteLine(e.ToString());
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
             }
             return myConnection;
-
 
         }
         public void closeConn(SqlConnection myConnection)
