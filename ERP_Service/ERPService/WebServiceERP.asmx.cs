@@ -18,6 +18,12 @@ namespace ERPService
     public class WebServiceERP : System.Web.Services.WebService
     {
 
+        [WebMethod]
+        public string Hello()
+        {
+            return "HelloWorld";
+        }
+
    
     }
 }
