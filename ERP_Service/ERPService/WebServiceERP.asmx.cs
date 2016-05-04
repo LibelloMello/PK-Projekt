@@ -41,8 +41,17 @@ namespace ERPService
         [WebMethod]
         public List<List<string>> GetAllEmployeesRelatives()
         {
+            SqlConnection con = db.Connection();
             return db.GetAllEmployeesRelatives();
+            
         }
+        /* Example of method
+        [WebMethod]
+        public List<List<string>> Example()
+        {
+            return db.Example();
+        }
+        */
 
         
 
