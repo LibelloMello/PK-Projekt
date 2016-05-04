@@ -179,7 +179,7 @@ namespace ERPService
         public List<List<string>> GetCronusEmployeeColumns()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT COLUMN_NAME FROM 'CRONUS Sverige AB$Employee'", con);
+            SqlCommand s = new SqlCommand("SELECT TOP 0 * FROM 'CRONUS Sverige AB$Employee'", con);
 
             return Mash(s.ExecuteReader());
         }
