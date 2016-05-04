@@ -26,10 +26,15 @@ namespace ERPService
             return "HelloWorld";
         }
         [WebMethod]
-        public DataSet GetAllEmployees()
+       /* public DataSet GetAllEmployees()
         {
             DataSet ds = db.GetEmployees();
             return ds;
+        } */
+        public List<List<string>> GetEmployees()
+        {
+
+            return ExecuteQuery("SELECT * FROM [CRONUS Sverige AB$Employee]");
         }
 
 
@@ -45,7 +50,7 @@ namespace ERPService
                 myConnection.Open();
                 adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
                 adapter.Fill(dataTable);
-                myConnection.Close();
+                
 
                 for (int i = 0; i < dataTable.Columns.Count; i++)
                 {
@@ -71,9 +76,59 @@ namespace ERPService
             {
                 return null;
             }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+        public List<List<string>> ExecuteQuery(string sqlQuery)
+        {
+            SqlConnection con = db.Connection();
+
+            SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, con);
+            DataTable table = new DataTable();
+            List<List<string>> tableList = new List<List<string>>();
+            List<string> columns = new List<string>();
+
+            try
+            {
+                con.Open();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(table);
+                con.Close();
+
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    string columnName = table.Columns[i].ColumnName;
+                    columns.Add(columnName);
+                }
+                tableList.Add(columns);
+                foreach (DataRow dr in table.Rows)
+                {
+                    List<string> row = new List<string>();
+
+                    for (int i = 0; i < table.Columns.Count; i++)
+                    {
+                        row.Add(dr[i].ToString());
+                    }
+                    tableList.Add(row);
+                }
+                return tableList;
+            }
+            catch (SqlException sqlEx)
+            {
+                throw sqlEx;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
 
-   
     }
 }
