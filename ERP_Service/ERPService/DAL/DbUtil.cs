@@ -94,6 +94,16 @@ namespace ERPService
 
         }
 
+        //A
+
+        public List<List<String>> GetAllEmployees()
+        {
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT TOP 100 [No_], [First Name], [Last Name]"
+                                           + "FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]", con);
+            return Mash(s.ExecuteReader());
+        }
+
         public List<List<string>> GetAllEmployeesRelatives()
         {
             SqlConnection con = Connection();
@@ -101,77 +111,88 @@ namespace ERPService
             return Mash(s.ExecuteReader());
         }
 
-
-
-
-
-
-
-
-        /* HERE IS SOME SHIT
-        public List<List<string>> GetAllEmployeeRelatives()
-        {
-            return ExecuteQuery("SELECT * FROM [CRONUS Sverige AB$Employee Relative]");
-        }
         public List<List<string>> GetAllSickEmployees2004()
         {
-            return ExecuteQuery("SELECT * FROM [CRONUS Sverige AB$Employee Absence] WHERE Description = 'Sjuk' AND DATEPART(yy, [From Date]) = 2004");
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Absence] WHERE Description = 'Sjuk' AND DATEPART(yy, [From Date]) = 2004", con);
+
+            return Mash(s.ExecuteReader());
         }
 
-        public List<List<string>> GetEmployeesWithMostAbsence()
+        public List<List<string>> GetEmployeeWithMostAbsence()
         {
-            return ExecuteQuery("SELECT TOP 10 [First Name] " +
-                "FROM [CRONUS Sverige AB$Employee] E " +
-                "INNER JOIN " +
-                "[CRONUS Sverige AB$Employee Absence] A " +
-                "ON E.No_ = A.[Employee No_] " +
-                "WHERE Description = 'Sjuk' " +
-                "GROUP BY [First Name] " +
-                "HAVING COUNT([Entry No_]) > 1"
-            );
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT TOP 1 [First Name]"
+                                          + "  from [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee Absence] a"
+                                          + "  join [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee] b"
+                                          + "  on a.[Employee No_] = b.No_"
+                                          + "  and [Cause of Absence Code] = 'SJUK'"
+                                          + "  group by [Employee No_], [First Name]"
+                                          + "  order by count(*) desc"
+                                          , con);
+            return Mash(s.ExecuteReader());
         }
 
-        // B
+        //B
 
         public List<List<string>> GetCronusKeys()
         {
-            return ExecuteQuery("SELECT NAME, TYPE_DESC FROM sys.key_constraints");
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT NAME, TYPE_DESC FROM sys.key_constraints", con);
+
+            return Mash(s.ExecuteReader());
         }
 
         public List<List<string>> GetCronusIndexes()
-        {
-            return ExecuteQuery("SELECT OBJECT_ID, NAME FROM sys.indexes");
-        }
+            {
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT OBJECT_ID, NAME FROM sys.indexes", con);
+            
+            return Mash(s.ExecuteReader());
+
+            }
 
         public List<List<string>> GetCronusTableConstraints()
         {
-            return ExecuteQuery("SELECT TABLE_NAME, CONSTRAINT_TYPE FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS");
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT TABLE_NAME, CONSTRAINT_TYPE FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS", con);
+
+            return Mash(s.ExecuteReader());
         }
 
         public List<List<string>> GetCronusTables()
         {
-            return ExecuteQuery("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES");
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES", con);
+
+            return Mash(s.ExecuteReader());
         }
-    
+
         public List<List<string>> GetCronusTables1()
         {
-            return ExecuteQuery("SELECT NAME FROM sys.tables");
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT NAME FROM sys.tables", con);
+
+            return Mash(s.ExecuteReader());
         }
 
         public List<List<string>> GetCronusEmployeeColumns()
         {
-            return ExecuteQuery("SELECT COLUMN_NAME" +
-                "FROM INFORMATION_SCHEMA.COLUMNS " +
-                "WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'"
-            );
-        }
-        public List<List<string>> GetAllEmployeeColumns1()
-        {
-            return ExecuteQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'"
-            );
-        }
-        */
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT COLUMN_NAME" +
+                                          "FROM INFORMATION_SCHEMA.COLUMNS " +
+                                          "WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", con);
 
+            return Mash(s.ExecuteReader());
+        }
+
+        public List<List<string>> GetCronusEmployeeColumns1()
+        {
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", con);
+
+            return Mash(s.ExecuteReader());
+        }
 
     }
 }
