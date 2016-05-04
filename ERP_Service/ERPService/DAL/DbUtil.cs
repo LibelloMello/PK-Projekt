@@ -49,6 +49,27 @@ namespace ERPService
             if (input != null)
             {
                 List<List<string>> listToReturn = new List<List<string>>();
+                
+                while (input.Read())
+                {
+                    List<string> col = new List<string>();
+                    for (int i = 0; i < input.; i++)
+                    {
+                        string colPart = "";
+                        try
+                        {
+                            colPart = input.GetName(i).ToString();
+                        }
+                        catch (NotSupportedException)
+                        {
+                            colPart = "null";
+                        }
+                        col.Add(colPart);
+                    }
+                    listToReturn.Add(col);
+                }
+                
+
 
                 while (input.Read())
                 {
@@ -57,19 +78,14 @@ namespace ERPService
                     {
                         string part = "";
                         try
-                        {
+                        { 
                             part = input.GetValue(i).ToString();
-
                         }
                         catch (NotSupportedException)
                         {
                             part = "null";
                         }
-
-
                         row.Add(part);
-
-
                     }
                     listToReturn.Add(row);
                 }
@@ -93,7 +109,7 @@ namespace ERPService
 
 
 
-        /*
+        /* HERE IS SOME SHIT
         public List<List<string>> GetAllEmployeeRelatives()
         {
             return ExecuteQuery("SELECT * FROM [CRONUS Sverige AB$Employee Relative]");

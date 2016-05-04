@@ -28,20 +28,20 @@ namespace ERPService
             return "HelloWorld";
         }
         
-        [WebMethod]
+        /*
+        [TEST TEMPLATE, OR NOT... i dunno]
         public List<List<String>> GetColumns()
         {
             SqlConnection con = db.Connection();
             SqlCommand s = new SqlCommand("select top 100 Table_Name, Column_name from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'CRONUS Sverige AB$Employee'", con);
             
             return convert(s.ExecuteReader());
-           
-
         } 
+        */
         [WebMethod]
         public List<List<string>> GetAllEmployeesRelatives()
         {
-            
+            return db.GetAllEmployeesRelatives();
         }
 
         
