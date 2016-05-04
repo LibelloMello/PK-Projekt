@@ -44,7 +44,7 @@ namespace ERPService
             }
 
         }
-        public List<List<String>> Mash(SqlDataReader input)
+        public List<List<string>> Mash(SqlDataReader input)
         {
             if (input != null)
             {
@@ -96,7 +96,7 @@ namespace ERPService
 
         //A
 
-        public List<List<String>> GetAllEmployees()
+        public List<List<string>> GetAllEmployees()
         {
             SqlConnection con = Connection();
             SqlCommand s = new SqlCommand("SELECT TOP 100 [No_], [First Name], [Last Name]"
