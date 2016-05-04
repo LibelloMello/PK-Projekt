@@ -41,10 +41,60 @@ namespace ERPService
         [WebMethod]
         public List<List<string>> GetAllEmployeesRelatives()
         {
-            SqlConnection con = db.Connection();
             return db.GetAllEmployeesRelatives();
             
         }
+        [WebMethod]
+        public List<List<string>> GetAllEmployees()
+        {
+            return db.GetAllEmployees();
+        }
+        [WebMethod]
+        public List<List<string>> GetAllSickEmployees2004()
+        {
+            return db.GetAllSickEmployees2004();
+        }
+        [WebMethod]
+        public List<List<string>> GetEmployeeWithMostAbsence()
+        {
+            return db.GetEmployeeWithMostAbsence();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusKeys()
+        {
+            return db.GetCronusKeys();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusIndexes()
+        {
+            return db.GetCronusIndexes();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusTableConstraints()
+        {
+            return db.GetCronusTableConstraints();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusTables()
+        {
+            return db.GetCronusTables();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusTables1()
+        {
+            return db.GetCronusTables1();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusEmployeeColumns()
+        {
+            return db.GetCronusEmployeeColumns();
+        }
+        [WebMethod]
+        public List<List<string>> GetCronusEmployeeColumns1()
+        {
+            return db.GetCronusEmployeeColumns1();
+        }
+
         /* Example of method
         [WebMethod]
         public List<List<string>> Example()
@@ -53,11 +103,11 @@ namespace ERPService
         }
         */
 
-        
+
 
 
 
 
 
     }
-}
+    }
