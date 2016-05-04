@@ -44,55 +44,55 @@ namespace ERPService
             }
 
         }
-
-        public List<List<string>> AsListInList(SqlDataReader input)
+        public List<List<String>> convert(SqlDataReader input)
         {
             if (input != null)
             {
-                List<List<string>> list = new List<List<string>>();
+                List<List<string>> listToReturn = new List<List<string>>();
 
                 while (input.Read())
                 {
-                    List<string> tmp = new List<string>();
+                    List<string> row = new List<string>();
                     for (int i = 0; i < input.FieldCount; i++)
                     {
-                        string s = "";
+                        string part = "";
                         try
                         {
-                            s = input.GetString(i) as string;
+                            part = input.GetValue(i).ToString();
+
                         }
-                        catch (SqlNullValueException)
+                        catch (NotSupportedException)
                         {
-                            s = "null";
+                            part = "null";
                         }
 
 
-                        tmp.Add(s);
+                        row.Add(part);
 
 
                     }
-                    list.Add(tmp);
+                    listToReturn.Add(row);
                 }
-                return list;
+                return listToReturn;
             }
             return null;
 
         }
 
-
-
-
-
-        // A
-        public List<List<string>> GetAllEmployees()
+        public List<List<string>> GetAllEmployeesRelatives()
         {
-            SqlConnection myConnection = Connection();
-            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
-            
-            return AsListInList(s.ExecuteReader());
-            closeConn(myConnection);
-
+            SqlConnection con = Connection();
+            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Relative]", con);
+            return convert(s.ExecuteReader());
         }
+
+
+
+
+
+
+
+
         /*
         public List<List<string>> GetAllEmployeeRelatives()
         {
