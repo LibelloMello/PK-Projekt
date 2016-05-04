@@ -33,6 +33,47 @@ namespace ERPService
         }
 
 
+        public List<List<string>> ExecuteSQL(string query)
+        {
+            SqlConnection myConnection = db.Connection();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, myConnection);
+            DataTable dataTable = new DataTable();
+            List<List<string>> listToReturn = new List<List<string>>();
+            List<string> tableColumns = new List<string>();
+            try
+            {
+                myConnection.Open();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(dataTable);
+                myConnection.Close();
+
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    tableColumns.Add(dataTable.Columns[i].ColumnName);
+                }
+                listToReturn.Add(tableColumns);
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    List<string> oneRow = new List<string>();
+                    for (int i = 0; i < dataTable.Columns.Count; i++)
+                    {
+                        oneRow.Add(row[i].ToString());
+                    }
+                    listToReturn.Add(oneRow);
+                }
+                return listToReturn;    
+            }
+            catch (SqlException sqlE)
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
    
     }
 }
