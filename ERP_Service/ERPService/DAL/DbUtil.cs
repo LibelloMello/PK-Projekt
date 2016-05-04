@@ -44,23 +44,53 @@ namespace ERPService
 
         }
 
+        public List<List<String>> convert(SqlDataReader reader)
+        {
+            if (reader != null)
+            {
+                List<List<String>> list = new List<List<String>>();
 
-        /*  public DataSet GetEmployees()
-          {
-              DbUtil db = new DbUtil();
-              SqlConnection myConnection = db.Connection();
-              DataSet ds = new DataSet();
-              SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
-              adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-              adapter.Fill(ds, "Employees");
+                while (reader.Read())
+                {
+                    List<String> tmp = new List<String>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string s = "";
+                        try
+                        {
+                            s = reader.GetString(i);
+                        }
+                        catch (SqlNullValueException)
+                        {
+                            s = "null";
+                        }
 
-              return ds;
-          }*/
 
-            // A
+                        tmp.Add(s);
+
+
+                    }
+                    list.Add(tmp);
+                }
+                return list;
+            }
+            return null;
+
+        }
+
+
+
+
+
+        // A
         public List<List<string>> GetAllEmployees()
         {
-            return ExecuteQuery("SELECT * FROM [CRONUS Sverige AB$Employee]");
+
+            Connection();
+            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]");
+
+            return convert(s.ExecuteReader());
+
         }
 
         public List<List<string>> GetAllEmployeeRelatives()
