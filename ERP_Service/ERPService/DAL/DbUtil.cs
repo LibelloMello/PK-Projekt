@@ -9,7 +9,7 @@ namespace ERPService
 {
     public class DbUtil
     {
-        DbUtil db = new DbUtil();
+        
         public SqlConnection Connection()
         {
 
@@ -50,7 +50,7 @@ namespace ERPService
         }
 
 
-        public DataSet GetEmployees()
+       /* public DataSet GetEmployees()
         {
             
             SqlConnection myConnection = db.Connection();
@@ -60,11 +60,8 @@ namespace ERPService
             adapter.Fill(ds, "Employees");
 
             return ds;
-        }
-        public DataSet GetEmployeeRelatives()
-        {
-            return ExecuteQuery("");
-        }
+        }*/
+        
 
 
     }
