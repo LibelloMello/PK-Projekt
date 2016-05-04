@@ -9,6 +9,7 @@ namespace ERPService
 {
     public class DbUtil
     {
+        DbUtil db = new DbUtil();
         public SqlConnection Connection()
         {
 
@@ -51,7 +52,7 @@ namespace ERPService
 
         public DataSet GetEmployees()
         {
-            DbUtil db = new DbUtil();
+            
             SqlConnection myConnection = db.Connection();
             DataSet ds = new DataSet();
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
@@ -59,6 +60,10 @@ namespace ERPService
             adapter.Fill(ds, "Employees");
 
             return ds;
+        }
+        public DataSet GetEmployeeRelatives()
+        {
+            return ExecuteQuery("");
         }
 
 
