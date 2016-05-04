@@ -99,7 +99,7 @@ namespace ERPService
         public List<List<string>> GetAllEmployees()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT TOP 100 [No_], [First Name], [Last Name]"
+            SqlCommand s = new SqlCommand("SELECT TOP 100 *"
                                            + "FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]", con);
             return Mash(s.ExecuteReader());
         }
