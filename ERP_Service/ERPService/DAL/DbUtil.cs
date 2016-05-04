@@ -90,7 +90,7 @@ namespace ERPService
             SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
             
             return AsListInList(s.ExecuteReader());
-            closeConn(myConnection);
+           // myConnection.Close();
 
         }
         /*
@@ -105,14 +105,13 @@ namespace ERPService
 
         public List<List<string>> GetEmployeesWithMostAbsence()
         {
-            return ExecuteQuery("SELECT TOP 10 [First Name] " +
-                "FROM [CRONUS Sverige AB$Employee] E " +
-                "INNER JOIN " +
-                "[CRONUS Sverige AB$Employee Absence] A " +
-                "ON E.No_ = A.[Employee No_] " +
-                "WHERE Description = 'Sjuk' " +
-                "GROUP BY [First Name] " +
-                "HAVING COUNT([Entry No_]) > 1"
+            return ExecuteQuery("select top 1 [First Name]"
+                                          +"  from [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee Absence] a"
+                                          +"  join [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee] b"
+                                          +"  on a.[Employee No_] = b.No_"
+                                          +"  and [Cause of Absence Code] = 'SJUK'"
+                                          +"  group by [Employee No_], [First Name]"
+                                          +"  order by count(*) desc"
             );
         }
 
