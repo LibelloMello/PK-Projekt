@@ -18,7 +18,7 @@ namespace ERPService
     // [System.Web.Script.Services.ScriptService]
     public class WebServiceERP : System.Web.Services.WebService
     {
-        //DbUtil db = new DbUtil();
+        DbUtil db = new DbUtil();
 
         [WebMethod]
         public string Hello()
@@ -26,7 +26,11 @@ namespace ERPService
             return "HelloWorld";
         }
         
-
+        [WebMethod]
+        public List<List<string>> GetAllEmployees()
+        {
+            return db.GetAllEmployees();     
+        }
 
       
         

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 
@@ -44,21 +45,21 @@ namespace ERPService
 
         }
 
-        public List<List<String>> convert(SqlDataReader reader)
+        public List<List<string>> AsListInList(SqlDataReader input)
         {
-            if (reader != null)
+            if (input != null)
             {
-                List<List<String>> list = new List<List<String>>();
+                List<List<string>> list = new List<List<string>>();
 
-                while (reader.Read())
+                while (input.Read())
                 {
-                    List<String> tmp = new List<String>();
-                    for (int i = 0; i < reader.FieldCount; i++)
+                    List<string> tmp = new List<string>();
+                    for (int i = 0; i < input.FieldCount; i++)
                     {
                         string s = "";
                         try
                         {
-                            s = reader.GetString(i);
+                            s = input.GetString(i) as string;
                         }
                         catch (SqlNullValueException)
                         {
@@ -85,14 +86,14 @@ namespace ERPService
         // A
         public List<List<string>> GetAllEmployees()
         {
-
-            Connection();
-            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]");
-
-            return convert(s.ExecuteReader());
+            SqlConnection myConnection = Connection();
+            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee]", myConnection);
+            
+            return AsListInList(s.ExecuteReader());
+            closeConn(myConnection);
 
         }
-
+        /*
         public List<List<string>> GetAllEmployeeRelatives()
         {
             return ExecuteQuery("SELECT * FROM [CRONUS Sverige AB$Employee Relative]");
@@ -154,7 +155,7 @@ namespace ERPService
             return ExecuteQuery("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'"
             );
         }
-
+        */
 
 
     }
