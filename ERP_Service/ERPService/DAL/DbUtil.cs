@@ -44,16 +44,15 @@ namespace ERPService
             }
 
         }
-        public List<List<String>> convert(SqlDataReader input)
+        public List<List<String>> Mash(SqlDataReader input)
         {
             if (input != null)
             {
                 List<List<string>> listToReturn = new List<List<string>>();
                 
-                while (input.Read())
-                {
+                
                     List<string> col = new List<string>();
-                    for (int i = 0; i < input.; i++)
+                    for (int i = 0; i < input.FieldCount; i++)
                     {
                         string colPart = "";
                         try
@@ -67,7 +66,7 @@ namespace ERPService
                         col.Add(colPart);
                     }
                     listToReturn.Add(col);
-                }
+                
                 
 
 
@@ -99,7 +98,7 @@ namespace ERPService
         {
             SqlConnection con = Connection();
             SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Relative]", con);
-            return convert(s.ExecuteReader());
+            return Mash(s.ExecuteReader());
         }
 
 
