@@ -222,7 +222,7 @@ namespace Partycipate
         {
 
             listOfEventsByUser.AutoGenerateColumns = true;
-            listOfEventsByUser.DataSource = Controller.GetAllEvents();
+            //listOfEventsByUser.DataSource = Controller.GetAllEvents();
 
         }
 
