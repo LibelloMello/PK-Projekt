@@ -179,7 +179,7 @@ namespace ERPService
         public List<List<string>> GetCronusEmployeeColumns()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT COLUMN_NAME" +
+            SqlCommand s = new SqlCommand("SELECT COLUMN_NAME " +
                                           "FROM INFORMATION_SCHEMA.COLUMNS " +
                                           "WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", con);
 
