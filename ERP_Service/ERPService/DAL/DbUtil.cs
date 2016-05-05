@@ -122,7 +122,11 @@ namespace ERPService
         {
             SqlConnection con = Connection();
             try {
-                SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Relative]", con);
+                SqlCommand s = new SqlCommand("SELECT [CRONUS Sverige AB$Employee].No_, [CRONUS Sverige AB$Employee].[First Name], [CRONUS Sverige AB$Employee].[Job Title], [CRONUS Sverige AB$Employee Relative].[Relative Code], [CRONUS Sverige AB$Employee Relative].[First Name] AS [FirstName]"
+                                            + " FROM[CRONUS Sverige AB$Employee]"
+                                            + " INNER JOIN[CRONUS Sverige AB$Employee Relative]"
+                                            + " ON[CRONUS Sverige AB$Employee].No_ = [CRONUS Sverige AB$Employee Relative].[Employee No_]"
+                                            + " ORDER BY[CRONUS Sverige AB$Employee].No_", con);
                 return Mash(s.ExecuteReader());
             }
             catch(Exception e)
@@ -158,14 +162,13 @@ namespace ERPService
         {
             SqlConnection con = Connection();
             try {
-                SqlCommand s = new SqlCommand("SELECT TOP 1 [First Name]"
-                                              + "  from [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee Absence] a"
-                                              + "  join [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee] b"
-                                              + "  on a.[Employee No_] = b.No_"
-                                              + "  and [Cause of Absence Code] = 'SJUK'"
-                                              + "  group by [Employee No_], [First Name]"
-                                              + "  order by count(*) desc"
-                                              , con);
+                SqlCommand s = new SqlCommand("SELECT TOP 10 [First Name]"
+                                              + "  FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee Absence] A"
+                                              + "  JOIN [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee] B"
+                                              + "  ON A.[Employee No_] = B.No_"
+                                              + "  AND [Cause of Absence Code] = 'SJUK'"
+                                              + "  GROUP BY [Employee No_], [First Name]"
+                                              + "  ORDER BY COUNT(*) DESC", con);
                 return Mash(s.ExecuteReader());
             }
             catch (Exception e)
@@ -318,7 +321,7 @@ namespace ERPService
                 SqlCommand s = new SqlCommand("DELETE"
                                               + " FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
                                               + " WHERE No_ = @id", con);
-                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+                s.Parameters.AddWithValue("@id", id);
                 s.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -340,8 +343,8 @@ namespace ERPService
                 SqlCommand s = new SqlCommand("INSERT INTO [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
                                              + " (No_, [First Name])"
                                              + " VALUES(@id, @name)", con);
-                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-                s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
+                s.Parameters.AddWithValue("@id", id);
+                s.Parameters.AddWithValue("@name", name);
                 s.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -364,8 +367,8 @@ namespace ERPService
                                             + " SET [First Name]=@name"
                                             + " WHERE No_=@id; "
                                             , con);
-                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-                s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
+                s.Parameters.AddWithValue("@id", id);
+                s.Parameters.AddWithValue("@name", name);
                 s.ExecuteNonQuery();
             }
 

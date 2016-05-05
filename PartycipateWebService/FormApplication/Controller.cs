@@ -37,5 +37,19 @@ namespace FormApplication
                 return null;
             }
         }
+
+        public List<EventAttendee> GetEventAttendees()
+        {
+            try
+            {
+                return ws.GetEventAttendees().ToList();
+
+            }
+
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

@@ -32,6 +32,17 @@ namespace ConsoleApplication
             }
             return output;
         }
-        
+
+        public string GetEventAttendees()
+        {
+            String output = "";
+            EventAttendee[] attendeeList = ws.GetEventAttendees();
+            foreach (EventAttendee ea in attendeeList)
+            {
+                output = output + "Event id: " + ea.EventId + " \nUsername: " + ea.UserId + "\n\n";
+            }
+            return output;
+        }
+
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestForm));
             this.DeleteButton = new System.Windows.Forms.Button();
             this.tBdelete = new System.Windows.Forms.TextBox();
             this.tBeventName = new System.Windows.Forms.TextBox();
@@ -49,6 +50,8 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.DeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.DeleteButton.Location = new System.Drawing.Point(118, 42);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
@@ -153,6 +156,9 @@
             // 
             // UpdateEvent
             // 
+            this.UpdateEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.UpdateEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UpdateEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateEvent.Location = new System.Drawing.Point(526, 153);
             this.UpdateEvent.Name = "UpdateEvent";
             this.UpdateEvent.Size = new System.Drawing.Size(75, 23);
@@ -171,6 +177,9 @@
             // 
             // EventLocationButton
             // 
+            this.EventLocationButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.EventLocationButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.EventLocationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EventLocationButton.Location = new System.Drawing.Point(135, 195);
             this.EventLocationButton.Name = "EventLocationButton";
             this.EventLocationButton.Size = new System.Drawing.Size(75, 23);
@@ -199,6 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(667, 391);
             this.Controls.Add(this.tBdisplayEvent);
             this.Controls.Add(this.tBfindEventByLocation);
@@ -217,6 +227,7 @@
             this.Controls.Add(this.tBeventName);
             this.Controls.Add(this.tBdelete);
             this.Controls.Add(this.DeleteButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TestForm";
             this.Text = "TestForm";
             this.Load += new System.EventHandler(this.TestForm_Load);

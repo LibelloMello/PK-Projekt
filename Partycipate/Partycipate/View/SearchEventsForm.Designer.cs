@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchEventsForm));
             this.cbLocations = new System.Windows.Forms.ComboBox();
             this.listEventsTable = new System.Windows.Forms.DataGridView();
             this.buttonSearchEvents = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             // 
             // listEventsTable
             // 
+            this.listEventsTable.BackgroundColor = System.Drawing.Color.White;
             this.listEventsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listEventsTable.Location = new System.Drawing.Point(48, 84);
             this.listEventsTable.Name = "listEventsTable";
@@ -52,6 +54,9 @@
             // 
             // buttonSearchEvents
             // 
+            this.buttonSearchEvents.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonSearchEvents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonSearchEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchEvents.Location = new System.Drawing.Point(155, 35);
             this.buttonSearchEvents.Name = "buttonSearchEvents";
             this.buttonSearchEvents.Size = new System.Drawing.Size(109, 22);
@@ -64,10 +69,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(461, 261);
             this.Controls.Add(this.buttonSearchEvents);
             this.Controls.Add(this.listEventsTable);
             this.Controls.Add(this.cbLocations);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SearchEventsForm";
             this.Text = "SearchEventsForm";
             ((System.ComponentModel.ISupportInitialize)(this.listEventsTable)).EndInit();
