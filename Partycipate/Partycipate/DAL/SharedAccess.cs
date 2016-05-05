@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -58,6 +59,34 @@ namespace Partycipate
             }
 
         }
+
+        /*public static DataTable GetAllAttendeesByEvent(int eId, string uId)
+        {
+            SqlDataAdapter da = new SqlDataAdapter();
+            SqlCommand myCommand = new SqlCommand();
+            DataTable table = new DataTable();
+
+            try
+            {
+                DbUtil d = new DbUtil();
+                SqlConnection myConnection = d.Connection();
+                //myCommand = new SqlCommand("SELECT EVENT_ID AS 'Event ID', EVENT_NAME AS 'Eventname', "
+                //  + "EVENT_TIME AS 'Event time', LOCATION AS 'Location', NOTE AS 'Note' FROM PARTY WHERE USER_NAME = " + userName , myConnection);
+
+                myCommand = new SqlCommand("SELECT uID AS 'Username' FROM EVENT_ATTENDEE WHERE eID = @EventId", myConnection);
+                da.SelectCommand = myCommand;
+                da.Fill(table);
+                myConnection.Close();
+                return table;
+            }
+            catch (SqlException sqlEx)
+            {
+                System.Windows.Forms.MessageBox.Show("Database error:" + sqlEx.ToString());
+                throw sqlEx;
+            }
+            
+        }
+        */
     }
 }
 

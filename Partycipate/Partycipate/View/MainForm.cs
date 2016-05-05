@@ -169,6 +169,7 @@ namespace Partycipate
 
         private void tbUserPasswordLogin_TextChanged(object sender, EventArgs e)
         {
+            tbUserPasswordLogin.PasswordChar = '*';
 
         }
 
