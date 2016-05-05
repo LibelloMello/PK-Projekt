@@ -12,9 +12,12 @@ namespace FormClientERP
 {
     public partial class FormClient : Form
     {
+        Controller c = new Controller();
         public FormClient()
         {
             InitializeComponent();
+            FillComboBox();
+            FillComboBoxMod();
         }
 
         private void comboBoxOptions(object sender, EventArgs e)
@@ -51,6 +54,41 @@ namespace FormClientERP
                     break;
             }
         }
+        private void ModChoice()
+        {
+            switch (comboBoxMod.SelectedIndex)
+            {
+                case 0:
+                    textBoxId.Visible = false;
+                    textBoxName.Visible = false;
+                    labelID.Visible = false;
+                    labelName.Visible = false;
+                    executeModButton.Visible = false;      
+                    break;
+                case 1:
+                    textBoxId.Visible = true;
+                    textBoxName.Visible = true;
+                    labelID.Visible = true;
+                    labelName.Visible = true;
+                    executeModButton.Visible = true;
+                    break;
+                case 2:
+                    textBoxId.Visible = true;
+                    textBoxName.Visible = false;
+                    labelID.Visible = true;
+                    labelName.Visible = false;
+                    executeModButton.Visible = true;
+                    break;
+                case 3:
+                    textBoxId.Visible = true;
+                    textBoxName.Visible = true;
+                    labelID.Visible = true;
+                    labelName.Visible = true;
+                    executeModButton.Visible = true;
+                    break;
+            }
+
+        } 
         private void FillComboBox()
         {
             comboBox.Items.Add("All Employees");
@@ -66,60 +104,140 @@ namespace FormClientERP
             comboBox.Items.Add("All Column Names In Employee 2");
             comboBox.SelectedIndex = 0;
         }
+        private void FillComboBoxMod()
+        {
+            comboBoxMod.Items.Add("Add, Remove or update Employee");
+            comboBoxMod.Items.Add("Add a new Employee");
+            comboBoxMod.Items.Add("Remove an existing Employee");
+            comboBoxMod.Items.Add("Update an existing Employee");
+            comboBoxMod.SelectedIndex = 0;
 
+        }
+
+        // A
         private void Employees()
         {
-            throw new NotImplementedException();
+            FillView(c.AllEmployees());
         }
 
         private void Relatives()
         {
-            throw new NotImplementedException();
+            FillView(c.Relatives());
         }
 
         private void Sick2004()
         {
-            throw new NotImplementedException();
+            FillView(c.Sick2004());
         }
 
         private void MostAbscence()
         {
-            throw new NotImplementedException();
+            FillView(c.MostAbscence());
         }
 
+        //B
         private void AllKeys()
         {
-            throw new NotImplementedException();
+            FillView(c.Keys());
         }
 
         private void Indexes()
         {
-            throw new NotImplementedException();
+            FillView(c.Indexes());
         }
 
         private void Constraints()
         {
-            throw new NotImplementedException();
+            FillView(c.TableConstraints());
         }
 
         private void TableNames1()
         {
-            throw new NotImplementedException();
+            FillView(c.Tables1());
         }
 
         private void TableNames2()
         {
-            throw new NotImplementedException();
+            FillView(c.Tables2());
         }
 
         private void ColNames1()
         {
-            throw new NotImplementedException();
+            FillView(c.EmployeeColumns1());
         }
 
         private void ColNames2()
         {
-            throw new NotImplementedException();
+            FillView(c.EmployeeColumns2());
+        }
+        private void AddEmployee(string id, string name)
+        {
+                    c.AddEmployee(id, name);
+                    Employees();
+        }
+        private void RemoveEmployee(string id)
+        {
+            c.DeleteEmployee(id);
+            Employees();
+        }
+        private void UpdateEmployee(string id, string name)
+        {
+            c.UpdateEmployee(id, name);
+            Employees();
+        }
+
+        private void FillView(string[][] input)
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+
+            for (int i = 0; i < input[0].Length; i++)
+            {
+                dt.Columns.Add(input[0][i].ToString());
+            }
+            foreach (string[] outerList in input.Skip(1))
+            {
+                int i = 0;
+                DataRow row = dt.NewRow();
+                foreach (string item in outerList)
+                {
+                    row[i] = item;
+                    i++;
+                }
+                dt.Rows.Add(row);
+            }
+            mainDataGrid.DataSource = dt;
+        }
+
+        private void executeModButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBoxId.Text) || !string.Equals(textBoxId.Text, "THIS FIELD ID REQUIRED", StringComparison.OrdinalIgnoreCase) || !string.IsNullOrWhiteSpace(textBoxName.Text))
+            {
+                switch (comboBoxMod.SelectedIndex)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        AddEmployee(textBoxId.Text, textBoxName.Text);
+                        break;
+                    case 2:
+                        RemoveEmployee(textBoxId.Text);
+                        break;
+                    case 3:
+                        UpdateEmployee(textBoxId.Text, textBoxName.Text);
+                        break;
+                }
+            }
+            else
+            {
+                textBoxId.Text = "THIS FIELD ID REQUIRED";
+            }
+        }
+        
+
+        private void comboBoxMod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ModChoice();
         }
     }
 }
