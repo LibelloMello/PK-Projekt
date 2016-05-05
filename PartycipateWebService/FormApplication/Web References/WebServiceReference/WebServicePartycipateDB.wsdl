@@ -40,21 +40,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfEvent" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetSingleUserList">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetSingleUserListResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetSingleUserListResult" type="tns:ArrayOfUser" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfUser">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetUsers">
         <s:complexType />
       </s:element>
@@ -65,6 +50,36 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEventAttendees">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEventAttendeesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventAttendeesResult" type="tns:ArrayOfEventAttendee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEventAttendee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EventAttendee" nillable="true" type="tns:EventAttendee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventAttendee">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="isInitialized" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Party" type="tns:Event" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="tns:User" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetEventsSoapIn">
@@ -73,30 +88,30 @@
   <wsdl:message name="GetEventsSoapOut">
     <wsdl:part name="parameters" element="tns:GetEventsResponse" />
   </wsdl:message>
-  <wsdl:message name="GetSingleUserListSoapIn">
-    <wsdl:part name="parameters" element="tns:GetSingleUserList" />
-  </wsdl:message>
-  <wsdl:message name="GetSingleUserListSoapOut">
-    <wsdl:part name="parameters" element="tns:GetSingleUserListResponse" />
-  </wsdl:message>
   <wsdl:message name="GetUsersSoapIn">
     <wsdl:part name="parameters" element="tns:GetUsers" />
   </wsdl:message>
   <wsdl:message name="GetUsersSoapOut">
     <wsdl:part name="parameters" element="tns:GetUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="GetEventAttendeesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEventAttendees" />
+  </wsdl:message>
+  <wsdl:message name="GetEventAttendeesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventAttendeesResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServicePartycipateDBSoap">
     <wsdl:operation name="GetEvents">
       <wsdl:input message="tns:GetEventsSoapIn" />
       <wsdl:output message="tns:GetEventsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetSingleUserList">
-      <wsdl:input message="tns:GetSingleUserListSoapIn" />
-      <wsdl:output message="tns:GetSingleUserListSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
       <wsdl:output message="tns:GetUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventAttendees">
+      <wsdl:input message="tns:GetEventAttendeesSoapIn" />
+      <wsdl:output message="tns:GetEventAttendeesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServicePartycipateDBSoap" type="tns:WebServicePartycipateDBSoap">
@@ -110,8 +125,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSingleUserList">
-      <soap:operation soapAction="http://grupp11.ics.lu.se/GetSingleUserList" style="document" />
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://grupp11.ics.lu.se/GetUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -119,8 +134,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUsers">
-      <soap:operation soapAction="http://grupp11.ics.lu.se/GetUsers" style="document" />
+    <wsdl:operation name="GetEventAttendees">
+      <soap:operation soapAction="http://grupp11.ics.lu.se/GetEventAttendees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -140,8 +155,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSingleUserList">
-      <soap12:operation soapAction="http://grupp11.ics.lu.se/GetSingleUserList" style="document" />
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://grupp11.ics.lu.se/GetUsers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -149,8 +164,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetUsers">
-      <soap12:operation soapAction="http://grupp11.ics.lu.se/GetUsers" style="document" />
+    <wsdl:operation name="GetEventAttendees">
+      <soap12:operation soapAction="http://grupp11.ics.lu.se/GetEventAttendees" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

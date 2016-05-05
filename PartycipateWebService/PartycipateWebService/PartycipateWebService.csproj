@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DbUtil.cs" />
+    <Compile Include="Model\EventAttendee.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\User.cs" />

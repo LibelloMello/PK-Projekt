@@ -23,7 +23,7 @@ namespace ConsoleApplication.WebServiceReference {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WebServicePartycipateDBSoap", Namespace="http://grupp11.ics.lu.se/")]
@@ -31,9 +31,9 @@ namespace ConsoleApplication.WebServiceReference {
         
         private System.Threading.SendOrPostCallback GetEventsOperationCompleted;
         
-        private System.Threading.SendOrPostCallback GetSingleUserOperationCompleted;
-        
         private System.Threading.SendOrPostCallback GetUsersOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetEventAttendeesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -77,10 +77,10 @@ namespace ConsoleApplication.WebServiceReference {
         public event GetEventsCompletedEventHandler GetEventsCompleted;
         
         /// <remarks/>
-        public event GetSingleUserCompletedEventHandler GetSingleUserCompleted;
+        public event GetUsersCompletedEventHandler GetUsersCompleted;
         
         /// <remarks/>
-        public event GetUsersCompletedEventHandler GetUsersCompleted;
+        public event GetEventAttendeesCompletedEventHandler GetEventAttendeesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/GetEvents", RequestNamespace="http://grupp11.ics.lu.se/", ResponseNamespace="http://grupp11.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -106,33 +106,6 @@ namespace ConsoleApplication.WebServiceReference {
             if ((this.GetEventsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.GetEventsCompleted(this, new GetEventsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/GetSingleUser", RequestNamespace="http://grupp11.ics.lu.se/", ResponseNamespace="http://grupp11.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public User GetSingleUser() {
-            object[] results = this.Invoke("GetSingleUser", new object[0]);
-            return ((User)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void GetSingleUserAsync() {
-            this.GetSingleUserAsync(null);
-        }
-        
-        /// <remarks/>
-        public void GetSingleUserAsync(object userState) {
-            if ((this.GetSingleUserOperationCompleted == null)) {
-                this.GetSingleUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSingleUserOperationCompleted);
-            }
-            this.InvokeAsync("GetSingleUser", new object[0], this.GetSingleUserOperationCompleted, userState);
-        }
-        
-        private void OnGetSingleUserOperationCompleted(object arg) {
-            if ((this.GetSingleUserCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetSingleUserCompleted(this, new GetSingleUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -164,6 +137,33 @@ namespace ConsoleApplication.WebServiceReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/GetEventAttendees", RequestNamespace="http://grupp11.ics.lu.se/", ResponseNamespace="http://grupp11.ics.lu.se/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public EventAttendee[] GetEventAttendees() {
+            object[] results = this.Invoke("GetEventAttendees", new object[0]);
+            return ((EventAttendee[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEventAttendeesAsync() {
+            this.GetEventAttendeesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetEventAttendeesAsync(object userState) {
+            if ((this.GetEventAttendeesOperationCompleted == null)) {
+                this.GetEventAttendeesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEventAttendeesOperationCompleted);
+            }
+            this.InvokeAsync("GetEventAttendees", new object[0], this.GetEventAttendeesOperationCompleted, userState);
+        }
+        
+        private void OnGetEventAttendeesOperationCompleted(object arg) {
+            if ((this.GetEventAttendeesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEventAttendeesCompleted(this, new GetEventAttendeesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -183,7 +183,7 @@ namespace ConsoleApplication.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -276,7 +276,7 @@ namespace ConsoleApplication.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -381,11 +381,92 @@ namespace ConsoleApplication.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://grupp11.ics.lu.se/")]
+    public partial class EventAttendee {
+        
+        private bool isInitializedField;
+        
+        private int amountField;
+        
+        private Event partyField;
+        
+        private User userField;
+        
+        private string eventIdField;
+        
+        private string userIdField;
+        
+        /// <remarks/>
+        public bool isInitialized {
+            get {
+                return this.isInitializedField;
+            }
+            set {
+                this.isInitializedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                this.amountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Event Party {
+            get {
+                return this.partyField;
+            }
+            set {
+                this.partyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public User User {
+            get {
+                return this.userField;
+            }
+            set {
+                this.userField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EventId {
+            get {
+                return this.eventIdField;
+            }
+            set {
+                this.eventIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UserId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetEventsCompletedEventHandler(object sender, GetEventsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetEventsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -407,37 +488,11 @@ namespace ConsoleApplication.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void GetSingleUserCompletedEventHandler(object sender, GetSingleUserCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetSingleUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal GetSingleUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public User Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((User)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetUsersCompletedEventHandler(object sender, GetUsersCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -454,6 +509,32 @@ namespace ConsoleApplication.WebServiceReference {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((User[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetEventAttendeesCompletedEventHandler(object sender, GetEventAttendeesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEventAttendeesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEventAttendeesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public EventAttendee[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((EventAttendee[])(this.results[0]));
             }
         }
     }

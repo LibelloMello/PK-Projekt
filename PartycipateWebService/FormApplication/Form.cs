@@ -28,10 +28,16 @@ namespace FormApplication
         {
             dataGridView1.DataSource = c.GetEvents();
         }
+        private void attendeeButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = c.GetEventAttendees();
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+       
     }
 }
