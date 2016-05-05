@@ -170,6 +170,7 @@
             this.Controls.Add(this.mainDataGrid);
             this.Controls.Add(this.comboBox);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormClient";
             this.Text = "ERP Form Client";
             ((System.ComponentModel.ISupportInitialize)(this.mainDataGrid)).EndInit();
