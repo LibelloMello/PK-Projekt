@@ -20,7 +20,39 @@ namespace FormClientERP
         private void comboBoxOptions(object sender, EventArgs e)
         {
             Choice();
-            /* THIS NEEDS TO BE MOVED
+        }
+        private void Choice()
+        {
+            switch (comboBox.SelectedIndex)
+            {
+                case 0: Employees();
+                    break;
+                case 1: Relatives();
+                    break;
+                case 2: Sick2004();
+                    break;
+                case 3: MostAbscence();
+                    break;
+                case 4: AllKeys();
+                    break;
+                case 5: Indexes();
+                    break;
+                case 6: Constraints();
+                    break;
+                case 7: TableNames1();
+                    break;
+                case 8: TableNames2();
+                    break;
+                case 9: ColNames1();
+                    break;
+                case 10: ColNames2();
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void FillComboBox()
+        {
             comboBox.Items.Add("All Employees");
             comboBox.Items.Add("All Employees Relatives");
             comboBox.Items.Add("Sick Employees 2004");
@@ -33,14 +65,61 @@ namespace FormClientERP
             comboBox.Items.Add("All Column Names In Employee 1");
             comboBox.Items.Add("All Column Names In Employee 2");
             comboBox.SelectedIndex = 0;
-            */
         }
-        private void Choice()
+
+        private void Employees()
         {
-            switch (switch_on)
-            {
-                default:
-            }
+            throw new NotImplementedException();
+        }
+
+        private void Relatives()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Sick2004()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void MostAbscence()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AllKeys()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Indexes()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Constraints()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TableNames1()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TableNames2()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ColNames1()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ColNames2()
+        {
+            throw new NotImplementedException();
         }
     }
 }
