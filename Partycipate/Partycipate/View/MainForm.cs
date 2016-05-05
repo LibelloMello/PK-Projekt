@@ -19,6 +19,7 @@ namespace Partycipate
     {
         private List<TextBox> textboxes = new List<TextBox>();
 
+        int tryInt;
         private static string loggedInUser;
         public String LoggedInUser
         {
@@ -92,7 +93,7 @@ namespace Partycipate
 
         private void buttonCreateUser_Click(object sender, EventArgs e)
         {
-            if (IsFilled(tbUserName.Text) && IsFilled(tbPhoneNumber.Text) && IsFilled(tbName.Text) && IsFilled(tbEmail.Text) && IsFilled(tbSex.Text) && IsFilled(tbPassword.Text) && IsFilled(tbAge.Text))
+            if (IsFilled(tbUserName.Text) && IsFilled(tbPhoneNumber.Text) && IsFilled(tbName.Text) && IsFilled(tbEmail.Text) && IsFilled(tbSex.Text) && IsFilled(tbPassword.Text) && IsFilled(tbAge.Text) && int.TryParse(tbAge.Text, out tryInt))
             {
                 User u = new User();
                 u.UserName = tbUserName.Text;
@@ -329,7 +330,7 @@ namespace Partycipate
 
         private void buttonUpdateEvent_Click(object sender, EventArgs e)
         {
-            if (IsFilled(tbEventIdForUpdate.Text))
+            if (IsFilled(tbEventIdForUpdate.Text) && int.TryParse(tbEventIdForUpdate.Text, out tryInt))
                 {
                 Event eu = Controller.FindEvent(int.Parse(tbEventIdForUpdate.Text));
                 tbUpdateEventName.Text = eu.EventName;
@@ -548,7 +549,8 @@ namespace Partycipate
 
         private void buttonAttendEvent_Click(object sender, EventArgs e)
         {
-            if (IsFilled(tbUnattend.Text))
+
+            if (IsFilled(tbAttendEvent.Text) && int.TryParse(tbAttendEvent.Text, out tryInt) )
             {
 
                 if (Controller.AttendEvent(int.Parse(tbAttendEvent.Text), LoggedInUser))
@@ -573,7 +575,8 @@ namespace Partycipate
 
         private void unattend_Click(object sender, EventArgs e)
         {
-            if (IsFilled(tbUnattend.Text))
+ 
+            if (IsFilled(tbUnattend.Text) && int.TryParse(tbUnattend.Text, out tryInt))
                 {
 
           
