@@ -354,6 +354,7 @@
             // 
             this.userPanel.Controls.Add(this.labelPasswordUserUpdate);
             this.userPanel.Controls.Add(this.labelEmailUserUpdate);
+            this.userPanel.Controls.Add(this.gbDeleteAnEvent);
             this.userPanel.Controls.Add(this.labelUpdatePhoneNumber);
             this.userPanel.Controls.Add(this.gbDeleteFromAttendee);
             this.userPanel.Controls.Add(this.gbAttendAnEvent);
@@ -469,7 +470,6 @@
             // 
             this.gbToUpdateEvent.Controls.Add(this.buttonUpdateEvent);
             this.gbToUpdateEvent.Controls.Add(this.tbEventIdForUpdate);
-            this.gbToUpdateEvent.Controls.Add(this.gbDeleteAnEvent);
             this.gbToUpdateEvent.Location = new System.Drawing.Point(3, 369);
             this.gbToUpdateEvent.Name = "gbToUpdateEvent";
             this.gbToUpdateEvent.Size = new System.Drawing.Size(270, 52);
@@ -500,7 +500,7 @@
             // 
             this.gbDeleteAnEvent.Controls.Add(this.tbEventId);
             this.gbDeleteAnEvent.Controls.Add(this.buttonDeleteEvent);
-            this.gbDeleteAnEvent.Location = new System.Drawing.Point(1, 55);
+            this.gbDeleteAnEvent.Location = new System.Drawing.Point(3, 427);
             this.gbDeleteAnEvent.Name = "gbDeleteAnEvent";
             this.gbDeleteAnEvent.Size = new System.Drawing.Size(270, 51);
             this.gbDeleteAnEvent.TabIndex = 40;
@@ -519,7 +519,7 @@
             // 
             this.buttonDeleteEvent.Location = new System.Drawing.Point(137, 19);
             this.buttonDeleteEvent.Name = "buttonDeleteEvent";
-            this.buttonDeleteEvent.Size = new System.Drawing.Size(106, 20);
+            this.buttonDeleteEvent.Size = new System.Drawing.Size(107, 20);
             this.buttonDeleteEvent.TabIndex = 11;
             this.buttonDeleteEvent.Text = "Delete";
             this.buttonDeleteEvent.UseVisualStyleBackColor = true;
@@ -558,11 +558,11 @@
             // labelExplanationUpdate
             // 
             this.labelExplanationUpdate.AutoSize = true;
-            this.labelExplanationUpdate.Location = new System.Drawing.Point(15, 427);
+            this.labelExplanationUpdate.Location = new System.Drawing.Point(14, 482);
             this.labelExplanationUpdate.Name = "labelExplanationUpdate";
-            this.labelExplanationUpdate.Size = new System.Drawing.Size(248, 13);
+            this.labelExplanationUpdate.Size = new System.Drawing.Size(282, 13);
             this.labelExplanationUpdate.TabIndex = 34;
-            this.labelExplanationUpdate.Text = "Fill in the Event ID of the Event you want to update";
+            this.labelExplanationUpdate.Text = "Fill in the Event ID of the Event you want to update/delete";
             // 
             // buttonShowOwnEvents
             // 
@@ -941,8 +941,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 586);
-            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.userPanel);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.updateCreateEventPanel);
             this.Name = "MainForm";
             this.Text = "Partycipate";
