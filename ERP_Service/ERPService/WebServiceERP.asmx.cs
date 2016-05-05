@@ -113,6 +113,23 @@ namespace ERPService
             db.DeleteEmployee(id);
         }
 
+        [WebMethod]
+        public List<List<string>> GetEmployeeKeys()
+        {
+            return db.GetEmployeeKeys();
+        }
+
+        [WebMethod]
+        public List<List<string>> GetEmployeeConstraints()
+        {
+            return db.GetEmployeeConstraints();
+        }
+
+        [WebMethod]
+        public List<List<string>> GetEmployeeIndexes()
+        {
+            return db.GetEmployeeIndexes();
+        }
 
 
 

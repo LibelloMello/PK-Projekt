@@ -23,7 +23,7 @@ namespace FormClientERP.WebServiceReference {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="WebServiceERPSoap", Namespace="http://grupp11.ics.lu.se/ERP/")]
@@ -58,6 +58,12 @@ namespace FormClientERP.WebServiceReference {
         private System.Threading.SendOrPostCallback AddEmployeeOperationCompleted;
         
         private System.Threading.SendOrPostCallback DeleteEmployeeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetEmployeeKeysOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetEmployeeConstraintsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetEmployeeIndexesOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -141,6 +147,15 @@ namespace FormClientERP.WebServiceReference {
         
         /// <remarks/>
         public event DeleteEmployeeCompletedEventHandler DeleteEmployeeCompleted;
+        
+        /// <remarks/>
+        public event GetEmployeeKeysCompletedEventHandler GetEmployeeKeysCompleted;
+        
+        /// <remarks/>
+        public event GetEmployeeConstraintsCompletedEventHandler GetEmployeeConstraintsCompleted;
+        
+        /// <remarks/>
+        public event GetEmployeeIndexesCompletedEventHandler GetEmployeeIndexesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/ERP/Hello", RequestNamespace="http://grupp11.ics.lu.se/ERP/", ResponseNamespace="http://grupp11.ics.lu.se/ERP/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -577,6 +592,93 @@ namespace FormClientERP.WebServiceReference {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/ERP/GetEmployeeKeys", RequestNamespace="http://grupp11.ics.lu.se/ERP/", ResponseNamespace="http://grupp11.ics.lu.se/ERP/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+        public string[][] GetEmployeeKeys() {
+            object[] results = this.Invoke("GetEmployeeKeys", new object[0]);
+            return ((string[][])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeKeysAsync() {
+            this.GetEmployeeKeysAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeKeysAsync(object userState) {
+            if ((this.GetEmployeeKeysOperationCompleted == null)) {
+                this.GetEmployeeKeysOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEmployeeKeysOperationCompleted);
+            }
+            this.InvokeAsync("GetEmployeeKeys", new object[0], this.GetEmployeeKeysOperationCompleted, userState);
+        }
+        
+        private void OnGetEmployeeKeysOperationCompleted(object arg) {
+            if ((this.GetEmployeeKeysCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEmployeeKeysCompleted(this, new GetEmployeeKeysCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/ERP/GetEmployeeConstraints", RequestNamespace="http://grupp11.ics.lu.se/ERP/", ResponseNamespace="http://grupp11.ics.lu.se/ERP/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+        public string[][] GetEmployeeConstraints() {
+            object[] results = this.Invoke("GetEmployeeConstraints", new object[0]);
+            return ((string[][])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeConstraintsAsync() {
+            this.GetEmployeeConstraintsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeConstraintsAsync(object userState) {
+            if ((this.GetEmployeeConstraintsOperationCompleted == null)) {
+                this.GetEmployeeConstraintsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEmployeeConstraintsOperationCompleted);
+            }
+            this.InvokeAsync("GetEmployeeConstraints", new object[0], this.GetEmployeeConstraintsOperationCompleted, userState);
+        }
+        
+        private void OnGetEmployeeConstraintsOperationCompleted(object arg) {
+            if ((this.GetEmployeeConstraintsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEmployeeConstraintsCompleted(this, new GetEmployeeConstraintsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://grupp11.ics.lu.se/ERP/GetEmployeeIndexes", RequestNamespace="http://grupp11.ics.lu.se/ERP/", ResponseNamespace="http://grupp11.ics.lu.se/ERP/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+        public string[][] GetEmployeeIndexes() {
+            object[] results = this.Invoke("GetEmployeeIndexes", new object[0]);
+            return ((string[][])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeIndexesAsync() {
+            this.GetEmployeeIndexesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetEmployeeIndexesAsync(object userState) {
+            if ((this.GetEmployeeIndexesOperationCompleted == null)) {
+                this.GetEmployeeIndexesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetEmployeeIndexesOperationCompleted);
+            }
+            this.InvokeAsync("GetEmployeeIndexes", new object[0], this.GetEmployeeIndexesOperationCompleted, userState);
+        }
+        
+        private void OnGetEmployeeIndexesOperationCompleted(object arg) {
+            if ((this.GetEmployeeIndexesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetEmployeeIndexesCompleted(this, new GetEmployeeIndexesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -596,11 +698,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void HelloCompletedEventHandler(object sender, HelloCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class HelloCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -622,11 +724,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetAllEmployeesRelativesCompletedEventHandler(object sender, GetAllEmployeesRelativesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetAllEmployeesRelativesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -648,11 +750,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetAllEmployeesCompletedEventHandler(object sender, GetAllEmployeesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetAllEmployeesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -674,11 +776,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetAllSickEmployees2004CompletedEventHandler(object sender, GetAllSickEmployees2004CompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetAllSickEmployees2004CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -700,11 +802,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetEmployeeWithMostAbsenceCompletedEventHandler(object sender, GetEmployeeWithMostAbsenceCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetEmployeeWithMostAbsenceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -726,11 +828,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusKeysCompletedEventHandler(object sender, GetCronusKeysCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusKeysCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -752,11 +854,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusIndexesCompletedEventHandler(object sender, GetCronusIndexesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusIndexesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -778,11 +880,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusTableConstraintsCompletedEventHandler(object sender, GetCronusTableConstraintsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusTableConstraintsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -804,11 +906,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusTablesCompletedEventHandler(object sender, GetCronusTablesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusTablesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -830,11 +932,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusTables1CompletedEventHandler(object sender, GetCronusTables1CompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusTables1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -856,11 +958,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusEmployeeColumnsCompletedEventHandler(object sender, GetCronusEmployeeColumnsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusEmployeeColumnsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -882,11 +984,11 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void GetCronusEmployeeColumns1CompletedEventHandler(object sender, GetCronusEmployeeColumns1CompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class GetCronusEmployeeColumns1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -908,16 +1010,94 @@ namespace FormClientERP.WebServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void UpdateEmployeeCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void AddEmployeeCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
     public delegate void DeleteEmployeeCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetEmployeeKeysCompletedEventHandler(object sender, GetEmployeeKeysCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEmployeeKeysCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEmployeeKeysCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[][] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[][])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetEmployeeConstraintsCompletedEventHandler(object sender, GetEmployeeConstraintsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEmployeeConstraintsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEmployeeConstraintsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[][] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[][])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    public delegate void GetEmployeeIndexesCompletedEventHandler(object sender, GetEmployeeIndexesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetEmployeeIndexesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetEmployeeIndexesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[][] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[][])(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591

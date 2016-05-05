@@ -164,6 +164,36 @@
       <s:element name="DeleteEmployeeResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetEmployeeKeys">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeKeysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeKeysResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeConstraints">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeConstraintsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeConstraintsResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmployeeIndexes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeIndexesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeIndexesResult" type="tns:ArrayOfArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloSoapIn">
@@ -256,6 +286,24 @@
   <wsdl:message name="DeleteEmployeeSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
   </wsdl:message>
+  <wsdl:message name="GetEmployeeKeysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeKeys" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeKeysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeKeysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeConstraintsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeConstraints" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeConstraintsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeConstraintsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeIndexesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeIndexes" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeIndexesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeIndexesResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceERPSoap">
     <wsdl:operation name="Hello">
       <wsdl:input message="tns:HelloSoapIn" />
@@ -316,6 +364,18 @@
     <wsdl:operation name="DeleteEmployee">
       <wsdl:input message="tns:DeleteEmployeeSoapIn" />
       <wsdl:output message="tns:DeleteEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeKeys">
+      <wsdl:input message="tns:GetEmployeeKeysSoapIn" />
+      <wsdl:output message="tns:GetEmployeeKeysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeConstraints">
+      <wsdl:input message="tns:GetEmployeeConstraintsSoapIn" />
+      <wsdl:output message="tns:GetEmployeeConstraintsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIndexes">
+      <wsdl:input message="tns:GetEmployeeIndexesSoapIn" />
+      <wsdl:output message="tns:GetEmployeeIndexesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceERPSoap" type="tns:WebServiceERPSoap">
@@ -455,6 +515,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEmployeeKeys">
+      <soap:operation soapAction="http://grupp11.ics.lu.se/ERP/GetEmployeeKeys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeConstraints">
+      <soap:operation soapAction="http://grupp11.ics.lu.se/ERP/GetEmployeeConstraints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIndexes">
+      <soap:operation soapAction="http://grupp11.ics.lu.se/ERP/GetEmployeeIndexes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceERPSoap12" type="tns:WebServiceERPSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -586,6 +673,33 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployee">
       <soap12:operation soapAction="http://grupp11.ics.lu.se/ERP/DeleteEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeKeys">
+      <soap12:operation soapAction="http://grupp11.ics.lu.se/ERP/GetEmployeeKeys" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeConstraints">
+      <soap12:operation soapAction="http://grupp11.ics.lu.se/ERP/GetEmployeeConstraints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeIndexes">
+      <soap12:operation soapAction="http://grupp11.ics.lu.se/ERP/GetEmployeeIndexes" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

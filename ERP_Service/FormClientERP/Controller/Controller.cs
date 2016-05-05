@@ -28,6 +28,19 @@ namespace FormClientERP
         {
             return ws.GetEmployeeWithMostAbsence();
         }
+        public string[][] EmployeeKeys()
+        {
+            return ws.GetEmployeeKeys();
+        }
+        public string[][] EmployeeConstraints()
+        {
+            return ws.GetEmployeeConstraints();
+        }
+        public string[][] EmployeeIndexes()
+        {
+            return ws.GetEmployeeIndexes();
+        }
+
         //B
         public string[][] Keys()
         {

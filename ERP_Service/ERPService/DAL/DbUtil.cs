@@ -311,6 +311,82 @@ namespace ERPService
             }
         }
 
+        public List<List<string>> GetEmployeeKeys()
+        {
+            SqlConnection con = Connection();
+            try
+            {
+                SqlCommand s = new SqlCommand("SELECT * FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE TABLE_NAME LIKE 'CRONUS Sverige AB$Employ%'", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
+        }
+
+        public List<List<string>> GetEmployeeConstraints()
+        {
+            SqlConnection con = Connection();
+            try
+            {
+                SqlCommand s = new SqlCommand("SELECT * FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE TABLE_NAME LIKE 'CRONUS Sverige AB$Employ%'", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
+        }
+        
+
+         public List<List<string>> GetEmployeeIndexes()
+        {
+            SqlConnection con = Connection();
+            try
+            {
+                SqlCommand s = new SqlCommand("SELECT * FROM sys.indexes WHERE name LIKE 'CRONUS Sverige AB$Employ%'", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Add, Update and Remove
 
 
