@@ -50,6 +50,12 @@ namespace FormClientERP
                     break;
                 case 10: ColNames2();
                     break;
+                case 11: MetaKeys();
+                    break;
+                case 12: MetaConstraints();
+                    break;
+                case 13: MetaIndexes();
+                    break;
                 default:
                     break;
             }
@@ -102,6 +108,9 @@ namespace FormClientERP
             comboBox.Items.Add("All Table Names 2");
             comboBox.Items.Add("All Column Names In Employee 1");
             comboBox.Items.Add("All Column Names In Employee 2");
+            comboBox.Items.Add("Keys of Employee And Related Tables");
+            comboBox.Items.Add("Constraints of Employee And Related Tables");
+            comboBox.Items.Add("Indexes of Employee And Related Tables");
             comboBox.SelectedIndex = 0;
         }
         private void FillComboBoxMod()
@@ -169,6 +178,10 @@ namespace FormClientERP
         private void ColNames2()
         {
             FillView(c.EmployeeColumns2());
+        }
+        private void MetaKeys() 
+        {
+            FillView();
         }
         private void AddEmployee(string id, string name)
         {
