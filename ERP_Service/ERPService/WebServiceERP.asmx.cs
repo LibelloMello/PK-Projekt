@@ -95,13 +95,24 @@ namespace ERPService
             return db.GetCronusEmployeeColumns1();
         }
 
-        /* Example of method
         [WebMethod]
-        public List<List<string>> Example()
+        public void UpdateEmployee(string id, string name)
         {
-            return db.Example();
+             db.UpdateEmployee(id, name);
         }
-        */
+
+        [WebMethod]
+        public void AddEmployee(string id, string name)
+        {
+            db.AddEmployee(id, name);
+        }
+
+        [WebMethod]
+        public void DeleteEmployee(string id)
+        {
+            db.DeleteEmployee(id);
+        }
+
 
 
 
