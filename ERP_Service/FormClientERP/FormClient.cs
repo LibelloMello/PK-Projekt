@@ -181,7 +181,15 @@ namespace FormClientERP
         }
         private void MetaKeys() 
         {
-            FillView();
+            FillView(c.EmployeeKeys());
+        }
+        public void MetaIndexes()
+        {
+            FillView(c.EmployeeIndexes());
+        }
+        public void MetaConstraints()
+        {
+            FillView(c.EmployeeConstraints());
         }
         private void AddEmployee(string id, string name)
         {
@@ -224,7 +232,7 @@ namespace FormClientERP
 
         private void executeModButton_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(textBoxId.Text) || !string.Equals(textBoxId.Text, "THIS FIELD ID REQUIRED", StringComparison.OrdinalIgnoreCase) || !string.IsNullOrWhiteSpace(textBoxName.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxId.Text))
             {
                 switch (comboBoxMod.SelectedIndex)
                 {
@@ -243,7 +251,7 @@ namespace FormClientERP
             }
             else
             {
-                textBoxId.Text = "THIS FIELD ID REQUIRED";
+                textBoxId.Text = "THIS FIELD IS REQUIRED";
             }
         }
         
