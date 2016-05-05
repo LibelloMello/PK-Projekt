@@ -39,6 +39,14 @@ namespace PartycipateWebService
             return GetUsers;
 
         }
+        [WebMethod]
+        public List<EventAttendee> GetEventAttendees()
+        {
+            List<EventAttendee> GetEventAttendees = db.GetEventAttendees();
+
+            return GetEventAttendees;
+
+        }
 
     }
 }

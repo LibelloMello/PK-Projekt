@@ -129,7 +129,43 @@ namespace PartycipateWebService
             }
         }
 
+        public List<EventAttendee> GetEventAttendees()
+        {
+
+            DbUtil d = new DbUtil();
+            SqlConnection myConnection = d.Connection();
+            SqlDataReader myReader = null;
 
 
+            List<EventAttendee> attendeeList = new List<EventAttendee>();
+
+
+            try
+            {
+                SqlCommand myCommand = new SqlCommand("SELECT eID, uID FROM EVENT_ATTENDEE", myConnection);
+                // myCommand.Parameters.AddWithValue("@EventId", eventId);
+                myReader = myCommand.ExecuteReader();
+
+
+                while (myReader.Read())
+                {
+
+                    EventAttendee ea = new EventAttendee();
+                    ea.EventId = myReader["eID"].ToString();
+                    ea.UserId = myReader["uID"].ToString();
+
+                    attendeeList.Add(ea);
+
+                }
+                myConnection.Close();
+                return attendeeList.ToList();
+            }
+
+            catch (Exception)
+            {
+                return null;
+            }
         }
+
+    }
 }
