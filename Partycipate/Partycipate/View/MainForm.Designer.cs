@@ -941,8 +941,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 586);
-            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.updateCreateEventPanel);
             this.Name = "MainForm";
             this.Text = "Partycipate";

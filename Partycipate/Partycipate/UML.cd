@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Partycipate.Event">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <AssociationLine Name="User" Type="Partycipate.User">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.387" Y="0.06" Height="0.182" Width="0.781" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ASABACCgAAAggAAAAAIAAAACAICAAACAgAAAAAEAAAA=</HashCode>
+      <FileName>Model\Event.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Partycipate.EventAttendee">
+    <Position X="3.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGABAAAgAAAAAAAACAAAAAiAAAAAgAAEAAAAAABAAQA=</HashCode>
+      <FileName>Model\EventAttendee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Partycipate.User">
+    <Position X="1" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAgRAAgAEQAQAQAAkAEAAICAQAAAgEAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
