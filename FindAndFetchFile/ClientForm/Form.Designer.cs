@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.displayFile = new System.Windows.Forms.RichTextBox();
             this.search = new System.Windows.Forms.Button();
             this.fileName = new System.Windows.Forms.TextBox();
@@ -36,14 +37,17 @@
             // 
             // displayFile
             // 
-            this.displayFile.Location = new System.Drawing.Point(15, 41);
+            this.displayFile.Location = new System.Drawing.Point(15, 39);
             this.displayFile.Name = "displayFile";
-            this.displayFile.Size = new System.Drawing.Size(537, 398);
+            this.displayFile.Size = new System.Drawing.Size(537, 400);
             this.displayFile.TabIndex = 0;
             this.displayFile.Text = "";
             // 
             // search
             // 
+            this.search.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.search.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.search.Location = new System.Drawing.Point(477, 10);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(75, 23);
@@ -54,17 +58,18 @@
             // 
             // fileName
             // 
-            this.fileName.Location = new System.Drawing.Point(169, 12);
+            this.fileName.Location = new System.Drawing.Point(199, 12);
             this.fileName.Name = "fileName";
-            this.fileName.Size = new System.Drawing.Size(302, 20);
+            this.fileName.Size = new System.Drawing.Size(272, 20);
             this.fileName.TabIndex = 2;
             // 
             // description
             // 
             this.description.AutoSize = true;
-            this.description.Location = new System.Drawing.Point(12, 15);
+            this.description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description.Location = new System.Drawing.Point(12, 13);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(151, 13);
+            this.description.Size = new System.Drawing.Size(181, 16);
             this.description.TabIndex = 3;
             this.description.Text = "Enter name of text file to fetch:";
             // 
@@ -72,11 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 451);
             this.Controls.Add(this.description);
             this.Controls.Add(this.fileName);
             this.Controls.Add(this.search);
             this.Controls.Add(this.displayFile);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form";
             this.Text = "Fetch File";
             this.ResumeLayout(false);
