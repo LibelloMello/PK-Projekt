@@ -50,7 +50,7 @@
             this.comboBox.Location = new System.Drawing.Point(121, 31);
             this.comboBox.Name = "comboBox";
             this.comboBox.Size = new System.Drawing.Size(231, 21);
-            this.comboBox.TabIndex = 0;
+            this.comboBox.TabIndex = 2;
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBoxOptions);
             // 
             // mainDataGrid
@@ -64,7 +64,7 @@
             this.mainDataGrid.Name = "mainDataGrid";
             this.mainDataGrid.ReadOnly = true;
             this.mainDataGrid.Size = new System.Drawing.Size(1213, 508);
-            this.mainDataGrid.TabIndex = 2;
+            this.mainDataGrid.TabIndex = 10;
             // 
             // label1
             // 
@@ -82,7 +82,7 @@
             this.comboBoxMod.Location = new System.Drawing.Point(590, 31);
             this.comboBoxMod.Name = "comboBoxMod";
             this.comboBoxMod.Size = new System.Drawing.Size(247, 21);
-            this.comboBoxMod.TabIndex = 3;
+            this.comboBoxMod.TabIndex = 4;
             this.comboBoxMod.SelectedIndexChanged += new System.EventHandler(this.comboBoxMod_SelectedIndexChanged);
             // 
             // executeModButton
@@ -95,7 +95,7 @@
             this.executeModButton.Location = new System.Drawing.Point(1150, 29);
             this.executeModButton.Name = "executeModButton";
             this.executeModButton.Size = new System.Drawing.Size(75, 23);
-            this.executeModButton.TabIndex = 4;
+            this.executeModButton.TabIndex = 9;
             this.executeModButton.Text = "Execute";
             this.executeModButton.UseVisualStyleBackColor = false;
             this.executeModButton.Click += new System.EventHandler(this.executeModButton_Click);
@@ -105,14 +105,14 @@
             this.textBoxId.Location = new System.Drawing.Point(842, 31);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(148, 20);
-            this.textBoxId.TabIndex = 5;
+            this.textBoxId.TabIndex = 6;
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(996, 31);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(148, 20);
-            this.textBoxName.TabIndex = 6;
+            this.textBoxName.TabIndex = 8;
             // 
             // pictureBox1
             // 
@@ -121,7 +121,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // label2
@@ -131,7 +131,7 @@
             this.label2.Location = new System.Drawing.Point(586, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 16);
-            this.label2.TabIndex = 8;
+            this.label2.TabIndex = 3;
             this.label2.Text = "Modify";
             // 
             // labelID
@@ -140,7 +140,7 @@
             this.labelID.Location = new System.Drawing.Point(839, 14);
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(117, 13);
-            this.labelID.TabIndex = 9;
+            this.labelID.TabIndex = 5;
             this.labelID.Text = "Insert an ID in this field.";
             // 
             // labelName
@@ -149,7 +149,7 @@
             this.labelName.Location = new System.Drawing.Point(993, 14);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(128, 13);
-            this.labelName.TabIndex = 10;
+            this.labelName.TabIndex = 7;
             this.labelName.Text = "Insert a Name in this field.";
             // 
             // FormClient
