@@ -93,44 +93,91 @@ namespace ERPService
             return null;
 
         }
-         
+
         //A
 
         public List<List<string>> GetAllEmployees()
         {
-                SqlConnection con = Connection();
+            SqlConnection con = Connection();
+            try {                
                 SqlCommand s = new SqlCommand("SELECT TOP 100 *"
                                                + "FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]", con);
-            return Mash(s.ExecuteReader());
+                
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+              Console.WriteLine(e.ToString());
+                return null;
+
+            }
+            finally
+            {
+                closeConn(con);
+            }
+
         }
 
         public List<List<string>> GetAllEmployeesRelatives()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Relative]", con);
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Relative]", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetAllSickEmployees2004()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Absence] WHERE Description = 'Sjuk' AND DATEPART(yy, [From Date]) = 2004", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT * FROM [CRONUS Sverige AB$Employee Absence] WHERE Description = 'Sjuk' AND DATEPART(yy, [From Date]) = 2004", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetEmployeeWithMostAbsence()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT TOP 1 [First Name]"
-                                          + "  from [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee Absence] a"
-                                          + "  join [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee] b"
-                                          + "  on a.[Employee No_] = b.No_"
-                                          + "  and [Cause of Absence Code] = 'SJUK'"
-                                          + "  group by [Employee No_], [First Name]"
-                                          + "  order by count(*) desc"
-                                          , con);
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT TOP 1 [First Name]"
+                                              + "  from [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee Absence] a"
+                                              + "  join [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee] b"
+                                              + "  on a.[Employee No_] = b.No_"
+                                              + "  and [Cause of Absence Code] = 'SJUK'"
+                                              + "  group by [Employee No_], [First Name]"
+                                              + "  order by count(*) desc"
+                                              , con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         //B
@@ -138,72 +185,149 @@ namespace ERPService
         public List<List<string>> GetCronusKeys()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT NAME, TYPE_DESC FROM sys.key_constraints", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT NAME, TYPE_DESC FROM sys.key_constraints", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                e.ToString();
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetCronusIndexes()
             {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT OBJECT_ID, NAME FROM sys.indexes", con);
-            
-            return Mash(s.ExecuteReader());
-
+            try {                
+                SqlCommand s = new SqlCommand("SELECT OBJECT_ID, NAME FROM sys.indexes", con);
+                return Mash(s.ExecuteReader());
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
+          }
 
         public List<List<string>> GetCronusTableConstraints()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT TABLE_NAME, CONSTRAINT_TYPE FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT TABLE_NAME, CONSTRAINT_TYPE FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetCronusTables()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetCronusTables1()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT NAME FROM sys.tables", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT NAME FROM sys.tables", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetCronusEmployeeColumns()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT TOP 0 * FROM [CRONUS Sverige AB$Employee]", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT TOP 0 * FROM [CRONUS Sverige AB$Employee]", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
         public List<List<string>> GetCronusEmployeeColumns1()
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", con);
-
-            return Mash(s.ExecuteReader());
+            try {
+                SqlCommand s = new SqlCommand("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", con);
+                return Mash(s.ExecuteReader());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return null;
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
-        //Add and Remove
+        //Add, Update and Remove
 
 
         public void DeleteEmployee(string id)
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("delete"
-                                          + " from [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
-                                          + " where No_ = @id", con);
-            s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-
-            s.ExecuteNonQuery();
+            try {
+                SqlCommand s = new SqlCommand("DELETE"
+                                              + " FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
+                                              + " WHERE No_ = @id", con);
+                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+                s.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                closeConn(con;)
+            }
 
         }
 
@@ -211,26 +335,47 @@ namespace ERPService
         public void AddEmployee(string id, string name)
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("insert into [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
-                                         + " (No_, [First Name])"
-                                         + " values(@id, @name)", con);
-            s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-            s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
-
-            s.ExecuteNonQuery();
+            try {
+                SqlCommand s = new SqlCommand("INSERT INTO [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
+                                             + " (No_, [First Name])"
+                                             + " VALUES(@id, @name)", con);
+                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+                s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
+                s.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
 
         public void UpdateEmployee(string id, string name)
         {
             SqlConnection con = Connection();
-            SqlCommand s = new SqlCommand("UPDATE [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
-                                        + " SET [First Name]=@name"
-                                        + " WHERE No_=@id; "
-                                        , con);
-            s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-            s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
-            s.ExecuteNonQuery();
+            try
+            {
+                SqlCommand s = new SqlCommand("UPDATE [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
+                                            + " SET [First Name]=@name"
+                                            + " WHERE No_=@id; "
+                                            , con);
+                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+                s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
+                s.ExecuteNonQuery();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                closeConn(con);
+            }
         }
 
 
