@@ -192,6 +192,7 @@ namespace ERPService
             catch (Exception e)
             {
                 e.ToString();
+                return null;
             }
             finally
             {
@@ -326,7 +327,7 @@ namespace ERPService
             }
             finally
             {
-                closeConn(con;)
+                closeConn(con);
             }
 
         }
