@@ -230,7 +230,6 @@ namespace ERPService
                                         , con);
             s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
             s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
-
             s.ExecuteNonQuery();
         }
 
