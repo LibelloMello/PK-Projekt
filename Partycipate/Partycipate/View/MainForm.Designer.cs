@@ -558,7 +558,7 @@
             // labelExplanationUpdate
             // 
             this.labelExplanationUpdate.AutoSize = true;
-            this.labelExplanationUpdate.Location = new System.Drawing.Point(84, 530);
+            this.labelExplanationUpdate.Location = new System.Drawing.Point(15, 427);
             this.labelExplanationUpdate.Name = "labelExplanationUpdate";
             this.labelExplanationUpdate.Size = new System.Drawing.Size(248, 13);
             this.labelExplanationUpdate.TabIndex = 34;

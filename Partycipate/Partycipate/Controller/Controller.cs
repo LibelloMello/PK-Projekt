@@ -10,11 +10,11 @@ namespace Partycipate
 {
     public class Controller
     {
-       
+
 
         public static DataTable FindEventsByLocation(string location)
         {
-           return EventAccess.FindEventsByLocation(location);
+            return EventAccess.FindEventsByLocation(location);
         }
 
         public static bool CreateUser(string userName, string phoneNumber, string name, string email, string sex, string password, int age)
@@ -25,7 +25,7 @@ namespace Partycipate
         {
             UserAccess.DeleteUser(userName);
         }
-    
+
         public static Boolean GetLoginAuthentication(string userName, string password)
         {
             return UserAccess.GetLoginAuthentication(userName, password);
@@ -41,7 +41,7 @@ namespace Partycipate
 
         public static DataTable GetAllEvents()
         {
-            return EventAccess.GetAllEvents(); 
+            return EventAccess.GetAllEvents();
         }
         public static DataTable GetAllEventsByUser(string userName)
         {
@@ -66,7 +66,7 @@ namespace Partycipate
         public static bool DeleteEvent(int eventId, string userName)
         {
 
-           return EventAccess.DeleteEvent(eventId, userName);
+            return EventAccess.DeleteEvent(eventId, userName);
         }
 
         //
