@@ -118,6 +118,7 @@
     <None Include="trappaDataSet.xss">
       <DependentUpon>trappaDataSet.xsd</DependentUpon>
     </None>
+    <None Include="UML.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

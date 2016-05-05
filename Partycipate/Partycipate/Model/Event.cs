@@ -111,5 +111,17 @@ namespace Partycipate
                 eventName = value;
             }
         }
+
+        public User User
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }
