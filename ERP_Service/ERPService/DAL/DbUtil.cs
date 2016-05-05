@@ -318,7 +318,7 @@ namespace ERPService
                 SqlCommand s = new SqlCommand("DELETE"
                                               + " FROM [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
                                               + " WHERE No_ = @id", con);
-                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
+                s.Parameters.AddWithValue("@id", id);
                 s.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -340,8 +340,8 @@ namespace ERPService
                 SqlCommand s = new SqlCommand("INSERT INTO [Demo Database NAV (5-0)].[dbo].[CRONUS Sverige AB$Employee]"
                                              + " (No_, [First Name])"
                                              + " VALUES(@id, @name)", con);
-                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-                s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
+                s.Parameters.AddWithValue("@id", id);
+                s.Parameters.AddWithValue("@name", name);
                 s.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -364,8 +364,8 @@ namespace ERPService
                                             + " SET [First Name]=@name"
                                             + " WHERE No_=@id; "
                                             , con);
-                s.Parameters.Add("@id", SqlDbType.VarChar, 20).Value = id;
-                s.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = name;
+                s.Parameters.AddWithValue("@id", id);
+                s.Parameters.AddWithValue("@name", name);
                 s.ExecuteNonQuery();
             }
 
