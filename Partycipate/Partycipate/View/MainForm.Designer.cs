@@ -55,6 +55,9 @@
             this.userPanel = new System.Windows.Forms.Panel();
             this.labelPasswordUserUpdate = new System.Windows.Forms.Label();
             this.labelEmailUserUpdate = new System.Windows.Forms.Label();
+            this.gbDeleteAnEvent = new System.Windows.Forms.GroupBox();
+            this.tbEventId = new System.Windows.Forms.TextBox();
+            this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.labelUpdatePhoneNumber = new System.Windows.Forms.Label();
             this.gbDeleteFromAttendee = new System.Windows.Forms.GroupBox();
             this.tbUnattend = new System.Windows.Forms.TextBox();
@@ -65,9 +68,6 @@
             this.gbToUpdateEvent = new System.Windows.Forms.GroupBox();
             this.buttonUpdateEvent = new System.Windows.Forms.Button();
             this.tbEventIdForUpdate = new System.Windows.Forms.TextBox();
-            this.gbDeleteAnEvent = new System.Windows.Forms.GroupBox();
-            this.tbEventId = new System.Windows.Forms.TextBox();
-            this.buttonDeleteEvent = new System.Windows.Forms.Button();
             this.gbUserPanelInfo = new System.Windows.Forms.GroupBox();
             this.labelInfoUserPanel = new System.Windows.Forms.Label();
             this.buttonToCreateEvent = new System.Windows.Forms.Button();
@@ -113,10 +113,10 @@
             this.buttonBackToUser = new System.Windows.Forms.Button();
             this.loginPanel.SuspendLayout();
             this.userPanel.SuspendLayout();
+            this.gbDeleteAnEvent.SuspendLayout();
             this.gbDeleteFromAttendee.SuspendLayout();
             this.gbAttendAnEvent.SuspendLayout();
             this.gbToUpdateEvent.SuspendLayout();
-            this.gbDeleteAnEvent.SuspendLayout();
             this.gbUserPanelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).BeginInit();
             this.updateCreateEventPanel.SuspendLayout();
@@ -406,6 +406,39 @@
             this.labelEmailUserUpdate.TabIndex = 47;
             this.labelEmailUserUpdate.Text = "Email";
             // 
+            // gbDeleteAnEvent
+            // 
+            this.gbDeleteAnEvent.Controls.Add(this.tbEventId);
+            this.gbDeleteAnEvent.Controls.Add(this.buttonDeleteEvent);
+            this.gbDeleteAnEvent.Location = new System.Drawing.Point(3, 418);
+            this.gbDeleteAnEvent.Name = "gbDeleteAnEvent";
+            this.gbDeleteAnEvent.Size = new System.Drawing.Size(270, 60);
+            this.gbDeleteAnEvent.TabIndex = 40;
+            this.gbDeleteAnEvent.TabStop = false;
+            this.gbDeleteAnEvent.Text = "Delete an event";
+            // 
+            // tbEventId
+            // 
+            this.tbEventId.Location = new System.Drawing.Point(14, 19);
+            this.tbEventId.Name = "tbEventId";
+            this.tbEventId.Size = new System.Drawing.Size(113, 20);
+            this.tbEventId.TabIndex = 12;
+            this.tbEventId.TextChanged += new System.EventHandler(this.tbEventId_TextChanged);
+            // 
+            // buttonDeleteEvent
+            // 
+            this.buttonDeleteEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonDeleteEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonDeleteEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteEvent.Location = new System.Drawing.Point(137, 19);
+            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
+            this.buttonDeleteEvent.Size = new System.Drawing.Size(107, 22);
+            this.buttonDeleteEvent.TabIndex = 11;
+            this.buttonDeleteEvent.Text = "Delete";
+            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
+            this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
+            // 
             // labelUpdatePhoneNumber
             // 
             this.labelUpdatePhoneNumber.AutoSize = true;
@@ -419,9 +452,9 @@
             // 
             this.gbDeleteFromAttendee.Controls.Add(this.tbUnattend);
             this.gbDeleteFromAttendee.Controls.Add(this.button1);
-            this.gbDeleteFromAttendee.Location = new System.Drawing.Point(4, 315);
+            this.gbDeleteFromAttendee.Location = new System.Drawing.Point(4, 306);
             this.gbDeleteFromAttendee.Name = "gbDeleteFromAttendee";
-            this.gbDeleteFromAttendee.Size = new System.Drawing.Size(270, 48);
+            this.gbDeleteFromAttendee.Size = new System.Drawing.Size(270, 57);
             this.gbDeleteFromAttendee.TabIndex = 45;
             this.gbDeleteFromAttendee.TabStop = false;
             this.gbDeleteFromAttendee.Text = "Stop attending";
@@ -436,9 +469,13 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(139, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 20);
+            this.button1.Size = new System.Drawing.Size(104, 22);
             this.button1.TabIndex = 46;
             this.button1.Text = "Unattend";
             this.button1.UseVisualStyleBackColor = true;
@@ -448,18 +485,22 @@
             // 
             this.gbAttendAnEvent.Controls.Add(this.buttonAttendEvent);
             this.gbAttendAnEvent.Controls.Add(this.tbAttendEvent);
-            this.gbAttendAnEvent.Location = new System.Drawing.Point(3, 261);
+            this.gbAttendAnEvent.Location = new System.Drawing.Point(3, 252);
             this.gbAttendAnEvent.Name = "gbAttendAnEvent";
-            this.gbAttendAnEvent.Size = new System.Drawing.Size(270, 48);
+            this.gbAttendAnEvent.Size = new System.Drawing.Size(270, 57);
             this.gbAttendAnEvent.TabIndex = 44;
             this.gbAttendAnEvent.TabStop = false;
             this.gbAttendAnEvent.Text = "Attend an event";
             // 
             // buttonAttendEvent
             // 
+            this.buttonAttendEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonAttendEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonAttendEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAttendEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAttendEvent.Location = new System.Drawing.Point(139, 19);
             this.buttonAttendEvent.Name = "buttonAttendEvent";
-            this.buttonAttendEvent.Size = new System.Drawing.Size(104, 20);
+            this.buttonAttendEvent.Size = new System.Drawing.Size(104, 22);
             this.buttonAttendEvent.TabIndex = 42;
             this.buttonAttendEvent.Text = "Attend";
             this.buttonAttendEvent.UseVisualStyleBackColor = true;
@@ -477,9 +518,9 @@
             // 
             this.gbToUpdateEvent.Controls.Add(this.buttonUpdateEvent);
             this.gbToUpdateEvent.Controls.Add(this.tbEventIdForUpdate);
-            this.gbToUpdateEvent.Location = new System.Drawing.Point(3, 369);
+            this.gbToUpdateEvent.Location = new System.Drawing.Point(3, 360);
             this.gbToUpdateEvent.Name = "gbToUpdateEvent";
-            this.gbToUpdateEvent.Size = new System.Drawing.Size(270, 52);
+            this.gbToUpdateEvent.Size = new System.Drawing.Size(270, 61);
             this.gbToUpdateEvent.TabIndex = 39;
             this.gbToUpdateEvent.TabStop = false;
             this.gbToUpdateEvent.Text = "Update event";
@@ -487,9 +528,13 @@
             // 
             // buttonUpdateEvent
             // 
+            this.buttonUpdateEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonUpdateEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonUpdateEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUpdateEvent.Location = new System.Drawing.Point(137, 19);
             this.buttonUpdateEvent.Name = "buttonUpdateEvent";
-            this.buttonUpdateEvent.Size = new System.Drawing.Size(106, 20);
+            this.buttonUpdateEvent.Size = new System.Drawing.Size(106, 22);
             this.buttonUpdateEvent.TabIndex = 19;
             this.buttonUpdateEvent.Text = "Update";
             this.buttonUpdateEvent.UseVisualStyleBackColor = true;
@@ -502,35 +547,6 @@
             this.tbEventIdForUpdate.Size = new System.Drawing.Size(113, 20);
             this.tbEventIdForUpdate.TabIndex = 35;
             this.tbEventIdForUpdate.TextChanged += new System.EventHandler(this.tbEventIdForUpdate_TextChanged);
-            // 
-            // gbDeleteAnEvent
-            // 
-            this.gbDeleteAnEvent.Controls.Add(this.tbEventId);
-            this.gbDeleteAnEvent.Controls.Add(this.buttonDeleteEvent);
-            this.gbDeleteAnEvent.Location = new System.Drawing.Point(3, 427);
-            this.gbDeleteAnEvent.Name = "gbDeleteAnEvent";
-            this.gbDeleteAnEvent.Size = new System.Drawing.Size(270, 51);
-            this.gbDeleteAnEvent.TabIndex = 40;
-            this.gbDeleteAnEvent.TabStop = false;
-            this.gbDeleteAnEvent.Text = "Delete an event";
-            // 
-            // tbEventId
-            // 
-            this.tbEventId.Location = new System.Drawing.Point(14, 19);
-            this.tbEventId.Name = "tbEventId";
-            this.tbEventId.Size = new System.Drawing.Size(113, 20);
-            this.tbEventId.TabIndex = 12;
-            this.tbEventId.TextChanged += new System.EventHandler(this.tbEventId_TextChanged);
-            // 
-            // buttonDeleteEvent
-            // 
-            this.buttonDeleteEvent.Location = new System.Drawing.Point(137, 19);
-            this.buttonDeleteEvent.Name = "buttonDeleteEvent";
-            this.buttonDeleteEvent.Size = new System.Drawing.Size(107, 20);
-            this.buttonDeleteEvent.TabIndex = 11;
-            this.buttonDeleteEvent.Text = "Delete";
-            this.buttonDeleteEvent.UseVisualStyleBackColor = true;
-            this.buttonDeleteEvent.Click += new System.EventHandler(this.buttonDeleteEvent_Click);
             // 
             // gbUserPanelInfo
             // 
@@ -554,6 +570,9 @@
             // 
             // buttonToCreateEvent
             // 
+            this.buttonToCreateEvent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonToCreateEvent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonToCreateEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonToCreateEvent.Location = new System.Drawing.Point(384, 220);
             this.buttonToCreateEvent.Name = "buttonToCreateEvent";
             this.buttonToCreateEvent.Size = new System.Drawing.Size(115, 23);
@@ -573,6 +592,9 @@
             // 
             // buttonShowOwnEvents
             // 
+            this.buttonShowOwnEvents.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonShowOwnEvents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonShowOwnEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShowOwnEvents.Location = new System.Drawing.Point(515, 220);
             this.buttonShowOwnEvents.Name = "buttonShowOwnEvents";
             this.buttonShowOwnEvents.Size = new System.Drawing.Size(103, 23);
@@ -592,6 +614,9 @@
             // 
             // buttonSearchEvents
             // 
+            this.buttonSearchEvents.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonSearchEvents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonSearchEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchEvents.Location = new System.Drawing.Point(142, 223);
             this.buttonSearchEvents.Name = "buttonSearchEvents";
             this.buttonSearchEvents.Size = new System.Drawing.Size(104, 21);
@@ -602,6 +627,9 @@
             // 
             // buttonLogout
             // 
+            this.buttonLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Location = new System.Drawing.Point(538, 12);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(75, 23);
@@ -612,6 +640,7 @@
             // 
             // listOfEventsByUser
             // 
+            this.listOfEventsByUser.BackgroundColor = System.Drawing.Color.White;
             this.listOfEventsByUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listOfEventsByUser.Location = new System.Drawing.Point(17, 41);
             this.listOfEventsByUser.Name = "listOfEventsByUser";
@@ -640,6 +669,9 @@
             // 
             // buttonUpdateInfo
             // 
+            this.buttonUpdateInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.buttonUpdateInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonUpdateInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdateInfo.Location = new System.Drawing.Point(471, 398);
             this.buttonUpdateInfo.Name = "buttonUpdateInfo";
             this.buttonUpdateInfo.Size = new System.Drawing.Size(100, 23);
@@ -960,14 +992,14 @@
             this.loginPanel.PerformLayout();
             this.userPanel.ResumeLayout(false);
             this.userPanel.PerformLayout();
+            this.gbDeleteAnEvent.ResumeLayout(false);
+            this.gbDeleteAnEvent.PerformLayout();
             this.gbDeleteFromAttendee.ResumeLayout(false);
             this.gbDeleteFromAttendee.PerformLayout();
             this.gbAttendAnEvent.ResumeLayout(false);
             this.gbAttendAnEvent.PerformLayout();
             this.gbToUpdateEvent.ResumeLayout(false);
             this.gbToUpdateEvent.PerformLayout();
-            this.gbDeleteAnEvent.ResumeLayout(false);
-            this.gbDeleteAnEvent.PerformLayout();
             this.gbUserPanelInfo.ResumeLayout(false);
             this.gbUserPanelInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listOfEventsByUser)).EndInit();
