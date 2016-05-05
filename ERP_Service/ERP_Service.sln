@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleCli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPService", "ERPService\ERPService.csproj", "{289E39B7-2A98-4D11-9AF6-9A8DE8795CC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormClientERP", "FormClientERP\FormClientERP.csproj", "{3F036BAF-54F1-40F5-ACC7-409CD58F1A1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{289E39B7-2A98-4D11-9AF6-9A8DE8795CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{289E39B7-2A98-4D11-9AF6-9A8DE8795CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{289E39B7-2A98-4D11-9AF6-9A8DE8795CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F036BAF-54F1-40F5-ACC7-409CD58F1A1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F036BAF-54F1-40F5-ACC7-409CD58F1A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F036BAF-54F1-40F5-ACC7-409CD58F1A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F036BAF-54F1-40F5-ACC7-409CD58F1A1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
