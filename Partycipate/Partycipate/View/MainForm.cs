@@ -428,21 +428,27 @@ namespace Partycipate
 
         private void buttonDeleteEvent_Click(object sender, EventArgs e)
         {
-
-            if (Controller.DeleteEvent(int.Parse(tbEventId.Text), LoggedInUser))
+            if (IsFilled(tbEventId.Text) && int.TryParse(tbEventIdForUpdate.Text, out tryInt))
             {
-                listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
-                DataGridViewColumn column = listOfEventsByUser.Columns[0];
-                column.Width = 60;
+                if (Controller.DeleteEvent(int.Parse(tbEventId.Text), LoggedInUser))
+                {
+                    listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
+                    DataGridViewColumn column = listOfEventsByUser.Columns[0];
+                    column.Width = 60;
 
+                }
+                else
+                {
+                    labelInfoUserPanel.Text = "Error, either the Event was not found or you are not the owner";
+                }
             }
             else
             {
-                labelInfoUserPanel.Text = "Error, either the Event was not found or you are not the owner";
+                labelInfoUserPanel.Text = "Please fill in the ID of the event you want to delete";
             }
         }
 
-        private void tbEventId_TextChanged(object sender, EventArgs e)
+        private void tbEventIdForDelete_TextChanged(object sender, EventArgs e)
         {
 
         }
