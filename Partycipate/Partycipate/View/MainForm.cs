@@ -144,7 +144,7 @@ namespace Partycipate
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
-
+            tbPassword.PasswordChar = '*';
         }
 
         private void tbSex_TextChanged(object sender, EventArgs e)
@@ -410,7 +410,7 @@ namespace Partycipate
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text), tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text));
+            Controller.UpdateEvent(int.Parse(tbEventIdForUpdate.Text), tbUpdateEventName.Text, tbUpdateEventTime.Text, tbUpdateLocation.Text, tbUpdateNote.Text, int.Parse(tbUpdateOpenSlots.Text), LoggedInUser);
             listOfEventsByUser.AutoGenerateColumns = true;
             listOfEventsByUser.DataSource = Controller.GetAllEventsByUser(LoggedInUser);
             DataGridViewColumn column = listOfEventsByUser.Columns[0];
@@ -421,6 +421,8 @@ namespace Partycipate
             updateCreateEventPanel.Visible = false;
             loginPanel.Visible = false;
             userPanel.Visible = true;
+
+            labelInfoUserPanel.Text = ("You are not the owner of this event or unable to find the event!");
 
         }
 

@@ -981,8 +981,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(677, 586);
-            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.updateCreateEventPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

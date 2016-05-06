@@ -118,24 +118,38 @@ namespace Partycipate
             return false;
         }
 
-        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots, string userName)
         {
             DbUtil d = new DbUtil();
             SqlConnection myConnection = d.Connection();
-
+            SqlDataReader myReader = null;
             try
             {
-                SqlCommand myCommand = new SqlCommand("UPDATE PARTY SET EVENT_NAME = @EventName, EVENT_TIME = @EventTime, LOCATION = @Location, NOTE = @Note, OPEN_SLOTS = @OpenSlots WHERE EVENT_ID = @EventId", myConnection);
+
+                SqlCommand myCommand = new SqlCommand("SELECT OWNER FROM PARTY WHERE EVENT_ID = @EventId", myConnection);
                 myCommand.Parameters.AddWithValue("@EventId", eventId);
-                myCommand.Parameters.AddWithValue("@EventName", eventName);
-                myCommand.Parameters.AddWithValue("@EventTime", eventTime);
-                myCommand.Parameters.AddWithValue("@Location", location);
-                myCommand.Parameters.AddWithValue("@Note", note);
-                myCommand.Parameters.AddWithValue("@OpenSlots", openSlots);
-                myCommand.ExecuteNonQuery();
-                myConnection.Close();
-            }
-            catch (SqlException e)
+                myReader = myCommand.ExecuteReader();
+                string owner = "";
+                while (myReader.Read())
+                {
+                    owner = myReader["OWNER"].ToString();
+                }
+                myReader.Close();
+                if (owner.Equals(userName))
+                {
+
+                    SqlCommand myCommand2 = new SqlCommand("UPDATE PARTY SET EVENT_NAME = @EventName, EVENT_TIME = @EventTime, LOCATION = @Location, NOTE = @Note, OPEN_SLOTS = @OpenSlots WHERE EVENT_ID = @EventId", myConnection);
+                    myCommand2.Parameters.AddWithValue("@EventId", eventId);
+                    myCommand2.Parameters.AddWithValue("@EventName", eventName);
+                    myCommand2.Parameters.AddWithValue("@EventTime", eventTime);
+                    myCommand2.Parameters.AddWithValue("@Location", location);
+                    myCommand2.Parameters.AddWithValue("@Note", note);
+                    myCommand2.Parameters.AddWithValue("@OpenSlots", openSlots);
+                    myCommand2.ExecuteNonQuery();
+                    myConnection.Close();
+                }
+
+            } catch (SqlException e)
             {
                 Console.WriteLine(e.ToString());
                 Console.WriteLine("Update failed");
