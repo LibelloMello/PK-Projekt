@@ -110,6 +110,7 @@ namespace PartycipateWebService
 
                     User u = new User();
                     u.UserName = myReader["USER_NAME"].ToString();
+                    u.PhoneNumber = myReader["PHONE_NBR"].ToString();
                     u.Age = int.Parse(myReader["AGE"].ToString());
                     u.Email = myReader["EMAIL"].ToString();
                     u.Name = myReader["NAME"].ToString();
