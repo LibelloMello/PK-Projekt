@@ -59,9 +59,9 @@ namespace Partycipate
         {
             return EventAccess.FindEvent(eventId);
         }
-        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots)
+        public static void UpdateEvent(int eventId, string eventName, string eventTime, string location, string note, int openSlots, string userName)
         {
-            EventAccess.UpdateEvent(eventId, eventName, eventTime, location, note, openSlots);
+            EventAccess.UpdateEvent(eventId, eventName, eventTime, location, note, openSlots, userName);
         }
         public static bool DeleteEvent(int eventId, string userName)
         {
