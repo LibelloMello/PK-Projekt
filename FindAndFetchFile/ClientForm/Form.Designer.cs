@@ -40,7 +40,7 @@
             this.displayFile.Location = new System.Drawing.Point(15, 39);
             this.displayFile.Name = "displayFile";
             this.displayFile.Size = new System.Drawing.Size(537, 400);
-            this.displayFile.TabIndex = 0;
+            this.displayFile.TabIndex = 3;
             this.displayFile.Text = "";
             // 
             // search
@@ -51,7 +51,7 @@
             this.search.Location = new System.Drawing.Point(477, 10);
             this.search.Name = "search";
             this.search.Size = new System.Drawing.Size(75, 23);
-            this.search.TabIndex = 1;
+            this.search.TabIndex = 2;
             this.search.Text = "Fetch!";
             this.search.UseVisualStyleBackColor = true;
             this.search.Click += new System.EventHandler(this.search_Click);
@@ -61,7 +61,7 @@
             this.fileName.Location = new System.Drawing.Point(199, 12);
             this.fileName.Name = "fileName";
             this.fileName.Size = new System.Drawing.Size(272, 20);
-            this.fileName.TabIndex = 2;
+            this.fileName.TabIndex = 1;
             // 
             // description
             // 
@@ -70,7 +70,7 @@
             this.description.Location = new System.Drawing.Point(12, 13);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(181, 16);
-            this.description.TabIndex = 3;
+            this.description.TabIndex = 0;
             this.description.Text = "Enter name of text file to fetch:";
             // 
             // Form
